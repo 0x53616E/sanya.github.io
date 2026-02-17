@@ -3,361 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanConverter | Ultimate Charting Tool</title>
+    <title>Sanya | Welcome</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #050505;
-            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --primary-gradient: linear-gradient(135deg, #0078D6, #512BD4);
-            --accent-green: #239120;
             --text-main: #ffffff;
             --text-muted: #a0a0a0;
-            --glow: 0 0 20px rgba(81, 43, 212, 0.3);
         }
-
-        * { box-sizing: border-box; }
 
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 50% 0%, #1a103c 0%, var(--bg-dark) 60%);
+            background-image: radial-gradient(circle at 50% 50%, #1a103c 0%, var(--bg-dark) 70%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--text-main);
-            line-height: 1.6;
+            overflow: hidden; /* Keine Scrollbars für den Hub */
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Hero Section */
-        .hero {
+        .hub-container {
             text-align: center;
-            padding: 60px 0;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
             animation: fadeIn 1s ease-out;
         }
 
         h1 {
-            font-size: 3.5rem;
-            margin: 0;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 800;
             background: linear-gradient(90deg, #fff, #a0a0a0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            letter-spacing: -1px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
+        p {
             color: var(--text-muted);
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
-        .badges {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
             margin-bottom: 40px;
-            flex-wrap: wrap;
         }
 
-        /* Modern Button */
-        .btn-download {
-            display: inline-flex;
+        .button-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .hub-btn {
+            display: flex;
             align-items: center;
-            background: var(--primary-gradient);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
+            justify-content: center; /* Zentriert den Text */
+            padding: 20px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: var(--glow);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-download:hover {
-            transform: translateY(-3px) scale(1.02);
+        /* Button 1: GitHub Style */
+        .btn-github {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+        .btn-github:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Button 2: SanConverter Style (Gradient) */
+        .btn-san {
+            background: var(--primary-gradient);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(81, 43, 212, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-san:hover {
+            transform: translateY(-3px);
             box-shadow: 0 0 40px rgba(81, 43, 212, 0.6);
         }
 
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            display: inline-block;
-            transition: 0.2s;
-        }
-        
-        .btn-secondary:hover { border-color: #fff; color: #fff; }
-
-        /* Glass Cards */
-        .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            font-size: 1.8rem;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 15px;
+        .logo-small {
+            width: 80px;
+            border-radius: 50%;
             margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
-
-        .grid-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-item {
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 3px solid #512BD4;
-        }
-
-        /* Images */
-        .preview-img {
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin: 20px 0;
-        }
-
-        /* Tables */
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        th {
-            color: #0078D6;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(255,255,255,0.02); }
-
-        .note {
-            display: block;
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            border-left: 2px solid var(--accent-green);
-            padding-left: 10px;
-        }
-
-        /* Disclaimer */
-        .alert {
-            background: rgba(255, 68, 68, 0.1);
-            border: 1px solid rgba(255, 68, 68, 0.3);
-            color: #ffaaaa;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 50px 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .logo-small { width: 60px; opacity: 0.8; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        code {
-            background: rgba(0,0,0,0.3);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Consolas', monospace;
-            color: #e0e0e0;
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="hub-container">
+        <img src="./assets/logo.png" alt="Logo" class="logo-small" onerror="this.style.display='none'">
         
-        <header class="hero">
-            <div class="badges">
-                <img src="https://img.shields.io/badge/version-2.1-blue" alt="Version">
-                <img src="https://img.shields.io/badge/platform-Windows-0078D6?logo=windows&logoColor=white" alt="Windows">
-                <img src="https://img.shields.io/badge/framework-.NET_4.8-512BD4?logo=dotnet&logoColor=white" alt=".NET">
-            </div>
-            
-            <h1>SanConverter</h1>
-            <p class="subtitle">Convert .SM and .SSC files to .SLK easily.</p>
+        <h1>0x53616E</h1>
+        <p>Select a destination</p>
 
-            <br>
-            
-            <a href="https://github.com/0x53616E/SanConverter-Release/releases/download/v0.1/SanInstaller.exe" class="btn-download">
-                Download Installer (v2.1)
+        <div class="button-grid">
+            <a href="https://github.com/0x53616E" target="_blank" class="hub-btn btn-github">
+                <span style="margin-right: 10px;">📂</span> GitHub Profile
             </a>
-            
-            <br>
-            
-            <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" class="btn-secondary">
-                View Charting Guide (PDF)
+
+            <a href="sanconverter.html" class="hub-btn btn-san">
+                <span style="margin-right: 10px;">💚</span> SanConverter Tool
             </a>
-        </header>
-
-        <section class="card">
-            <h2>User Interface</h2>
-            <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
-            
-            <div class="grid-features">
-                <div class="feature-item">
-                    <strong>Modern UI</strong>
-                    <p style="margin:5px 0 0; font-size:0.9rem; color:#aaa;">Clean dark mode interface.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>Smart Conversion</strong>
-                    <p style="margin:5px 0 0; font-size:0.9rem; color:#aaa;">Supports Beat Up and One-Two Party.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>Easy Install</strong>
-                    <p style="margin:5px 0 0; font-size:0.9rem; color:#aaa;">Automated via SanInstallerGUI.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>Charting Logic</h2>
-            <p style="color:var(--text-muted); margin-bottom: 20px;">Use the tables below to understand the key mapping logic from Arrow Vortex to .SLK.</p>
-
-            <h3>Beat Up 8 Structure</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Arrow Vortex Key</th>
-                            <th>Beat Up .SLK Key</th>
-                            <th>Logic / Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1 / 2 / 3</td><td>7 / 4 / 1</td><td>Normal Note</td></tr>
-                        <tr><td>4 / 5 / 6</td><td>9 / 6 / 3</td><td>Normal Note</td></tr>
-                        <tr><td>7</td><td>Random Key</td><td>Array {1,4,7,3,6,9} (No Jack)</td></tr>
-                        <tr><td>1 + 7 / 2 + 7</td><td>Random Key</td><td>Left / Right Array</td></tr>
-                        <tr><td>8</td><td>s</td><td>Space</td></tr>
-                        <tr><td>M (Mine)</td><td>Finish Move</td><td>Shift + 8 (Mine on 8th Lane)</td></tr>
-                        <tr><td>7 + 8</td><td>f</td><td>Finish Move without Space</td></tr>
-                        <tr><td>n + 7 + 8</td><td>Note + Finish</td><td>Note Array {1,3,4,6,7,9}</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <span class="note">Random Key generation prevents jacks automatically.</span>
-
-            <br><hr style="border:0; border-top:1px solid var(--glass-border); margin:30px 0;"><br>
-
-            <h3>Beat Up 4 Structure</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>AV Key</th>
-                            <th>Result</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>n</td><td>Random Generated Note</td></tr>
-                        <tr><td>2</td><td>s</td><td>Space</td></tr>
-                        <tr><td>3</td><td>Random Left</td><td>Hold / Roll (No Jacks)</td></tr>
-                        <tr><td>4</td><td>Random Right</td><td>Hold / Roll (No Jacks)</td></tr>
-                        <tr><td>3 + 4</td><td>Mixed</td><td>Random Left-Right Pattern</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <br><hr style="border:0; border-top:1px solid var(--glass-border); margin:30px 0;"><br>
-
-            <h3>One Two Party (4 & 8)</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>AV Key</th>
-                            <th>OTP Key</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1 / 4</td><td>n</td><td>Note</td></tr>
-                        <tr><td>2 / 5</td><td>c</td><td>Change</td></tr>
-                        <tr><td>3 / 6</td><td>s</td><td>Space</td></tr>
-                        <tr><td>3 / 7</td><td>d</td><td>Dance</td></tr>
-                        <tr><td>All</td><td>r</td><td>Rotation / Rotate</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <span class="note">Supports all rules from charting level 1 to level 9.</span>
-        </section>
-
-        <section class="grid-features" style="margin-bottom: 30px;">
-            <div class="card" style="margin-bottom:0;">
-                <h3 style="margin-top:0">Requirements</h3>
-                <ul style="padding-left: 20px; color: var(--text-muted);">
-                    <li>.NET Framework 4.8</li>
-                    <li>Windows OS</li>
-                </ul>
-            </div>
-            <div class="alert">
-                <h3 style="margin-top:0; color:#fff;">⚠️ Disclaimer</h3>
-                <p style="margin:0; font-size:0.9rem;">
-                    This tool is <b>HWID Restricted</b>.<br>
-                    Reverse engineering or bypassing the protection is strictly prohibited.
-                </p>
-            </div>
-        </section>
-
-        <footer>
-            <img src="./assets/logo.png" alt="Sanya Logo" class="logo-small" onerror="this.style.display='none'">
-            <br><br>
-            &copy; 2026 Sanya<br>
-            Created with ❤️
-        </footer>
-
+        </div>
     </div>
+
 </body>
 </html>
