@@ -3,39 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanConverter | Tool</title>
+    <title>SanConverter | Full Documentation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Gleiches Design Theme */
-        :root { --bg-dark: #050505; --glass-bg: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.1); --primary-gradient: linear-gradient(135deg, #0078D6, #512BD4); --text-main: #ffffff; --text-muted: #a0a0a0; --glow: 0 0 20px rgba(81, 43, 212, 0.3); }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(circle at 50% 0%, #1a103c 0%, var(--bg-dark) 60%); color: var(--text-main); line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        /* Design Variables */
+        :root {
+            --bg-dark: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary-gradient: linear-gradient(135deg, #0078D6, #512BD4);
+            --accent-green: #239120;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --glow: 0 0 20px rgba(81, 43, 212, 0.3);
+        }
 
-        /* Navigation Bar */
-        .nav-bar { display: flex; align-items: center; margin-bottom: 20px; padding: 15px 0; }
-        .back-link { display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
-        .back-link:hover { color: #fff; transform: translateX(-5px); }
-        
-        /* Hero & Content */
-        .hero { text-align: center; padding: 40px 0; animation: fadeIn 1s ease-out; }
-        h1 { font-size: 3rem; margin: 0; background: linear-gradient(90deg, #fff, #a0a0a0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
-        .btn-download { display: inline-flex; align-items: center; background: var(--primary-gradient); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: var(--glow); border: 1px solid rgba(255,255,255,0.2); margin-top: 20px; }
-        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(81, 43, 212, 0.6); }
-        
-        .card { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); border-radius: 16px; padding: 30px; margin-bottom: 30px; }
-        .preview-img { width: 100%; border-radius: 10px; border: 1px solid var(--glass-border); margin: 20px 0; }
-        
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #1a103c 0%, var(--bg-dark) 60%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid transparent;
+        }
+
+        .back-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            border-color: var(--glass-border);
+        }
+
+        /* Hero Header */
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(90deg, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 30px;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(81, 43, 212, 0.6);
+        }
+
+        /* Cards & Content */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 { margin-top: 0; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; }
+        h3 { color: #fff; margin-top: 30px; margin-bottom: 15px; font-size: 1.2rem; }
+
+        .preview-img {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            margin: 20px 0;
+        }
+
         /* Tables */
-        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 10px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--glass-border); }
-        th { color: #0078D6; }
+        .table-wrapper { overflow-x: auto; }
         
-        footer { text-align: center; color: var(--text-muted); padding: 40px; font-size: 0.8rem; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        th {
+            color: #0078D6;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(255,255,255,0.03); }
+
+        /* Notes & Lists */
+        .note-list {
+            margin: 10px 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .note-list li { margin-bottom: 5px; }
+
+        code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e0e0e0;
+        }
+
+        .disclaimer {
+            border-left: 3px solid #ff4444;
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
         
         <div class="nav-bar">
@@ -44,35 +198,167 @@
 
         <header class="hero">
             <h1>SanConverter</h1>
-            <p>Convert .SM and .SSC files to .SLK easily.</p>
-            <a href="https://github.com/0x53616E/SanConverter-Release/releases/download/v0.1/SanInstaller.exe" class="btn-download">Download Installer v2.1</a>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/version-2.1-blue" alt="v2.1">
+                <img src="https://img.shields.io/badge/platform-Windows-0078D6?logo=windows&logoColor=white" alt="Windows">
+                <img src="https://img.shields.io/badge/framework-.NET_4.8-512BD4?logo=dotnet&logoColor=white" alt=".NET 4.8">
+            </div>
+            
+            <a href="https://github.com/0x53616E/SanConverter-Release/releases/download/v0.1/SanInstaller.exe" class="btn-download">
+                Download Installer v2.1
+            </a>
+            <br><br>
+            <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="color:var(--text-muted); text-decoration:underline; font-size:0.9rem;">
+                Download Charting Guide (PDF)
+            </a>
         </header>
 
         <section class="card">
-            <h2>Interface</h2>
-            <img src="./assets/sanconverter.png" alt="UI" class="preview-img" onerror="this.style.display='none'">
+            <h2>User-Interface</h2>
+            <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
+            <ul>
+                <li>Modern UI with HWID-Restricted License System</li>
+                <li>Converts <code>.SM</code> and <code>.SSC</code> to <code>.SLK</code></li>
+                <li>Automatic installation via SanInstallerGUI</li>
+            </ul>
         </section>
 
         <section class="card">
-            <h2>Charting Logic (Excerpt)</h2>
-            <p>Full Beat Up & One-Two Party logic support.</p>
-            
+            <h2>✨ Charting Logic</h2>
+            <p style="color:var(--text-muted)">Complete translation logic from Arrow Vortex to .SLK format.</p>
+
             <h3>Beat Up 8 Structure</h3>
-            <table>
-                <tr><th>AV Key</th><th>SLK Key</th><th>Note</th></tr>
-                <tr><td>1 / 2 / 3</td><td>7 / 4 / 1</td><td>Normal</td></tr>
-                <tr><td>7</td><td>Random</td><td>Array (No Jack)</td></tr>
-                <tr><td>8</td><td>s</td><td>Space</td></tr>
-            </table>
-            
-            <div style="margin-top:20px; text-align:center;">
-                <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="color:#0078D6; text-decoration:none;">View Full PDF Guide -></a>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Arrow Vortex Key</th>
+                            <th>Beat Up .SLK Key</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>7</td><td>n</td></tr>
+                        <tr><td>2</td><td>4</td><td>n</td></tr>
+                        <tr><td>3</td><td>1</td><td>n</td></tr>
+                        <tr><td>4</td><td>9</td><td>n</td></tr>
+                        <tr><td>5</td><td>6</td><td>n</td></tr>
+                        <tr><td>6</td><td>3</td><td>n</td></tr>
+                        <tr><td>7</td><td>Random Key*</td><td>Key Array {1,4,7,3,6,9}</td></tr>
+                        <tr><td>1 + 7</td><td>Random Key</td><td>Key Array {1,4,7} (Left)*</td></tr>
+                        <tr><td>2 + 7</td><td>Random Key</td><td>Key Array {3,6,9} (Right)*</td></tr>
+                        <tr><td>8</td><td>s</td><td>Space</td></tr>
+                        <tr><td>M*</td><td>Finish Move</td><td>Shift + 8 (Mine on 8th Lane)</td></tr>
+                        <tr><td>7 + 8</td><td>f</td><td>Finish Move without Space</td></tr>
+                        <tr><td>n* + 7 + 8</td><td>Note + Finish</td><td>Note Array {1,3,4,6,7,9}</td></tr>
+                        <tr><td>n + M</td><td>Double Note (hidden)</td><td>M on lane 7</td></tr>
+                        <tr><td>n + M + M</td><td>Triple Note (hidden)</td><td>M on lane 7 & 8</td></tr>
+                    </tbody>
+                </table>
             </div>
+            <ul class="note-list">
+                <li>* <b>Random Key:</b> A note stated as <code>n</code> in the .slk, randomly generated using no Jack-Logic.</li>
+                <li>* <b>n:</b> A <code>Note</code> that can have the attribute of the key {1,3,4,6,7,9}.</li>
+                <li>* <b>Key Arrays:</b> Left {1,4,7} and Right {3,6,9} generate random keys on the respective side.</li>
+                <li>* <b>M:</b> Mine.</li>
+            </ul>
+
+            <br><hr style="border:0; border-top:1px solid var(--glass-border)"><br>
+
+            <h3>Beat Up 4 Structure</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Arrow Vortex Key</th>
+                            <th>Beat Up .SLK Key</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>n</td><td>Random Generated Note</td></tr>
+                        <tr><td>2</td><td>s</td><td>Space</td></tr>
+                        <tr><td>3</td><td>Random Left</td><td>Hold*</td></tr>
+                        <tr><td>3</td><td>Random Left no Jacks</td><td>Roll*</td></tr>
+                        <tr><td>4</td><td>Random Right</td><td>Hold</td></tr>
+                        <tr><td>4</td><td>Random Right no Jacks</td><td>Roll</td></tr>
+                        <tr><td>3 + 4</td><td>Random Left-Right</td><td>Hold 3+4 (Random Pattern where AV Key=1)</td></tr>
+                        <tr><td>3 + 4</td><td>Random No Repeat</td><td>Roll 3+4 (Random no repeat where AV Key=1)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="note-list">
+                <li>* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.</li>
+                <li>* <b>Roll:</b> A rolled Hold.</li>
+            </ul>
+
+            <br><hr style="border:0; border-top:1px solid var(--glass-border)"><br>
+
+            <h3>One Two Party 4 Logic</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Arrow Vortex Key</th>
+                            <th>OTP .SLK Key</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>n</td><td>Note</td></tr>
+                        <tr><td>2</td><td>c</td><td>Change</td></tr>
+                        <tr><td>3</td><td>d</td><td>Dance</td></tr>
+                        <tr><td>4</td><td>s</td><td>Space</td></tr>
+                        <tr><td>1 + 2 + 3 + 4</td><td>r</td><td>Rotation</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br><hr style="border:0; border-top:1px solid var(--glass-border)"><br>
+
+            <h3>One Two Party 8 Logic</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Arrow Vortex Key</th>
+                            <th>OTP .SLK Key</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>n</td><td>Note</td></tr>
+                        <tr><td>2</td><td>c</td><td>Change</td></tr>
+                        <tr><td>3</td><td>s</td><td>Space</td></tr>
+                        <tr><td>4</td><td>n</td><td>Note</td></tr>
+                        <tr><td>5</td><td>c</td><td>Change</td></tr>
+                        <tr><td>6</td><td>s</td><td>Space</td></tr>
+                        <tr><td>7</td><td>d</td><td>Dance</td></tr>
+                        <tr><td>8</td><td>r</td><td>Rotate</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note-list">One-Two Party is a sensitive gamemode; this converter supports all rules from charting lvl 1 to lvl 9.</p>
+            
+            <br>
+            <h3>Revert Logic</h3>
+            <p style="color:var(--text-muted)">The Converter reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> into a Stepmania <code>.SSC</code> file.</p>
+        </section>
+
+        <section class="card disclaimer">
+            <h3>⚠️ Disclaimer</h3>
+            <p style="margin:0; color: #ffaaaa;">
+                This tool is <b>HWID Restricted</b>.<br>
+                Reverse engineering or bypassing the HWID protection is strictly <ins><b>prohibited</b></ins>.
+            </p>
         </section>
 
         <footer>
-            &copy; 2026 Sanya
+            <img src="./assets/logo.png" alt="Sanya Logo" width="50" style="opacity:0.7">
+            <br><br>
+            &copy; 2026 Sanya | Created with ❤️
         </footer>
+
     </div>
 </body>
 </html>
