@@ -87,7 +87,7 @@
             border-color: var(--ctp-blue);
         }
 
-        /* Status Badge (oben rechts) */
+        /* Status Badge */
         .status {
             position: absolute;
             top: 15px;
@@ -100,6 +100,7 @@
         }
         .status.active { background: rgba(166, 227, 161, 0.2); color: var(--ctp-green); border: 1px solid var(--ctp-green); }
         .status.beta { background: rgba(250, 179, 135, 0.2); color: var(--ctp-peach); border: 1px solid var(--ctp-peach); }
+        .status.v1 { background: rgba(137, 180, 250, 0.2); color: var(--ctp-blue); border: 1px solid var(--ctp-blue); }
 
         .card-icon {
             font-size: 2.5rem;
@@ -116,7 +117,7 @@
             font-size: 0.95rem;
             color: var(--ctp-subtext1);
             margin-bottom: 25px;
-            flex-grow: 1; /* Drückt den Button nach unten */
+            flex-grow: 1; 
         }
 
         .card-btn {
@@ -169,23 +170,23 @@
             </div>
 
             <div class="project-card">
-                <span class="status beta">Beta</span>
-                <div class="card-icon">🛠️</div>
-                <h3 class="card-title">Another Tool</h3>
+                <span class="status v1">v1.1</span>
+                <div class="card-icon">🐻</div>
+                <h3 class="card-title">Beary SLK Checker</h3>
                 <p class="card-desc">
-                    Dies ist ein Platzhalter für dein nächstes Tool. Beschreibe hier kurz, was es macht.
+                    Updated analysis tool. Detects duplicate notes and checks validation with improved Beary logic.
                 </p>
-                <a href="#" class="card-btn">Download / GitHub</a>
+                <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.1/BearySLK-Checker.exe" class="card-btn">Download .exe</a>
             </div>
 
             <div class="project-card">
-                <span class="status active">v1.0</span>
-                <div class="card-icon">📜</div>
-                <h3 class="card-title">My Script</h3>
+                <span class="status v1" style="opacity: 0.7;">v1.0</span>
+                <div class="card-icon">🧹</div>
+                <h3 class="card-title">SLK BeatUp Filter</h3>
                 <p class="card-desc">
-                    Ein nützliches Skript für Automatisierung oder Gaming. Klein, aber fein.
+                    Checks for and removes duplicate notes in Beat Up .SLK files. (Legacy Version)
                 </p>
-                <a href="#" class="card-btn">Check on GitHub</a>
+                <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.0/BU_SLK_Filter.exe" class="card-btn">Download .exe</a>
             </div>
 
             <div class="project-card" style="opacity: 0.7;">
