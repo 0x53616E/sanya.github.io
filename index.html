@@ -43,10 +43,41 @@
             width: 100%;
             max-width: 420px;
             padding: 40px;
-            animation: fadeIn 1s ease-out;
         }
 
-        /* Haupt-Logo oben */
+        /* --- ANIMATION KEYFRAMES --- */
+        
+        /* Sanftes Schweben für das Logo */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Einfliegen von unten */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Wackeln der Icons beim Hover */
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* --- STYLING --- */
+
+        /* Großes Logo Oben */
         .logo-main {
             width: 120px;
             height: 120px;
@@ -55,14 +86,16 @@
             margin-bottom: 25px;
             border: 2px solid var(--glass-border);
             box-shadow: var(--glow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: var(--ctp-mantle);
             padding: 5px;
+            
+            /* Animation hinzufügen */
+            animation: float 6s ease-in-out infinite; 
+            transition: box-shadow 0.3s ease;
         }
 
         .logo-main:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(203, 166, 247, 0.3);
+            box-shadow: 0 0 60px rgba(203, 166, 247, 0.4);
             border-color: var(--ctp-mauve);
         }
 
@@ -73,12 +106,22 @@
             background: linear-gradient(90deg, var(--ctp-blue), var(--ctp-mauve));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            
+            /* Text fliegt auch ein */
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.1s;
         }
 
         p {
             color: var(--ctp-subtext1);
             margin-bottom: 40px;
             font-size: 1.1rem;
+            
+            /* Text fliegt auch ein */
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.2s;
         }
 
         .button-grid {
@@ -96,28 +139,43 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.05rem;
-            transition: all 0.25s ease;
             border: 1px solid var(--glass-border);
             position: relative;
             overflow: hidden;
             color: var(--ctp-text);
             background: var(--ctp-surface0);
+            
+            /* Initial unsichtbar für Animation */
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Style für die kleinen Icons in den Buttons */
+        /* STAGGER DELAYS (Verzögerung für jeden Button) */
+        .hub-btn:nth-child(1) { animation-delay: 0.3s; }
+        .hub-btn:nth-child(2) { animation-delay: 0.4s; }
+        .hub-btn:nth-child(3) { animation-delay: 0.5s; }
+
         .btn-icon {
-            width: 28px;       /* Größe der Icons */
+            width: 28px;
             height: 28px;
             object-fit: contain;
-            margin-right: 12px; /* Abstand zum Text */
+            margin-right: 12px;
+            transition: transform 0.3s ease;
         }
 
         /* Hover Effects */
         .hub-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.02);
             border-color: var(--ctp-blue);
             background: var(--ctp-surface1);
             color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Icon wackelt beim Hover */
+        .hub-btn:hover .btn-icon {
+            animation: wiggle 0.5s ease-in-out;
         }
 
         /* Spezial-Style für SanConverter */
@@ -128,16 +186,11 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .btn-san:hover {
-            box-shadow: 0 0 40px rgba(137, 180, 250, 0.4);
-            transform: translateY(-3px) scale(1.02);
-            color: var(--ctp-base);
+            box-shadow: 0 0 40px rgba(137, 180, 250, 0.5);
             background: linear-gradient(135deg, #89b4fa, #cba6f7);
+            color: var(--ctp-base);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
     </style>
 </head>
 <body>
@@ -146,7 +199,7 @@
         
         <img src="./assets/logo.png" alt="Sanya Logo" class="logo-main" onerror="this.style.display='none'">
         
-        <h1>Sanya</h1>
+        <h1>0x53616E</h1>
         <p>Welcome to my portfolio</p>
 
         <div class="button-grid">
@@ -171,4 +224,3 @@
 
 </body>
 </html>
-
