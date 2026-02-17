@@ -7,24 +7,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- DESIGN VARIABLES --- */
+        /* --- CATPPUCCIN MOCHA THEME VARIABLES --- */
         :root {
-            --bg-dark: #050505;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --primary-gradient: linear-gradient(135deg, #0078D6, #512BD4);
-            --accent-green: #239120;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --glow: 0 0 20px rgba(81, 43, 212, 0.3);
+            /* Core Palette */
+            --ctp-base: #1e1e2e;     /* Dein gewünschter Hintergrund */
+            --ctp-mantle: #181825;   /* Etwas dunklerer Hintergrund für Tiefe */
+            --ctp-surface0: #313244; /* Helle Oberfläche für Karten */
+            --ctp-surface1: #45475a; /* Etwas hellere Oberfläche */
+            --ctp-text: #cdd6f4;     /* Haupttext */
+            --ctp-subtext1: #bac2de; /* Sekundärtext (Muted) */
+            --ctp-blue: #89b4fa;     /* Akzent Blau */
+            --ctp-mauve: #cba6f7;    /* Akzent Lila */
+            --ctp-green: #a6e3a1;    /* Akzent Grün */
+            --ctp-red: #f38ba8;      /* Akzent Rot (für Disclaimer) */
+
+            /* Mappings für das Design */
+            --bg-main: var(--ctp-base);
+            /* Karten-Hintergrund: Surface0 mit leichter Transparenz für Glass-Effekt */
+            --card-bg: rgba(49, 50, 68, 0.6);
+            --card-border: rgba(108, 112, 134, 0.2); /* Overlay0 transparent */
+            --primary-gradient: linear-gradient(135deg, var(--ctp-blue), var(--ctp-mauve));
+            --text-main: var(--ctp-text);
+            --text-muted: var(--ctp-subtext1);
+            /* Weicherer Glow in Mauve */
+            --glow: 0 0 30px rgba(203, 166, 247, 0.25);
         }
 
         /* --- BASIC SETUP --- */
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 50% 0%, #1a103c 0%, var(--bg-dark) 60%);
+            background-color: var(--bg-main);
+            /* Subtiler radialer Verlauf für Tiefe, passend zu Catppuccin */
+            background-image: radial-gradient(circle at 50% 0%, var(--ctp-mantle) 0%, var(--bg-main) 75%);
             color: var(--text-main);
             line-height: 1.6;
         }
@@ -46,13 +61,13 @@
             transition: 0.2s;
             padding: 8px 16px;
             border-radius: 20px;
-            background: rgba(255,255,255,0.05);
+            background: var(--ctp-surface0);
             border: 1px solid transparent;
         }
         .back-link:hover {
-            color: #fff;
-            background: rgba(255,255,255,0.1);
-            border-color: var(--glass-border);
+            color: var(--text-main);
+            background: var(--ctp-surface1);
+            border-color: var(--card-border);
         }
 
         /* --- HEADER & HERO --- */
@@ -60,7 +75,8 @@
         h1 {
             font-size: 3rem;
             margin: 0;
-            background: linear-gradient(90deg, #fff, #a0a0a0);
+            /* Text Gradient angepasst an Catppuccin Textfarben */
+            background: linear-gradient(90deg, var(--ctp-text), var(--ctp-subtext1));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
@@ -70,45 +86,82 @@
         
         .btn-download {
             display: inline-flex; align-items: center;
-            background: var(--primary-gradient); color: white;
+            background: var(--primary-gradient);
+            color: var(--ctp-base); /* Dunkler Text auf hellem Button für Kontrast */
             padding: 15px 40px; border-radius: 50px;
-            text-decoration: none; font-weight: 600;
+            text-decoration: none; font-weight: 700;
             transition: all 0.3s ease; box-shadow: var(--glow);
-            border: 1px solid rgba(255,255,255,0.2); margin-top: 30px;
+            border: 1px solid rgba(255,255,255,0.1); margin-top: 30px;
         }
-        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(81, 43, 212, 0.6); }
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 45px rgba(203, 166, 247, 0.5); /* Stärkerer Mauve Glow */
+        }
 
         /* --- CONTENT CARDS --- */
         .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
             border-radius: 16px;
             padding: 30px;
             margin-bottom: 30px;
         }
 
-        h2 { margin-top: 0; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; font-size: 1.8rem; }
-        h3 { color: #fff; margin-top: 30px; margin-bottom: 15px; font-size: 1.2rem; border-left: 3px solid #512BD4; padding-left: 10px; }
+        h2 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 15px;
+            font-size: 1.8rem;
+            color: var(--ctp-text);
+        }
+        h3 {
+            color: var(--ctp-text);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-left: 3px solid var(--ctp-mauve); /* Akzentfarbe Lila */
+            padding-left: 10px;
+        }
 
-        .preview-img { width: 100%; border-radius: 10px; border: 1px solid var(--glass-border); margin: 20px 0; }
+        .preview-img {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
 
         /* --- TABLES --- */
         .table-wrapper { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 10px; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--glass-border); }
-        th { color: #0078D6; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; background: rgba(255,255,255,0.02); }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--card-border); }
+        
+        th {
+            color: var(--ctp-blue); /* Catppuccin Blau für Header */
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            background: rgba(49, 50, 68, 0.4); /* Surface0 transparent */
+        }
         tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(255,255,255,0.03); }
+        tr:hover td { background: rgba(49, 50, 68, 0.6); } /* Hover Effekt */
 
         /* --- LISTS & TEXT --- */
         .note-list { margin: 10px 0; padding-left: 20px; color: var(--text-muted); font-size: 0.9rem; }
         .note-list li { margin-bottom: 5px; }
-        code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #e0e0e0; }
+        /* Code Blöcke im dunklen Mantle Ton */
+        code { background: var(--ctp-mantle); padding: 2px 6px; border-radius: 4px; font-family: monospace; color: var(--ctp-mauve); border: 1px solid var(--card-border); }
 
-        .disclaimer { border-left: 3px solid #ff4444; background: rgba(255, 68, 68, 0.05); }
+        /* Disclaimer in Catppuccin Rot */
+        .disclaimer {
+            border-left: 3px solid var(--ctp-red);
+            background: rgba(243, 139, 168, 0.1); /* Red transparent */
+        }
+        .disclaimer h3 { border-left: none; padding-left: 0; color: var(--ctp-red); }
+        .alert-text { color: var(--ctp-red); }
 
-        footer { text-align: center; color: var(--text-muted); padding: 40px; font-size: 0.8rem; border-top: 1px solid var(--glass-border); }
+        footer { text-align: center; color: var(--text-muted); padding: 40px; font-size: 0.8rem; border-top: 1px solid var(--card-border); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -124,9 +177,9 @@
         <header class="hero">
             <h1>SanConverter</h1>
             <div class="badges">
-                <img src="https://img.shields.io/badge/version-2.1-blue" alt="v2.1">
-                <img src="https://img.shields.io/badge/platform-Windows-0078D6?logo=windows&logoColor=white" alt="Windows">
-                <img src="https://img.shields.io/badge/framework-.NET_4.8-512BD4?logo=dotnet&logoColor=white" alt=".NET 4.8">
+                <img src="https://img.shields.io/badge/version-2.1-blue?style=flat-square&color=89b4fa" alt="v2.1">
+                <img src="https://img.shields.io/badge/platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white&color=89b4fa" alt="Windows">
+                <img src="https://img.shields.io/badge/framework-.NET_4.8-512BD4?style=flat-square&logo=dotnet&logoColor=white&color=cba6f7" alt=".NET 4.8">
             </div>
             
             <a href="https://github.com/0x53616E/SanConverter-Release/releases/download/v0.1/SanInstaller.exe" class="btn-download">
@@ -134,15 +187,15 @@
             </a>
             <br><br>
             <div style="font-size: 0.9rem;">
-                <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="color:var(--text-muted); margin-right: 15px;">📄 PDF Guide</a>
-                <a href="https://www.youtube.com/watch?v=B5WxZ9Asc3M" target="_blank" style="color:var(--text-muted);">🎥 YouTube Tutorial</a>
+                <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="color:var(--text-muted); margin-right: 15px; text-decoration: none;" onmouseover="this.style.color='var(--ctp-blue)'" onmouseout="this.style.color='var(--text-muted)'">📄 PDF Guide</a>
+                <a href="https://www.youtube.com/watch?v=B5WxZ9Asc3M" target="_blank" style="color:var(--text-muted); text-decoration: none;" onmouseover="this.style.color='var(--ctp-mauve)'" onmouseout="this.style.color='var(--text-muted)'">🎥 YouTube Tutorial</a>
             </div>
         </header>
 
         <section class="card">
             <h2>User-Interface & Main Functions</h2>
             <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
-            <ul>
+            <ul style="color: var(--text-muted);">
                 <li>Modern UI</li>
                 <li>HWID-Restricted License System</li>
                 <li>Installation through <code>SanInstallerGUI.exe</code></li>
@@ -264,19 +317,19 @@
                     </tbody>
                 </table>
             </div>
-            <p class="note-list" style="border-left: 2px solid var(--accent-green); padding-left: 10px;">
+            <p class="note-list" style="border-left: 2px solid var(--ctp-green); padding-left: 10px;">
                 One-Two Party is a very sensitive gamemode, this converter supports all rules from charting lvl 1 to lvl 9.
             </p>
 
             <br>
             
             <h3>Revert Logic</h3>
-            <p>The Converter reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> into a Stepmania <code>.SSC</code> file.</p>
+            <p style="color: var(--text-muted);">The Converter reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> into a Stepmania <code>.SSC</code> file.</p>
         </section>
 
         <section class="card">
             <h2>📥 Installation</h2>
-            <ol style="color: #e0e0e0; padding-left: 20px;">
+            <ol style="color: var(--text-main); padding-left: 20px;">
                 <li style="margin-bottom: 10px;">Download <b>SanInstallerGUI.exe</b> (Button above).</li>
                 <li style="margin-bottom: 10px;">Execute the <b>SanInstallerGUI.exe</b>.</li>
                 <li>The installer will:
@@ -291,7 +344,7 @@
 
         <section class="card disclaimer">
             <h3>⚠️ Disclaimer</h3>
-            <p style="margin:0; color: #ffaaaa;">
+            <p class="alert-text" style="margin:0;">
                 This tool is <b>HWID Restricted</b>.<br>
                 Reverse engineering or bypassing the HWID protection is strictly <ins><b>prohibited</b></ins>.
             </p>
