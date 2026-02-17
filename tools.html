@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanya | More Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- CATPPUCCIN MOCHA THEME --- */
+        :root {
+            --ctp-base: #1e1e2e;
+            --ctp-mantle: #181825;
+            --ctp-surface0: #313244;
+            --ctp-text: #cdd6f4;
+            --ctp-subtext1: #bac2de;
+            --ctp-blue: #89b4fa;
+            --ctp-mauve: #cba6f7;
+            --ctp-green: #a6e3a1;
+            --ctp-peach: #fab387;
+            
+            --bg-main: var(--ctp-base);
+            --card-bg: rgba(49, 50, 68, 0.6);
+            --card-border: rgba(108, 112, 134, 0.2);
+            --primary-gradient: linear-gradient(135deg, var(--ctp-blue), var(--ctp-mauve));
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            background-image: radial-gradient(circle at 50% 0%, var(--ctp-mantle) 0%, var(--bg-main) 75%);
+            color: var(--ctp-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- NAV & HERO --- */
+        .nav-bar { padding: 20px 0; }
+        .back-link {
+            display: inline-flex; align-items: center; color: var(--ctp-subtext1);
+            text-decoration: none; font-size: 0.95rem; transition: 0.2s;
+            padding: 8px 16px; border-radius: 20px;
+            background: var(--ctp-surface0); border: 1px solid transparent;
+        }
+        .back-link:hover { color: var(--ctp-text); background: rgba(69, 71, 90, 1); border-color: var(--card-border); }
+
+        .header-section { text-align: center; margin-bottom: 50px; animation: fadeIn 0.8s ease-out; }
+        h1 {
+            font-size: 3rem; margin: 0;
+            background: linear-gradient(90deg, var(--ctp-blue), var(--ctp-mauve));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .subtitle { color: var(--ctp-subtext1); margin-top: 10px; }
+
+        /* --- GRID SYSTEM --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* --- PROJECT CARD --- */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--ctp-blue);
+        }
+
+        /* Status Badge (oben rechts) */
+        .status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status.active { background: rgba(166, 227, 161, 0.2); color: var(--ctp-green); border: 1px solid var(--ctp-green); }
+        .status.beta { background: rgba(250, 179, 135, 0.2); color: var(--ctp-peach); border: 1px solid var(--ctp-peach); }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            color: var(--ctp-text);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--ctp-subtext1);
+            margin-bottom: 25px;
+            flex-grow: 1; /* Drückt den Button nach unten */
+        }
+
+        .card-btn {
+            display: inline-block;
+            text-align: center;
+            background: var(--ctp-surface0);
+            color: var(--ctp-text);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+            border: 1px solid var(--card-border);
+        }
+
+        .card-btn:hover {
+            background: var(--ctp-blue);
+            color: var(--ctp-base);
+            border-color: var(--ctp-blue);
+        }
+
+        footer { text-align: center; color: var(--ctp-subtext1); padding: 50px 0; font-size: 0.8rem; margin-top: 50px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-bar">
+            <a href="index.html" class="back-link">← Back to Hub</a>
+        </div>
+
+        <div class="header-section">
+            <h1>My Projects</h1>
+            <p class="subtitle">A collection of my tools and software.</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <span class="status active">Active</span>
+                <div class="card-icon">💚</div>
+                <h3 class="card-title">SanConverter</h3>
+                <p class="card-desc">
+                    The ultimate tool to convert .SM and .SSC files to .SLK format. Supports Beat Up and One-Two Party logic.
+                </p>
+                <a href="sanconverter.html" class="card-btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <span class="status beta">Beta</span>
+                <div class="card-icon">🛠️</div>
+                <h3 class="card-title">Another Tool</h3>
+                <p class="card-desc">
+                    Dies ist ein Platzhalter für dein nächstes Tool. Beschreibe hier kurz, was es macht.
+                </p>
+                <a href="#" class="card-btn">Download / GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <span class="status active">v1.0</span>
+                <div class="card-icon">📜</div>
+                <h3 class="card-title">My Script</h3>
+                <p class="card-desc">
+                    Ein nützliches Skript für Automatisierung oder Gaming. Klein, aber fein.
+                </p>
+                <a href="#" class="card-btn">Check on GitHub</a>
+            </div>
+
+            <div class="project-card" style="opacity: 0.7;">
+                <div class="card-icon">🔜</div>
+                <h3 class="card-title">Coming Soon</h3>
+                <p class="card-desc">
+                    More projects are in the works. Stay tuned for updates!
+                </p>
+                <span class="card-btn" style="cursor: default; opacity: 0.5;">Not available</span>
+            </div>
+
+        </div>
+        <footer>
+            &copy; 2026 Sanya
+        </footer>
+
+    </div>
+
+</body>
+</html>
