@@ -8,31 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="./assets/bears_hand.png">
     <style>
-        /* --- ELEGANT FOREST THEME VARIABLES --- */
+        /* --- PURPLE NIGHT THEME VARIABLES --- */
         :root {
             /* Core Palette */
-            --ef-crust: #0a110d;
-            --ef-base: #0f1a14;
-            --ef-mantle: #14251D;
-            --ef-surface0: #192E24;
-            --ef-surface1: #244032;
-            --ef-text: #FDFBF7;
-            --ef-subtext: #8c9e95;
-            --ef-accent: #D4A373;
-            --ef-accent-light: #e8c39e;
+            --ef-crust: #0a0516;
+            --ef-base: #0a0516;
+            --ef-mantle: #1f153d;
+            --ef-surface0: #1f153d;
+            --ef-surface1: #2d2055;
+            --ef-text: #e0e5ff;
+            --ef-subtext: #938aa9;
+            --ef-accent: #e0af68;
+            --ef-accent-light: #b493a6;
             
-            --ef-red: #a84032;
+            --ef-red: #c5525d;
             --ef-green: #32a852;
             --ef-blue: #4c90e6;
 
             /* Mappings */
             --bg-main: var(--ef-base);
-            --card-bg: rgba(20, 37, 29, 0.7); /* EF-Mantle mit Transparenz */
+            --card-bg: rgba(31, 21, 61, 0.7); /* EF-Mantle mit Transparenz */
             --card-border: var(--ef-surface1);
             --primary-gradient: linear-gradient(135deg, var(--ef-accent), var(--ef-accent-light));
             --text-main: var(--ef-text);
             --text-muted: var(--ef-subtext);
-            --glow: 0 0 30px rgba(212, 163, 115, 0.25);
+            --glow: 0 0 30px rgba(224, 175, 104, 0.25);
         }
 
         /* --- BASIC SETUP --- */
@@ -124,7 +124,7 @@
         .btn-download {
             display: inline-flex; align-items: center; background: var(--primary-gradient); color: var(--ef-crust); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; box-shadow: var(--glow); border: 1px solid rgba(255,255,255,0.1); margin-top: 30px;
         }
-        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 0 45px rgba(212, 163, 115, 0.4); color: var(--ef-crust); }
+        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 0 45px rgba(224, 175, 104, 0.4); color: var(--ef-crust); }
 
         /* --- CONTENT CARDS --- */
         .card {
@@ -140,9 +140,9 @@
         .table-wrapper { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 10px; }
         th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--card-border); }
-        th { color: var(--ef-accent); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; background: rgba(25, 46, 36, 0.6); }
+        th { color: var(--ef-accent); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; background: rgba(45, 32, 85, 0.6); }
         tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(25, 46, 36, 0.4); }
+        tr:hover td { background: rgba(45, 32, 85, 0.4); }
 
         /* --- LISTS & TEXT --- */
         .note-list { margin: 10px 0; padding-left: 20px; color: var(--text-muted); font-size: 0.9rem; }
@@ -175,8 +175,8 @@
             <h1>SanConverter</h1>
             <div class="badges">
                 <img src="https://img.shields.io/badge/version-2.0-D4A373?style=flat-square&logoColor=white" alt="v2.0">
-                <img src="https://img.shields.io/badge/platform-Windows-244032?style=flat-square&logo=windows&logoColor=white" alt="Windows">
-                <img src="https://img.shields.io/badge/framework-.NET_4.8-192E24?style=flat-square&logo=dotnet&logoColor=white" alt=".NET 4.8">
+                <img src="https://img.shields.io/badge/platform-Windows-583f7e?style=flat-square&logo=windows&logoColor=white" alt="Windows">
+                <img src="https://img.shields.io/badge/framework-.NET_4.8-1f153d?style=flat-square&logo=dotnet&logoColor=white" alt=".NET 4.8">
             </div>
             
             <a href="https://github.com/bishpop/SanConverter-Release/releases/download/0.2/SanConverter.exe" class="btn-download">
@@ -191,7 +191,7 @@
 
         <section class="card">
             <h2>User-Interface & Main Functions</h2>
-            <img src="./assets/sanconverter1.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
+            <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
             <ul style="color: var(--text-muted);">
                 <li>Modern UI</li>
                 <li>Public Version directly downloadable</li>
