@@ -67,8 +67,32 @@ a:hover { color: var(--ef-accent-light); }
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px;
 }
-.nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--ef-text); font-size: 1.2rem; }
-.nav-brand img { width: 35px; height: 35px; border-radius: 8px; border: 1px solid var(--glass-border); }
+/* --- VORHER --- */
+/* .nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--ef-text); font-size: 1.2rem; } */
+
+/* --- NACHHER --- */
+.nav-brand { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    font-weight: 700; 
+    color: var(--ef-text); 
+    font-size: 1.2rem; 
+    text-decoration: none; /* Verhindert das Standard-Unterstreichen von Links */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.nav-brand:hover {
+    opacity: 0.85; /* Wird ganz leicht transparent */
+    transform: scale(1.02); /* Plopt minimal nach vorne */
+}
+.nav-brand img { 
+    width: 35px; 
+    height: 35px; 
+    border-radius: 8px; 
+    border: 1px solid var(--glass-border); 
+    object-fit: contain; /* Sorgt dafür, dass das Bild seine Proportionen behält */
+    background: rgba(0,0,0,0.2); /* Falls das Bild transparent ist, gibt das einen schönen Kontrast */
+}
 .nav-links { display: flex; gap: 30px; }
 .nav-links a { color: var(--ef-subtext); font-size: 0.95rem; font-weight: 500; }
 .nav-links a:hover, .nav-links a.active { color: var(--ef-text); }
@@ -113,7 +137,16 @@ a:hover { color: var(--ef-accent-light); }
 .hero-actions { display: flex; gap: 15px; margin-top: 30px; }
 
 .hero-visual { flex: 1; display: flex; justify-content: flex-end; }
-.hero-visual img { width: 300px; height: 300px; border-radius: 50%; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); padding: 10px; background: rgba(0,0,0,0.2); }
+.hero-visual img { 
+    width: 300px; 
+    height: 300px; 
+    border-radius: 50%; 
+    border: 1px solid var(--glass-border); 
+    box-shadow: var(--glass-shadow); 
+    padding: 10px; 
+    background: rgba(0,0,0,0.2);
+    object-fit: contain; /* Zwingt das Bild in die Box, ohne es zu verzerren */
+}
 
 /* --- GRID SYSTEM (tools.html) --- */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
@@ -190,4 +223,24 @@ footer { text-align: center; padding: 40px 0; color: var(--ef-subtext); font-siz
 }
 .tab-content.active { 
     display: block; 
+}
+/* --- AESTHETIC GLOW BUTTON (Für die Startseite) --- */
+.btn-glow {
+    background: var(--primary-gradient);
+    color: var(--ef-crust);
+    padding: 16px 40px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: 50px; /* Macht den Button komplett rund/pillenförmig */
+    box-shadow: var(--glow);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-glow:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 50px rgba(224, 175, 104, 0.45);
+    color: var(--ef-crust);
 }

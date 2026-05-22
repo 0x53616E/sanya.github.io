@@ -12,14 +12,14 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-brand">
+        <a href="index.html" class="nav-brand">
             <img src="./assets/logo.png" alt="Sanya Logo" onerror="this.style.display='none'">
-            0x53616E
-        </div>
+            Sanya
+        </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="tools.html" class="active">Projects</a>
-            <a href="https://github.com/0x53616E" target="_blank">GitHub ↗</a>
+            <a href="https://github.com/bishpop" target="_blank">GitHub ↗</a>
         </div>
     </nav>
 
@@ -28,43 +28,51 @@
             <h1 style="margin-bottom: 10px;">Projects</h1>
             <p style="margin-bottom: 40px; font-size: 1.1rem;">A collection of software, scripts, and utilities.</p>
 
-            <div class="grid">
-                <div class="card">
+            <h2 style="font-size: 1.3rem; color: var(--ef-accent); border: none; margin-bottom: 20px; padding-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+                Active Main Project
+            </h2>
+            
+            <div class="grid" style="grid-template-columns: 1fr; max-width: 650px; margin-bottom: 50px;">
+                <div class="card" style="border-color: rgba(224, 175, 104, 0.25);">
                     <div class="card-header">
-                        <h3 class="card-title">SanConverter</h3>
+                        <h3 class="card-title" style="font-size: 1.6rem; color: #fff;">SanConverter</h3>
                         <span class="badge active">Active</span>
                     </div>
-                    <p class="card-desc">The ultimate tool to convert .SM and .SSC files to .SLK format. Built with .NET 4.8.</p>
-                    <a href="sanconverter.html" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Read Documentation</a>
+                    <p class="card-desc" style="font-size: 1.05rem; line-height: 1.7;">
+                        The ultimate tool to convert .SM and .SSC files to .SLK format. Built with .NET 4.8. This platform is actively maintained, stable, and continuously updated with new charting logic.
+                    </p>
+                    <a href="sanconverter.html" class="btn btn-secondary" style="width: 100%; box-sizing: border-box; font-size: 1rem; padding: 14px;">
+                        Read Documentation & Download
+                    </a>
                 </div>
+            </div>
 
-                <div class="card">
+            <hr style="border: 0; height: 1px; background: var(--glass-border); margin: 60px 0;">
+
+            <h2 style="font-size: 1.3rem; color: var(--ef-text); border: none; margin-bottom: 25px; padding-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7;">
+                Completed & Legacy Projects
+            </h2>
+            
+            <div class="grid">
+                <div class="card" style="opacity: 0.85;">
                     <div class="card-header">
-                        <h3 class="card-title">Beary SLK Checker</h3>
+                        <h3 class="card-title">BeatUp Chart Analyzer</h3>
                         <span class="badge version">v1.1</span>
                     </div>
-                    <p class="card-desc">Utility to check the original .SLK Header to verify if the file is valid or corrupted.</p>
-                    <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.1/BearySLK-Checker.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
+                    <p class="card-desc">Utility to check the original .SLK Header to verify if the file is valid or corrupted. Project completed and archived.</p>
+                    <a href="https://github.com/bishpop/more-tools/releases/download/v0.0.1/Analyzer.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">SLK BeatUp Filter</h3>
-                        <span class="badge version">v1.0</span>
-                    </div>
-                    <p class="card-desc">Scans and filters BeatUp .SLK files from an original input directory and sorts them into a clean output folder.</p>
-                    <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.0/BU_SLK_Filter.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
-                </div>
-
-                <div class="card">
+                <div class="card" style="opacity: 0.85;">
                     <div class="card-header">
                         <h3 class="card-title">Silencer</h3>
                         <span class="badge version">v1.3</span>
                     </div>
-                    <p class="card-desc">Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG.</p>
-                    <a href="https://github.com/0x53616E/Silencer/releases/download/v1.3.2/Silencer.v1.3.2.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
+                    <p class="card-desc">Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG. Final stable build.</p>
+                    <a href="https://github.com/bishpop/Silencer/releases/download/v1.3.2/Silencer.v1.3.2.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
                 </div>
             </div>
+            
         </div>
     </div>
 
