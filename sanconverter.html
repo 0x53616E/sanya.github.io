@@ -3,429 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanConverter | Full Documentation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>SanConverter Docs | 0x53616E</title>
     <link rel="icon" type="image/png" href="./assets/bears_hand.png">
-    <style>
-        /* --- PURPLE NIGHT THEME VARIABLES --- */
-        :root {
-            /* Core Palette */
-            --ef-crust: #0a0516;
-            --ef-base: #0a0516;
-            --ef-mantle: #1f153d;
-            --ef-surface0: #1f153d;
-            --ef-surface1: #2d2055;
-            --ef-text: #e0e5ff;
-            --ef-subtext: #938aa9;
-            --ef-accent: #e0af68;
-            --ef-accent-light: #b493a6;
-            
-            --ef-red: #c5525d;
-            --ef-green: #32a852;
-            --ef-blue: #4c90e6;
-
-            /* Mappings */
-            --bg-main: var(--ef-base);
-            --card-bg: rgba(31, 21, 61, 0.7); /* EF-Mantle mit Transparenz */
-            --card-border: var(--ef-surface1);
-            --primary-gradient: linear-gradient(135deg, var(--ef-accent), var(--ef-accent-light));
-            --text-main: var(--ef-text);
-            --text-muted: var(--ef-subtext);
-            --glow: 0 0 30px rgba(224, 175, 104, 0.25);
-        }
-
-        /* --- BASIC SETUP --- */
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-main);
-            background-image: radial-gradient(circle at 50% 0%, var(--ef-mantle) 0%, var(--bg-main) 75%);
-            color: var(--text-main);
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative; /* Wichtig für Background Layer */
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative; 
-            z-index: 10; /* Inhalt liegt ÜBER den Sternen */
-        }
-
-        /* --- BACKGROUND ANIMATION (STARS) --- */
-        .bg-animation {
-            position: fixed; /* Bleibt beim Scrollen stehen */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; /* Liegt HINTER dem Inhalt */
-            overflow: hidden;
-            opacity: 0.6;
-            pointer-events: none; /* Klicks gehen durch */
-        }
-
-        @keyframes animStar {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-2000px); }
-        }
-
-        /* Kleine Sterne */
-        #stars1 {
-            width: 1px; height: 1px; background: transparent;
-            box-shadow: 1744px 322px var(--ef-subtext), 1353px 908px var(--ef-subtext), 953px 1516px var(--ef-subtext), 1657px 1394px var(--ef-subtext), 167px 829px var(--ef-subtext), 196px 1118px var(--ef-subtext), 1703px 1472px var(--ef-subtext), 553px 1368px var(--ef-subtext), 1203px 1038px var(--ef-subtext), 567px 1205px var(--ef-subtext), 1506px 40px var(--ef-subtext), 1369px 1171px var(--ef-subtext), 1344px 231px var(--ef-subtext), 313px 1596px var(--ef-subtext), 1277px 331px var(--ef-subtext), 527px 1422px var(--ef-subtext), 1337px 921px var(--ef-subtext), 1015px 1362px var(--ef-subtext), 81px 1357px var(--ef-subtext), 1494px 1504px var(--ef-subtext), 1405px 1748px var(--ef-subtext), 139px 1425px var(--ef-subtext), 341px 1285px var(--ef-subtext), 1468px 818px var(--ef-subtext), 866px 90px var(--ef-subtext), 1707px 1015px var(--ef-subtext), 1679px 1002px var(--ef-subtext), 246px 1785px var(--ef-subtext), 1904px 1212px var(--ef-subtext), 669px 1904px var(--ef-subtext), 1732px 1100px var(--ef-subtext), 189px 818px var(--ef-subtext), 1288px 1716px var(--ef-subtext), 193px 131px var(--ef-subtext), 794px 1475px var(--ef-subtext), 1817px 536px var(--ef-subtext), 1957px 834px var(--ef-subtext), 383px 1313px var(--ef-subtext), 417px 535px var(--ef-subtext), 1070px 671px var(--ef-subtext), 1351px 1152px var(--ef-subtext), 1219px 1606px var(--ef-subtext), 1654px 276px var(--ef-subtext), 1517px 1132px var(--ef-subtext), 865px 469px var(--ef-subtext), 554px 1631px var(--ef-subtext), 56px 1516px var(--ef-subtext), 1364px 1700px var(--ef-subtext), 431px 840px var(--ef-subtext), 392px 1735px var(--ef-subtext), 874px 1486px var(--ef-subtext), 944px 1513px var(--ef-subtext), 1195px 1240px var(--ef-subtext), 496px 826px var(--ef-subtext), 1004px 22px var(--ef-subtext), 885px 134px var(--ef-subtext), 1506px 592px var(--ef-subtext), 1529px 1838px var(--ef-subtext), 869px 1149px var(--ef-subtext), 870px 717px var(--ef-subtext);
-            animation: animStar 100s linear infinite;
-        }
-        #stars1::after {
-            content: " "; position: absolute; top: 2000px; width: 1px; height: 1px; background: transparent; box-shadow: inherit;
-        }
-
-        /* Mittlere Sterne */
-        #stars2 {
-            width: 2px; height: 2px; background: transparent;
-            box-shadow: 1758px 1627px var(--ef-subtext), 1643px 1188px var(--ef-subtext), 657px 1733px var(--ef-subtext), 358px 1002px var(--ef-subtext), 683px 1112px var(--ef-subtext), 1808px 837px var(--ef-subtext), 1303px 879px var(--ef-subtext), 925px 1856px var(--ef-subtext), 1142px 1545px var(--ef-subtext), 148px 992px var(--ef-subtext), 63px 884px var(--ef-subtext), 1791px 1127px var(--ef-subtext), 200px 1773px var(--ef-subtext), 1434px 539px var(--ef-subtext), 1207px 987px var(--ef-subtext), 46px 1183px var(--ef-subtext), 810px 627px var(--ef-subtext), 1623px 1599px var(--ef-subtext), 1278px 219px var(--ef-subtext), 891px 1494px var(--ef-subtext), 1939px 1598px var(--ef-subtext), 1931px 370px var(--ef-subtext), 339px 143px var(--ef-subtext), 1039px 727px var(--ef-subtext), 1337px 49px var(--ef-subtext);
-            animation: animStar 75s linear infinite;
-        }
-        #stars2::after {
-            content: " "; position: absolute; top: 2000px; width: 2px; height: 2px; background: transparent; box-shadow: inherit;
-        }
-
-        /* Große Sterne */
-        #stars3 {
-            width: 3px; height: 3px; background: transparent;
-            box-shadow: 1943px 663px var(--ef-subtext), 1987px 940px var(--ef-subtext), 1781px 1065px var(--ef-subtext), 1837px 1471px var(--ef-subtext), 1457px 1419px var(--ef-subtext), 1196px 524px var(--ef-subtext), 1654px 511px var(--ef-subtext);
-            animation: animStar 50s linear infinite;
-        }
-        #stars3::after {
-            content: " "; position: absolute; top: 2000px; width: 3px; height: 3px; background: transparent; box-shadow: inherit;
-        }
-
-        /* --- NAVIGATION --- */
-        .nav-bar { padding: 20px 0; }
-        .back-link {
-            display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: 0.2s; padding: 8px 16px; border-radius: 20px; background: var(--ef-surface0); border: 1px solid transparent;
-        }
-        .back-link:hover { color: var(--text-main); background: var(--ef-surface1); border-color: var(--card-border); }
-
-        /* --- HEADER & HERO --- */
-        .hero { text-align: center; padding: 40px 0; animation: fadeIn 1s ease-out; }
-        h1 {
-            font-size: 3rem; margin: 0;
-            background: linear-gradient(90deg, var(--ef-accent), var(--ef-accent-light));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        
-        .badges { display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap; }
-        
-        .btn-download {
-            display: inline-flex; align-items: center; background: var(--primary-gradient); color: var(--ef-crust); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; box-shadow: var(--glow); border: 1px solid rgba(255,255,255,0.1); margin-top: 30px;
-        }
-        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 0 45px rgba(224, 175, 104, 0.4); color: var(--ef-crust); }
-
-        /* --- CONTENT CARDS --- */
-        .card {
-            background: var(--card-bg); border: 1px solid var(--card-border); backdrop-filter: blur(12px); border-radius: 16px; padding: 30px; margin-bottom: 30px;
-        }
-
-        h2 { margin-top: 0; border-bottom: 1px solid var(--card-border); padding-bottom: 15px; font-size: 1.8rem; color: var(--ef-text); }
-        h3 { color: var(--ef-text); margin-top: 30px; margin-bottom: 15px; font-size: 1.2rem; border-left: 3px solid var(--ef-accent); padding-left: 10px; }
-
-        .preview-img { width: 100%; border-radius: 10px; border: 1px solid var(--card-border); margin: 20px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-
-        /* --- TABLES --- */
-        .table-wrapper { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 10px; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--card-border); }
-        th { color: var(--ef-accent); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; background: rgba(45, 32, 85, 0.6); }
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(45, 32, 85, 0.4); }
-
-        /* --- LISTS & TEXT --- */
-        .note-list { margin: 10px 0; padding-left: 20px; color: var(--text-muted); font-size: 0.9rem; }
-        .note-list li { margin-bottom: 5px; }
-        code { background: var(--ef-crust); padding: 2px 6px; border-radius: 4px; font-family: monospace; color: var(--ef-accent); border: 1px solid var(--card-border); }
-
-        .disclaimer { border-left: 3px solid var(--ef-red); background: rgba(168, 64, 50, 0.1); }
-        .disclaimer h3 { border-left: none; padding-left: 0; color: var(--ef-red); }
-        .alert-text { color: var(--ef-red); }
-
-        footer { text-align: center; color: var(--text-muted); padding: 40px; font-size: 0.8rem; border-top: 1px solid var(--card-border); }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="bg-animation">
-        <div id="stars1"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-    </div>
-
-    <div class="container">
-        
-        <div class="nav-bar">
-            <a href="index.html" class="back-link">← Back to Hub</a>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="./assets/logo.png" alt="Sanya Logo" onerror="this.style.display='none'">
+            0x53616E
         </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Projects</a>
+            <a href="https://github.com/0x53616E" target="_blank">GitHub ↗</a>
+        </div>
+    </nav>
 
-        <header class="hero">
-            <h1>SanConverter</h1>
-            <div class="badges">
-                <img src="https://img.shields.io/badge/version-1.1-D4A373?style=flat-square&logoColor=white" alt="v1.1">
-                <img src="https://img.shields.io/badge/platform-Windows-583f7e?style=flat-square&logo=windows&logoColor=white" alt="Windows">
-                <img src="https://img.shields.io/badge/framework-.NET_4.8-1f153d?style=flat-square&logo=dotnet&logoColor=white" alt=".NET 4.8">
-            </div>
+    <div class="page-wrapper fade-in">
+        <div class="container-narrow">
             
-            <a href="https://github.com/bishpop/SanConverter-Release/releases/download/0.2/SanConverter.exe" class="btn-download">
-                Download BeatUp Converter
-            </a>
-            <br><br>
-            <div style="font-size: 0.9rem;">
-                <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="color:var(--text-muted); margin-right: 15px; text-decoration: none;" onmouseover="this.style.color='var(--ef-accent)'" onmouseout="this.style.color='var(--text-muted)'">📄 PDF Guide</a>
-                <a href="https://www.youtube.com/watch?v=B5WxZ9Asc3M" target="_blank" style="color:var(--text-muted); text-decoration: none;" onmouseover="this.style.color='var(--ef-accent)'" onmouseout="this.style.color='var(--text-muted)'">🎥 YouTube Tutorial</a>
-            </div>
-        </header>
+            <div class="doc-header">
+                <h1 style="text-align: center;">SanConverter</h1>
+                <p style="text-align: center;">Official documentation and logic structure for the BeatUp Converter.</p>
+                
+                <div class="doc-meta">
+                    <span class="badge active">v1.1</span>
+                    <span class="badge version" style="border-color: var(--glass-border); color: var(--ef-text); background: transparent;">Windows</span>
+                    <span class="badge version" style="border-color: var(--glass-border); color: var(--ef-text); background: transparent;">.NET 4.8</span>
+                    <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="margin-left: auto;">📄 PDF Guide</a>
+                    <a href="https://www.youtube.com/watch?v=B5WxZ9Asc3M" target="_blank">🎥 Tutorial</a>
+                </div>
 
-        <section class="card">
-            <h2>User-Interface & Main Functions</h2>
-            <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
-            <ul style="color: var(--text-muted);">
-                <li>Modern UI</li>
-                <li>Public Version directly downloadable</li>
-                <li>HWID-Restricted License System (for One-Two Party)</li>
-                <li>Installation through <code>SanInstallerGUI.exe (for HWID Restricted version)</code></li>
-                <i>Download the HWID Restricted client here: <a href="https://github.com/bishpop/SanConverter-Release/releases/download/v0.1/SanInstaller.exe" class="link" style="color: var(--ef-accent);">SanInstaller.exe</a></i>
-                <li>Convert <code>.SM</code> and <code>.SSC</code> to <code>.SLK</code> (Beat Up and One-Two Party)</li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2>✨ Charting Logic</h2>
-            
-            <h3>Beat Up 8 Structure</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Arrow Vortex Key</th>
-                            <th>Beat Up .SLK Key</th>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>7</td><td>n</td></tr>
-                        <tr><td>2</td><td>4</td><td>n</td></tr>
-                        <tr><td>3</td><td>1</td><td>n</td></tr>
-                        <tr><td>4</td><td>9</td><td>n</td></tr>
-                        <tr><td>5</td><td>6</td><td>n</td></tr>
-                        <tr><td>6</td><td>3</td><td>n</td></tr>
-                        <tr><td>7</td><td>Random Key*</td><td>Key Array {1,4,7,3,6,9}</td></tr>
-                        <tr><td>1 + 7</td><td>Random Key</td><td>Key Array {1,4,7}* (Left)</td></tr>
-                        <tr><td>2 + 7</td><td>Random Key</td><td>Key Array {3,6,9}* (Right)</td></tr>
-                        <tr><td>8</td><td>s</td><td>Space</td></tr>
-                        <tr><td>M*</td><td>Finish Move</td><td>Shift + 8 (Mine on 8th Lane)</td></tr>
-                        <tr><td>7 + 8</td><td>f</td><td>Finish Move without Space</td></tr>
-                        <tr><td>n* + 7 + 8</td><td>Note + Finish</td><td>Note Array {1,3,4,6,7,9}</td></tr>
-                        <tr><td>n + M</td><td>Double Note (hidden)</td><td>M on lane 7</td></tr>
-                        <tr><td>n + M + M</td><td>Triple Note (hidden)</td><td>M on lane 7 & 8</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <ul class="note-list">
-                <li>* <b>Random Key:</b> A note stated as <code>n</code> in the .slk which Audition can read, randomly generated using a no Jack-Logic.</li>
-                <li>* <b>n:</b> a <code>Note</code> that can have the attribute of the key {1,3,4,6,7,9}.</li>
-                <li>* <b>Key Arrays:</b> {1,4,7} and {3,6,9} stand for random generated keys on the left and right side.</li>
-                <li>* <b>M:</b> Mine.</li>
-            </ul>
-
-            <h3>Beat Up 8 — Hold &amp; Roll Logic (HWID Restricted) </h3>
-            <p style="color: var(--text-muted); margin-bottom: 15px;">
-                Lane 7 (index 6) acts as a <b>Hold/Roll marker</b> in Arrow Vortex. When a Hold or Roll is active on lane 7,
-                the converter applies special key-assignment rules to every note inside that Hold/Roll region.
-            </p>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Lane 7 Value</th>
-                            <th>Active Note Lane</th>
-                            <th>Key Assignment</th>
-                            <th>Jack Rule</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>2</code> (Hold Start)</td>
-                            <td>Lane 1 · <code>10000000</code></td>
-                            <td>Random from <code>{7, 4, 1}</code> (Left)</td>
-                            <td>No key used twice in same Hold</td>
-                        </tr>
-                        <tr>
-                            <td><code>2</code> (Hold Start)</td>
-                            <td>Lane 2 · <code>01000000</code></td>
-                            <td>Random from <code>{9, 6, 3}</code> (Right)</td>
-                            <td>No key used twice in same Hold</td>
-                        </tr>
-                        <tr>
-                            <td><code>2</code> (Hold Start)</td>
-                            <td>Any other lane · e.g. <code>00100000</code></td>
-                            <td>Random from all keys <code>{7,4,1,9,6,3}</code></td>
-                            <td>No key used twice in same Hold</td>
-                        </tr>
-                        <tr>
-                            <td><code>4</code> (Roll Start)</td>
-                            <td>Lane 1 · <code>10000000</code></td>
-                            <td>Random from <code>{7, 4, 1}</code> (Left)</td>
-                            <td>No direct repeat (no Jacks)</td>
-                        </tr>
-                        <tr>
-                            <td><code>4</code> (Roll Start)</td>
-                            <td>Lane 2 · <code>01000000</code></td>
-                            <td>Random from <code>{9, 6, 3}</code> (Right)</td>
-                            <td>No direct repeat (no Jacks)</td>
-                        </tr>
-                        <tr>
-                            <td><code>4</code> (Roll Start)</td>
-                            <td>Any other lane · e.g. <code>00100000</code></td>
-                            <td>Random from all keys <code>{7,4,1,9,6,3}</code></td>
-                            <td>Jacks <b>allowed</b> (free repeat)</td>
-                        </tr>
-                        <tr>
-                            <td><code>3</code> (Hold/Roll End)</td>
-                            <td>—</td>
-                            <td>Resets to standard BU8 logic</td>
-                            <td>—</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <ul class="note-list">
-                <li><b>Hold (<code>2</code>):</b> Every note inside the hold gets a unique key — no key is repeated anywhere within the same hold region, regardless of side.</li>
-                <li><b>Roll (<code>4</code>):</b> Lane 1 and Lane 2 notes avoid a direct repeat of the previous key (no Jacks). Notes on all other lanes are fully free and may Jack intentionally.</li>
-                <li><b>Side pinning:</b> Lane 1 (<code>10000000</code>) is always pinned to the <b>Left</b> array {7,4,1}; Lane 2 (<code>01000000</code>) is always pinned to the <b>Right</b> array {9,6,3} — for both Hold and Roll.</li>
-                <li>Outside of any Hold/Roll region the standard BU8 random-key logic applies unchanged.</li>
-            </ul>
-
-            <br>
-
-            <h3>Beat Up 4 Structure</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Arrow Vortex Key</th>
-                            <th>Beat Up .SLK Key</th>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>n</td><td>Random Generated Note</td></tr>
-                        <tr><td>2</td><td>s</td><td>Space</td></tr>
-                        <tr><td>3</td><td>Random Left</td><td>Hold*</td></tr>
-                        <tr><td>3</td><td>Random Left no Jacks</td><td>Roll*</td></tr>
-                        <tr><td>4</td><td>Random Right</td><td>Hold</td></tr>
-                        <tr><td>4</td><td>Random Right no Jacks</td><td>Roll</td></tr>
-                        <tr><td>3 + 4</td><td>Random Left-Right</td><td>Hold 3+4 (Random Left-Right Pattern where AV Key = 1)</td></tr>
-                        <tr><td>3 + 4</td><td>Random No Repeat</td><td>Roll 3+4 (Random no repeat Pattern where AV Key = 1)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <ul class="note-list">
-                <li>* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.</li>
-                <li>* <b>Roll:</b> A rolled Hold.</li>
-            </ul>
-
-            <br>
-
-            <h3>One Two Party 4 Logic (HWID Restricted)</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Arrow Vortex Key</th>
-                            <th>OTP .SLK Key</th>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>n</td><td>Note</td></tr>
-                        <tr><td>2</td><td>c</td><td>Change</td></tr>
-                        <tr><td>3</td><td>d</td><td>Dance</td></tr>
-                        <tr><td>4</td><td>s</td><td>Space</td></tr>
-                        <tr><td>1 + 2 + 3 + 4</td><td>r</td><td>Rotation</td></tr>
-                    </tbody>
-                </table>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 35px;">
+                    <a href="https://github.com/bishpop/san-converter-storage/releases/download/v0.0.1/SanInstaller.exe" class="btn btn-primary" style="margin-top: 0;">
+                        Download SanInstaller.exe
+                    </a>
+                    <p style="color: var(--ef-subtext); font-size: 0.85rem; max-width: 550px; text-align: center; margin-top: 14px; line-height: 1.5;">
+                        To get started, download the SanInstaller to your preferred directory and execute it. The installer will automatically retrieve and safely unpack the latest SanConverter deployment directly from GitHub.
+                    </p>
+                </div>
             </div>
 
-            <br>
-
-            <h3>One Two Party 8 Logic (HWID Restricted)</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Arrow Vortex Key</th>
-                            <th>OTP .SLK Key</th>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>n</td><td>Note</td></tr>
-                        <tr><td>2</td><td>c</td><td>Change</td></tr>
-                        <tr><td>3</td><td>s</td><td>Space</td></tr>
-                        <tr><td>4</td><td>n</td><td>Note</td></tr>
-                        <tr><td>5</td><td>c</td><td>Change</td></tr>
-                        <tr><td>6</td><td>s</td><td>Space</td></tr>
-                        <tr><td>7</td><td>d</td><td>Dance</td></tr>
-                        <tr><td>8</td><td>r</td><td>Rotate</td></tr>
-                    </tbody>
-                </table>
+            <div class="panel">
+                <h2>Overview</h2>
+                <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
+                <ul class="clean-list">
+                    <li>Modern, standalone UI (No installation required)</li>
+                    <li>Supports conversion of <code>.SM</code> and <code>.SSC</code> files to <code>.SLK</code></li>
+                    <li>Full logic support for Beat Up and One-Two Party modes</li>
+                </ul>
             </div>
-            <p class="note-list" style="border-left: 2px solid var(--ef-green); padding-left: 10px;">
-                One-Two Party is a very sensitive gamemode, this converter supports all rules from charting lvl 1 to lvl 9.
-            </p>
 
-            <br>
-            
-            <h3>Revert Logic</h3>
-            <p style="color: var(--text-muted);">The Converter reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> into a Stepmania <code>.SSC</code> file.</p>
-        </section>
+            <div class="panel">
+                <h2 style="border-bottom: none; padding-bottom: 0;">✨ Charting Logic</h2>
+                
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-target="tab-bu8">Beat Up 8</button>
+                    <button class="tab-btn" data-target="tab-bu4">Beat Up 4</button>
+                    <button class="tab-btn" data-target="tab-otp4">OTP 4</button>
+                    <button class="tab-btn" data-target="tab-otp8">OTP 8</button>
+                    <button class="tab-btn" data-target="tab-revert">Revert Logic</button>
+                </div>
 
-        <section class="card">
-            <h2>📥 Installation</h2>
-            <ol style="color: var(--text-main); padding-left: 20px;">
-                <li style="margin-bottom: 10px;">Download <b>SanInstallerGUI.exe</b> (Button above).</li>
-                <li style="margin-bottom: 10px;">Execute the <b>SanInstallerGUI.exe</b>.</li>
-                <li>The installer will:
-                    <ul style="color: var(--text-muted); margin-top:5px;">
-                        <li>Check for the newest version.</li>
-                        <li>Save <b>SanConverter.exe</b> in your local apps.</li>
-                        <li>Create a desktop shortcut.</li>
+                <div class="tab-content active" id="tab-bu8">
+                    <h3>Beat Up 8 Structure</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Arrow Vortex Key</th>
+                                    <th>Beat Up .SLK Key</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1, 2, 3</td><td>7, 4, 1</td><td>Specific Note assignment</td></tr>
+                                <tr><td>4, 5, 6</td><td>9, 6, 3</td><td>Specific Note assignment</td></tr>
+                                <tr><td>7</td><td>Random Key </td><td>removed in v1.0.2</td></tr>
+                                <tr><td>1 + 7</td><td>Random Key</td><td>Key Array {1,4,7}* (Left)</td></tr>
+                                <tr><td>2 + 7</td><td>Random Key</td><td>Key Array {3,6,9}* (Right)</td></tr>
+                                <tr><td>8</td><td>s</td><td>Space</td></tr>
+                                <tr><td>M*</td><td>Finish Move</td><td>Shift + 8 (Mine on 8th Lane)</td></tr>
+                                <tr><td>7 + 8</td><td>f</td><td>Finish Move without Space</td></tr>
+                                <tr><td>n* + 7 + 8</td><td>Note + Finish</td><td>Note Array {1,3,4,6,7,9}</td></tr>
+                                <tr><td>n + M</td><td>Double Note (hidden)</td><td>M on lane 7</td></tr>
+                                <tr><td>n + M + M</td><td>Triple Note (hidden)</td><td>M on lane 7 & 8</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="clean-list">
+                        <li>* <b>Random Key:</b> A note stated as <code>n</code> in the .slk which Audition can read, randomly generated using a no Jack-Logic.</li>
+                        <li>* <b>M:</b> Mine.</li>
                     </ul>
-                </li>
-            </ol>
-        </section>
 
-        <section class="card disclaimer">
-            <h3>⚠️ Disclaimer</h3>
-            <p class="alert-text" style="margin:0;">
-                This tool is <b>Public</b> and free to <b>Download</b>.<br>
-                However there is a <b>HWID RESTRICTED</b> version of this tool which includes One-Two Party conversion.
-                Access can be granted by messaging me.
-                Reverse engineering or bypassing the HWID protection is strictly <ins><b>prohibited</b></ins>.
-            </p>
-        </section>
+                    <h3 style="margin-top: 40px;">Hold & Roll Logic (Lane 7)</h3>
+                    <p>Lane 7 (index 6) acts as a state marker. If a hold/roll is active here, standard key assignments are overridden.</p>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Active Lane</th>
+                                    <th>Key Pool</th>
+                                    <th>Constraint</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>2</code> (Hold)</td><td>Lane 1 (Left)</td><td><code>{7, 4, 1}</code></td><td>Max 2 jacks in a row</td></tr>
+                                <tr><td><code>2</code> (Hold)</td><td>Lane 2 (Right)</td><td><code>{9, 6, 3}</code></td><td>Max 2 jacks in a row</td></tr>
+                                <tr><td><code>2</code> (Hold)</td><td>Lane 1 + 2</td><td><code>{7,4,1,9,6,3}</code></td><td>Max 2 jacks in a row</td></tr>
+                                <tr><td><code>4</code> (Roll)</td><td>Lane 1 (Left)</td><td><code>{7, 4, 1}</code></td><td>No direct repeat (no Jacks)</td></tr>
+                                <tr><td><code>4</code> (Roll)</td><td>Lane 2 (Right)</td><td><code>{9, 6, 3}</code></td><td>No direct repeat (no Jacks)</td></tr>
+                                <tr><td><code>3</code> (End)</td><td>—</td><td>Resets to BU8</td><td>—</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-        <footer>
-            <img src="./assets/logo.png" alt="Sanya Logo" width="60" style="opacity:0.7" onerror="this.style.display='none'">
-            <br><br>
-            &copy; 2026 Sanya<br>
-            Created with ❤️
-        </footer>
+                <div class="tab-content" id="tab-bu4">
+                    <h3>Beat Up 4 Structure</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Arrow Vortex Key</th>
+                                    <th>Beat Up .SLK Key</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>n</td><td>Random Generated Note</td></tr>
+                                <tr><td>2</td><td>s</td><td>Space</td></tr>
+                                <tr><td>3</td><td>Random Left</td><td>Hold*</td></tr>
+                                <tr><td>3</td><td>Random Left no Jacks</td><td>Roll*</td></tr>
+                                <tr><td>4</td><td>Random Right</td><td>Hold</td></tr>
+                                <tr><td>4</td><td>Random Right no Jacks</td><td>Roll</td></tr>
+                                <tr><td>3 + 4</td><td>Random Left-Right</td><td>Hold 3+4 (Random Left-Right Pattern)</td></tr>
+                                <tr><td>3 + 4</td><td>Random No Repeat</td><td>Roll 3+4 (Random no repeat Pattern)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="clean-list">
+                        <li>* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.</li>
+                        <li>* <b>Roll:</b> A rolled Hold.</li>
+                    </ul>
+                </div>
 
+                <div class="tab-content" id="tab-otp4">
+                    <h3>One Two Party 4 Logic</h3>
+                    <p>One-Two Party is a very sensitive gamemode, this converter supports all rules from charting lvl 1 to lvl 9.</p>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Arrow Vortex Key</th>
+                                    <th>OTP .SLK Key</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>n</td><td>Note</td></tr>
+                                <tr><td>2</td><td>c</td><td>Change</td></tr>
+                                <tr><td>3</td><td>d</td><td>Dance</td></tr>
+                                <tr><td>4</td><td>s</td><td>Space</td></tr>
+                                <tr><td>1 + 2 + 3 + 4</td><td>r</td><td>Rotation</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-otp8">
+                    <h3>One Two Party 8 Logic</h3>
+                    <p>Fully supports all rules from charting lvl 1 to lvl 9.</p>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Arrow Vortex Key</th>
+                                    <th>OTP .SLK Key</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>n</td><td>Note</td></tr>
+                                <tr><td>2</td><td>c</td><td>Change</td></tr>
+                                <tr><td>3</td><td>s</td><td>Space</td></tr>
+                                <tr><td>4</td><td>n</td><td>Note</td></tr>
+                                <tr><td>5</td><td>c</td><td>Change</td></tr>
+                                <tr><td>6</td><td>s</td><td>Space</td></tr>
+                                <tr><td>7</td><td>d</td><td>Dance</td></tr>
+                                <tr><td>8</td><td>r</td><td>Rotate</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-revert">
+                    <h3>Revert Logic</h3>
+                    <p style="color: var(--ef-subtext); margin-top: 15px;">
+                        The Converter features a powerful revert function. It accurately reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> files back into a clean Stepmania <code>.SSC</code> file, preserving patterns and BPM data.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="panel" style="border-left: 3px solid var(--ef-red);">
+                <h2 style="border-bottom: none; color: var(--ef-red); margin-bottom: 10px;">Disclaimer</h2>
+                <p style="margin: 0;">This tool is free to download and use. Reverse engineering, decompiling, or redistributing modified versions of the executable is strictly prohibited.</p>
+            </div>
+
+        </div>
     </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 Sanya. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

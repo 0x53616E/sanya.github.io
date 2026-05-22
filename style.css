@@ -1,0 +1,193 @@
+/* ==========================================================================
+   SANYA PORTFOLIO - PROFESSIONAL EDITION
+   ========================================================================== */
+
+:root {
+    --ef-crust: #0a0516;
+    --ef-base: #0a0516;
+    --ef-mantle: #1f153d;
+    --ef-text: #e0e5ff;
+    --ef-subtext: #938aa9;
+    --ef-accent: #e0af68;
+    --ef-accent-light: #b493a6;
+    --ef-red: #c5525d;
+    --ef-green: #32a852;
+
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(18, 12, 33, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    
+    --bg-main: var(--ef-base);
+    --primary-gradient: linear-gradient(135deg, var(--ef-accent), var(--ef-accent-light));
+}
+
+/* --- BASE STYLES --- */
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    background-image: radial-gradient(circle at 50% -20%, var(--ef-mantle) 0%, var(--bg-main) 70%);
+    background-attachment: fixed;
+    color: var(--ef-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 { margin-top: 0; font-weight: 700; letter-spacing: -0.5px; }
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--ef-text), var(--ef-subtext));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+h3 { font-size: 1.2rem; color: var(--ef-text); margin-top: 30px; margin-bottom: 15px; }
+p { color: var(--ef-subtext); margin-bottom: 20px; font-size: 1.05rem; }
+a { text-decoration: none; color: var(--ef-accent); transition: color 0.2s ease; }
+a:hover { color: var(--ef-accent-light); }
+
+/* --- NAVIGATION (NEU: Sticky Header) --- */
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 70px;
+    background: rgba(10, 5, 22, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--ef-text); font-size: 1.2rem; }
+.nav-brand img { width: 35px; height: 35px; border-radius: 8px; border: 1px solid var(--glass-border); }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { color: var(--ef-subtext); font-size: 0.95rem; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--ef-text); }
+
+/* --- LAYOUT CONTAINERS --- */
+.page-wrapper { padding-top: 100px; padding-bottom: 60px; min-height: calc(100vh - 160px); }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.container-narrow { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+    transition: all 0.2s ease; cursor: pointer; border: 1px solid transparent;
+}
+.btn-primary {
+    background: var(--ef-text); color: var(--ef-crust);
+}
+.btn-primary:hover { background: var(--ef-subtext); color: var(--ef-crust); transform: translateY(-1px); }
+
+.btn-secondary {
+    background: var(--glass-bg); color: var(--ef-text); border-color: var(--glass-border);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+
+/* --- GLASS PANELS (Für Content & Cards) --- */
+.panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+/* --- HERO SECTION (index.html) --- */
+.hero-section {
+    display: flex; align-items: center; justify-content: space-between;
+    min-height: 60vh; gap: 50px;
+}
+.hero-content { flex: 1; }
+.hero-content .accent-text { color: var(--ef-accent); font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; }
+.hero-actions { display: flex; gap: 15px; margin-top: 30px; }
+
+.hero-visual { flex: 1; display: flex; justify-content: flex-end; }
+.hero-visual img { width: 300px; height: 300px; border-radius: 50%; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); padding: 10px; background: rgba(0,0,0,0.2); }
+
+/* --- GRID SYSTEM (tools.html) --- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+.card {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-radius: 12px; padding: 30px; display: flex; flex-direction: column;
+    transition: all 0.2s ease; position: relative;
+}
+.card:hover { border-color: rgba(255,255,255,0.15); background: rgba(30, 20, 50, 0.6); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.card-title { font-size: 1.3rem; margin: 0; color: var(--ef-text); }
+.card-desc { font-size: 0.95rem; color: var(--ef-subtext); margin-bottom: 25px; flex-grow: 1; }
+
+/* Badges */
+.badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+.badge.active { background: rgba(50, 168, 82, 0.1); color: var(--ef-green); border: 1px solid rgba(50, 168, 82, 0.2); }
+.badge.version { background: rgba(224, 175, 104, 0.1); color: var(--ef-accent); border: 1px solid rgba(224, 175, 104, 0.2); }
+
+/* --- DOCS/TABLES (sanconverter.html) --- */
+.doc-header { margin-bottom: 50px; }
+.doc-header h1 { font-size: 2.8rem; margin-bottom: 15px; }
+.doc-meta { display: flex; gap: 20px; align-items: center; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 15px 0; margin-bottom: 40px; }
+
+.table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid var(--glass-border); margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--glass-border); }
+th { color: var(--ef-text); font-weight: 600; background: rgba(255,255,255,0.02); }
+tr:last-child td { border-bottom: none; }
+
+code { background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--ef-accent-light); border: 1px solid var(--glass-border); }
+.preview-img { width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); margin: 20px 0; }
+ul.clean-list { padding-left: 20px; color: var(--ef-subtext); }
+ul.clean-list li { margin-bottom: 8px; }
+
+/* --- FOOTER --- */
+footer { text-align: center; padding: 40px 0; color: var(--ef-subtext); font-size: 0.85rem; border-top: 1px solid var(--glass-border); }
+
+/* --- ANIMATION (Subtil beim Seitenaufruf) --- */
+.fade-in { animation: simpleFade 0.6s ease forwards; opacity: 0; }
+@keyframes simpleFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- TABS SYSTEM (Für die Dokumentation) --- */
+.tab-controls {
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 30px; 
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--glass-border); 
+    padding-bottom: 15px;
+}
+.tab-btn {
+    background: transparent; 
+    color: var(--ef-subtext); 
+    border: 1px solid transparent;
+    padding: 8px 18px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+.tab-btn:hover { 
+    color: var(--ef-text); 
+    background: rgba(255,255,255,0.05); 
+}
+.tab-btn.active {
+    color: var(--ef-accent); 
+    background: rgba(224, 175, 104, 0.1);
+    border-color: rgba(224, 175, 104, 0.3);
+}
+.tab-content { 
+    display: none; 
+    animation: simpleFade 0.4s ease forwards; 
+}
+.tab-content.active { 
+    display: block; 
+}

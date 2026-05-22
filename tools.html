@@ -3,275 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanya | More Tools</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Projects | 0x53616E</title>
     <link rel="icon" type="image/png" href="./assets/bears_hand.png">
-    <style>
-        /* --- PURPLE NIGHT THEME --- */
-        :root {
-            /* Core Palette */
-            --ef-crust: #0a0516;
-            --ef-base: #0a0516;
-            --ef-mantle: #1f153d;
-            --ef-surface0: #1f153d;
-            --ef-surface1: #2d2055;
-            --ef-text: #e0e5ff;
-            --ef-subtext: #938aa9;
-            --ef-accent: #e0af68;
-            --ef-accent-light: #b493a6;
-            
-            --ef-green: #32a852;
-            
-            /* Mappings */
-            --bg-main: var(--ef-base);
-            --card-bg: rgba(31, 21, 61, 0.7); /* EF-Mantle mit Transparenz */
-            --card-border: var(--ef-surface1);
-            --primary-gradient: linear-gradient(135deg, var(--ef-accent), var(--ef-accent-light));
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-main);
-            background-image: radial-gradient(circle at 50% 0%, var(--ef-mantle) 0%, var(--bg-main) 75%);
-            color: var(--ef-text);
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            /* Wichtig: Inhalt muss über den Sternen liegen */
-            position: relative;
-            z-index: 10;
-        }
-
-        /* --- BACKGROUND STARS ANIMATION --- */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; /* Hinter dem Inhalt */
-            overflow: hidden;
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        @keyframes animStar {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-2000px); }
-        }
-
-        /* Kleine Sterne */
-        #stars1 {
-            width: 1px; height: 1px; background: transparent;
-            box-shadow: 1744px 322px var(--ef-subtext), 1353px 908px var(--ef-subtext), 953px 1516px var(--ef-subtext), 1657px 1394px var(--ef-subtext), 167px 829px var(--ef-subtext), 196px 1118px var(--ef-subtext), 1703px 1472px var(--ef-subtext), 553px 1368px var(--ef-subtext), 1203px 1038px var(--ef-subtext), 567px 1205px var(--ef-subtext), 1506px 40px var(--ef-subtext), 1369px 1171px var(--ef-subtext), 1344px 231px var(--ef-subtext), 313px 1596px var(--ef-subtext), 1277px 331px var(--ef-subtext), 527px 1422px var(--ef-subtext), 1337px 921px var(--ef-subtext), 1015px 1362px var(--ef-subtext), 81px 1357px var(--ef-subtext), 1494px 1504px var(--ef-subtext), 1405px 1748px var(--ef-subtext), 139px 1425px var(--ef-subtext), 341px 1285px var(--ef-subtext), 1468px 818px var(--ef-subtext), 866px 90px var(--ef-subtext), 1707px 1015px var(--ef-subtext), 1679px 1002px var(--ef-subtext), 246px 1785px var(--ef-subtext), 1904px 1212px var(--ef-subtext), 669px 1904px var(--ef-subtext), 1732px 1100px var(--ef-subtext), 189px 818px var(--ef-subtext), 1288px 1716px var(--ef-subtext), 193px 131px var(--ef-subtext), 794px 1475px var(--ef-subtext), 1817px 536px var(--ef-subtext), 1957px 834px var(--ef-subtext), 383px 1313px var(--ef-subtext), 417px 535px var(--ef-subtext), 1070px 671px var(--ef-subtext), 1351px 1152px var(--ef-subtext), 1219px 1606px var(--ef-subtext), 1654px 276px var(--ef-subtext), 1517px 1132px var(--ef-subtext), 865px 469px var(--ef-subtext), 554px 1631px var(--ef-subtext), 56px 1516px var(--ef-subtext), 1364px 1700px var(--ef-subtext), 431px 840px var(--ef-subtext), 392px 1735px var(--ef-subtext), 874px 1486px var(--ef-subtext), 944px 1513px var(--ef-subtext), 1195px 1240px var(--ef-subtext), 496px 826px var(--ef-subtext), 1004px 22px var(--ef-subtext), 885px 134px var(--ef-subtext), 1506px 592px var(--ef-subtext), 1529px 1838px var(--ef-subtext), 869px 1149px var(--ef-subtext), 870px 717px var(--ef-subtext);
-            animation: animStar 100s linear infinite;
-        }
-        #stars1::after { content: " "; position: absolute; top: 2000px; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
-
-        /* Mittlere Sterne */
-        #stars2 {
-            width: 2px; height: 2px; background: transparent;
-            box-shadow: 1758px 1627px var(--ef-subtext), 1643px 1188px var(--ef-subtext), 657px 1733px var(--ef-subtext), 358px 1002px var(--ef-subtext), 683px 1112px var(--ef-subtext), 1808px 837px var(--ef-subtext), 1303px 879px var(--ef-subtext), 925px 1856px var(--ef-subtext), 1142px 1545px var(--ef-subtext), 148px 992px var(--ef-subtext), 63px 884px var(--ef-subtext), 1791px 1127px var(--ef-subtext), 200px 1773px var(--ef-subtext), 1434px 539px var(--ef-subtext), 1207px 987px var(--ef-subtext), 46px 1183px var(--ef-subtext), 810px 627px var(--ef-subtext), 1623px 1599px var(--ef-subtext), 1278px 219px var(--ef-subtext), 891px 1494px var(--ef-subtext), 1939px 1598px var(--ef-subtext), 1931px 370px var(--ef-subtext), 339px 143px var(--ef-subtext), 1039px 727px var(--ef-subtext), 1337px 49px var(--ef-subtext);
-            animation: animStar 75s linear infinite;
-        }
-        #stars2::after { content: " "; position: absolute; top: 2000px; width: 2px; height: 2px; background: transparent; box-shadow: inherit; }
-
-        /* Große Sterne */
-        #stars3 {
-            width: 3px; height: 3px; background: transparent;
-            box-shadow: 1943px 663px var(--ef-subtext), 1987px 940px var(--ef-subtext), 1781px 1065px var(--ef-subtext), 1837px 1471px var(--ef-subtext), 1457px 1419px var(--ef-subtext), 1196px 524px var(--ef-subtext), 1654px 511px var(--ef-subtext);
-            animation: animStar 50s linear infinite;
-        }
-        #stars3::after { content: " "; position: absolute; top: 2000px; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
-
-
-        /* --- NAV & HERO --- */
-        .nav-bar { padding: 20px 0; }
-        .back-link {
-            display: inline-flex; align-items: center; color: var(--ef-subtext);
-            text-decoration: none; font-size: 0.95rem; transition: 0.2s;
-            padding: 8px 16px; border-radius: 20px;
-            background: var(--ef-surface0); border: 1px solid transparent;
-        }
-        .back-link:hover { color: var(--ef-text); background: var(--ef-surface1); border-color: var(--card-border); }
-
-        .header-section { text-align: center; margin-bottom: 50px; animation: fadeIn 0.8s ease-out; }
-        h1 {
-            font-size: 3rem; margin: 0;
-            background: linear-gradient(90deg, var(--ef-accent), var(--ef-accent-light));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        .subtitle { color: var(--ef-subtext); margin-top: 10px; }
-
-        /* --- GRID SYSTEM --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* --- PROJECT CARD --- */
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(10, 5, 22, 0.5);
-            border-color: var(--ef-accent);
-        }
-
-        /* Status Badge */
-        .status {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        .status.active { background: rgba(50, 168, 82, 0.2); color: var(--ef-green); border: 1px solid var(--ef-green); }
-        .status.beta, .status.v1 { background: rgba(212, 163, 115, 0.2); color: var(--ef-accent); border: 1px solid var(--ef-accent); }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            margin: 0 0 10px 0;
-            color: var(--ef-text);
-        }
-
-        .card-desc {
-            font-size: 0.95rem;
-            color: var(--ef-subtext);
-            margin-bottom: 25px;
-            flex-grow: 1; 
-        }
-
-        .card-btn {
-            display: inline-block;
-            text-align: center;
-            background: var(--ef-surface0);
-            color: var(--ef-text);
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.2s;
-            border: 1px solid var(--card-border);
-        }
-
-        .card-btn:hover {
-            background: var(--ef-accent);
-            color: var(--ef-crust);
-            border-color: var(--ef-accent);
-        }
-
-        footer { text-align: center; color: var(--ef-subtext); padding: 50px 0; font-size: 0.8rem; margin-top: 50px; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="bg-animation">
-        <div id="stars1"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="./assets/logo.png" alt="Sanya Logo" onerror="this.style.display='none'">
+            0x53616E
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html" class="active">Projects</a>
+            <a href="https://github.com/0x53616E" target="_blank">GitHub ↗</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper fade-in">
+        <div class="container">
+            <h1 style="margin-bottom: 10px;">Projects</h1>
+            <p style="margin-bottom: 40px; font-size: 1.1rem;">A collection of software, scripts, and utilities.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">SanConverter</h3>
+                        <span class="badge active">Active</span>
+                    </div>
+                    <p class="card-desc">The ultimate tool to convert .SM and .SSC files to .SLK format. Built with .NET 4.8.</p>
+                    <a href="sanconverter.html" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Read Documentation</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Beary SLK Checker</h3>
+                        <span class="badge version">v1.1</span>
+                    </div>
+                    <p class="card-desc">Utility to check the original .SLK Header to verify if the file is valid or corrupted.</p>
+                    <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.1/BearySLK-Checker.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">SLK BeatUp Filter</h3>
+                        <span class="badge version">v1.0</span>
+                    </div>
+                    <p class="card-desc">Scans and filters BeatUp .SLK files from an original input directory and sorts them into a clean output folder.</p>
+                    <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.0/BU_SLK_Filter.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Silencer</h3>
+                        <span class="badge version">v1.3</span>
+                    </div>
+                    <p class="card-desc">Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG.</p>
+                    <a href="https://github.com/0x53616E/Silencer/releases/download/v1.3.2/Silencer.v1.3.2.exe" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Download .exe</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        
-        <div class="nav-bar">
-            <a href="index.html" class="back-link">← Back to Hub</a>
+    <footer>
+        <div class="container">
+            &copy; 2026 Sanya. All rights reserved.
         </div>
-
-        <div class="header-section">
-            <h1>My Projects</h1>
-            <p class="subtitle">A collection of my tools and software.</p>
-        </div>
-
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <span class="status active">Active</span>
-                <div class="card-icon">💚</div>
-                <h3 class="card-title">SanConverter</h3>
-                <p class="card-desc">
-                    The ultimate tool to convert .SM and .SSC files to .SLK format. Supports Beat Up and One-Two Party logic.
-                </p>
-                <a href="sanconverter.html" class="card-btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <span class="status v1">v1.1</span>
-                <div class="card-icon">🐻</div>
-                <h3 class="card-title">Beary SLK Checker</h3>
-                <p class="card-desc">
-                    Checks the original .SLK Header to see if the .SLK is valid or not.
-                </p>
-                <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.1/BearySLK-Checker.exe" class="card-btn">Download .exe</a>
-            </div>
-
-            <div class="project-card">
-                <span class="status v1" style="opacity: 0.7;">v1.0</span>
-                <div class="card-icon">🧹</div>
-                <h3 class="card-title">SLK BeatUp Filter</h3>
-                <p class="card-desc">
-                    Checks for BeatUp .SLK files in the original input folder from the .ACV and sorts them into a new output folder.
-                </p>
-                <a href="https://github.com/0x53616E/Check-SLK-duplicate-notes/releases/download/1.0/BU_SLK_Filter.exe" class="card-btn">Download .exe</a>
-            </div>
-
-            <div class="project-card">
-                <span class="status v1">v1.3</span>
-                <div class="card-icon">🔇</div>
-                <h3 class="card-title">Silencer</h3>
-                <p class="card-desc">
-                    Silence your .ogg works with all important formats. Best case usage is to silence from FLAC --> WAV --> OGG.
-                </p>
-                <a href="https://github.com/0x53616E/Silencer/releases/download/v1.3.2/Silencer.v1.3.2.exe" class="card-btn">Download.exe</a>
-            </div>
-
-            <div class="project-card" style="opacity: 0.7;">
-                <div class="card-icon">🔜</div>
-                <h3 class="card-title">Coming Soon</h3>
-                <p class="card-desc">
-                    More projects are in the works. Stay tuned for updates!
-                </p>
-                <span class="card-btn" style="cursor: default; opacity: 0.5;">Not available</span>
-            </div>
-
-        </div>
-        <footer>
-            &copy; 2026 Sanya
-        </footer>
-
-    </div>
+    </footer>
 
 </body>
 </html>
