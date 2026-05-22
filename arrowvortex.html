@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Vortex Plugins | Docs</title>
+    
+    <link rel="icon" type="image/png" href="./assets/bears_hand.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-animation">
+        <div id="stars1"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="./assets/logo.png" alt="Sanya Logo" onerror="this.style.display='none'">
+            Sanya
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html" class="active">Projects</a>
+            <a href="https://github.com/bishpop" target="_blank">GitHub ↗</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper fade-in">
+        <div class="container">
+            
+            <header class="hero">
+                <h1>Arrow Vortex Plugins</h1>
+                <p style="color: var(--text-muted); margin-top: 10px; font-size: 1.1rem;">Official documentation for native C++ workflow plugins.</p>
+                
+                <div class="badges">
+                    <img src="https://img.shields.io/badge/integration-ArrowVortex-583f7e?style=flat-square" alt="Integration">
+                    <img src="https://img.shields.io/badge/language-C++-1f153d?style=flat-square&logo=c%2B%2B" alt="C++">
+                </div>
+            </header>
+
+            <section class="card">
+                <h2>🔇 AV Silencer Plugin</h2>
+                <p style="color: var(--text-muted);">
+                    A native audio processing extension for Arrow Vortex. It allows you to silence <code>.wav</code> files directly within the editor environment and exports them smoothly into <code>.ogg</code> format while automatically applying precise LUFS adjustments.
+                </p>
+                <img src="./assets/silencer.png" alt="Silencer Plugin Interface" class="preview-img" onerror="this.style.display='none'">
+                <ul class="note-list" style="color: var(--text-main);">
+                    <li>Direct Arrow Vortex Integration</li>
+                    <li>On-the-fly WAV to OGG conversion</li>
+                    <li>Automated LUFS normalization for perfect audio levels</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>⚙️ AV Converter Plugin (SLK Export)</h2>
+                <p style="color: var(--text-muted);">
+                    A fully ported C++ version of the SanConverter logic, built directly into Arrow Vortex. It reads measure data on-the-fly and exports ready-to-use <code>.slk</code> files without needing an external executable.
+                </p>
+                <img src="./assets/converter.png" alt="Converter Plugin Interface" class="preview-img" onerror="this.style.display='none'">
+                
+                <h3 style="border-left: none; padding-left: 0; margin-top: 40px;">C++ Charting Logic (AV Native)</h3>
+                
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-target="tab-bu8">Beat Up 8</button>
+                    <button class="tab-btn" data-target="tab-bu4">Beat Up 4</button>
+                    <button class="tab-btn" data-target="tab-otp4">OTP 4</button>
+                    <button class="tab-btn" data-target="tab-otp8">OTP 8</button>
+                </div>
+
+                <div class="tab-content active" id="tab-bu8">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>AV Column</th>
+                                    <th>Function</th>
+                                    <th>SLK Key / Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1, 2, 3</td><td>Standard Left Notes</td><td>7, 4, 1</td></tr>
+                                <tr><td>4, 5, 6</td><td>Standard Right Notes</td><td>9, 6, 3</td></tr>
+                                <tr><td>7</td><td>State Marker</td><td>2 = Hold, 4 = Roll, 3 = End</td></tr>
+                                <tr><td>7</td><td>Smart Random Key</td><td>Generates Random Key based on pressed lanes*</td></tr>
+                                <tr><td>8</td><td>Space Modifier</td><td>If 1 = Space (s)</td></tr>
+                                <tr><td>7 + 8 (Mines)</td><td>Hidden Note</td><td>Mine on 7 = Double, Mine on 7+8 = Triple</td></tr>
+                                <tr><td>Mine 8</td><td>Finish Move</td><td>s,f</td></tr>
+                                <tr><td>Key Lane + 8 Mine</td><td>Note finish</td><td>n,f</td></tr>
+                                <tr><td>Lane 7=1 + Lane 8=1</td><td> Finish</td><td>f</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="note-list">
+                        <li>* <b>Smart Random Key (Lane 7 = '1'):</b> If Lane 1 is also pressed, it picks a random Left key. If Lane 2 is pressed, a Right key. If none, it picks from all keys.</li>
+                        <li><b>Hold (2):</b> Restricts notes inside the hold to max 2 jacks in a row.</li>
+                        <li><b>Roll (4):</b> Restricts notes inside the roll to NO consecutive jacks.</li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="tab-bu4">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>AV Column</th>
+                                    <th>Function</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>0 (Key 1)</td><td>Note Generator</td><td>Random Generated Note (n)</td></tr>
+                                <tr><td>1 (Key 2)</td><td>Space Modifier</td><td>1 = Space (s) | M = Space+Finish (s,f)</td></tr>
+                                <tr><td>2 (Key 3)</td><td>Left Modifier</td><td>2 = Hold Left | 4 = Roll Left | 3 = End</td></tr>
+                                <tr><td>3 (Key 4)</td><td>Right Modifier</td><td>2 = Hold Right | 4 = Roll Right | 3 = End</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="note-list">
+                        <li>If both Left and Right modifiers are active simultaneously, the plugin generates alternating patterns or global no-repeat keys based on the hold/roll state.</li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="tab-otp4">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Arrow Vortex Key</th>
+                                    <th>OTP .SLK Key</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>n</td><td>Note</td></tr>
+                                <tr><td>2</td><td>c</td><td>Change</td></tr>
+                                <tr><td>3</td><td>d</td><td>Dance</td></tr>
+                                <tr><td>4</td><td>s</td><td>Space</td></tr>
+                                <tr><td>1 + 2 + 3 + 4</td><td>r</td><td>Rotation</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-otp8">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Arrow Vortex Key</th>
+                                    <th>OTP .SLK Key</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>n</td><td>Note</td></tr>
+                                <tr><td>2</td><td>c</td><td>Change</td></tr>
+                                <tr><td>3</td><td>s</td><td>Space</td></tr>
+                                <tr><td>4</td><td>n</td><td>Note</td></tr>
+                                <tr><td>5</td><td>c</td><td>Change</td></tr>
+                                <tr><td>6</td><td>s</td><td>Space</td></tr>
+                                <tr><td>7</td><td>d</td><td>Dance</td></tr>
+                                <tr><td>8</td><td>r</td><td>Rotate</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <img src="./assets/logo.png" alt="Sanya Logo" width="60" style="opacity:0.7; filter: grayscale(100%); margin-bottom: 10px;" onerror="this.style.display='none'">
+                <br>
+                &copy; 2026 Sanya<br>
+                Created with ❤️
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
