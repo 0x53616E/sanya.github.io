@@ -11,14 +11,31 @@
 </head>
 <body>
 
+    <div class="bg-animation">
+        <div id="stars1"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
     <nav class="navbar">
         <a href="index.html" class="nav-brand">
             <img src="./assets/logo.png" alt="Sanya Logo" onerror="this.style.display='none'">
             Sanya
         </a>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a> <a href="tools.html">Projects</a>
+        
+        <div class="nav-center">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="tools.html" data-i18n="nav.projects">Projects</a>
             <a href="https://github.com/bishpop" target="_blank">GitHub ↗</a>
+        </div>
+
+        <div class="controls-wrapper">
+            <button id="themeToggle" class="theme-toggle" title="Toggle Theme">☀️</button>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" data-lang="zh">简</button>
+            </div>
         </div>
     </nav>
 
@@ -27,194 +44,193 @@
             
             <div class="doc-header">
                 <h1 style="text-align: center;">SanConverter</h1>
-                <p style="text-align: center;">Official documentation and logic structure for the BeatUp Converter.</p>
+                <p style="text-align: center;" data-i18n="san.subtitle">Official documentation and logic structure for the BeatUp Converter.</p>
                 
                 <div class="doc-meta">
                     <span class="badge active">v1.2</span>
                     <span class="badge version" style="border-color: var(--glass-border); color: var(--ef-text); background: transparent;">Windows</span>
                     <span class="badge version" style="border-color: var(--glass-border); color: var(--ef-text); background: transparent;">.NET 4.8</span>
-                    <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="margin-left: auto;">📄 PDF Guide</a>
-                    <a href="https://www.youtube.com/watch?v=B5WxZ9Asc3M" target="_blank">🎥 Tutorial</a>
+                    <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="margin-left: auto;" data-i18n="san.pdf">📄 PDF Guide</a>
+                    <a href="https://www.youtube.com/watch?v=B5WxZ9Asc3M" target="_blank" data-i18n="san.tutorial">🎥 Tutorial</a>
                 </div>
 
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 40px; margin-bottom: 20px;">
-    
-    <a href="https://github.com/bishpop/san-converter-storage/releases/download/v0.0.1/SanInstaller.exe" class="btn-glow" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 1.25rem;">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        Download SanInstaller
-    </a>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 40px; margin-bottom: 20px;">
+                    <a href="https://github.com/bishpop/san-converter-storage/releases/download/v0.0.1/SanInstaller.exe" class="btn-glow" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 1.25rem;">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span data-i18n="san.download">Download SanInstaller</span>
+                    </a>
 
-    <span style="color: var(--ef-accent); font-weight: 600; font-size: 0.8rem; margin-top: 12px; letter-spacing: 1px; text-transform: uppercase;">
-        Windows 64-bit Setup
-    </span>
+                    <span style="color: var(--ef-accent); font-weight: 600; font-size: 0.8rem; margin-top: 12px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="san.windows64">
+                        Windows 64-bit Setup
+                    </span>
 
-    <p style="color: var(--ef-subtext); font-size: 0.9rem; max-width: 550px; text-align: center; margin-top: 15px; line-height: 1.6;">
-        To get started, download the SanInstaller to your preferred directory and execute it. The installer will automatically retrieve and safely unpack the latest SanConverter deployment directly from GitHub.
-    </p>
-</div>
+                    <p style="color: var(--ef-subtext); font-size: 0.9rem; max-width: 550px; text-align: center; margin-top: 15px; line-height: 1.6;" data-i18n="san.install.desc">
+                        To get started, download the SanInstaller to your preferred directory and execute it. The installer will automatically retrieve and safely unpack the latest SanConverter deployment directly from GitHub.
+                    </p>
+                </div>
             </div>
 
             <div class="panel">
-                <h2>Overview</h2>
+                <h2 data-i18n="san.overview.title">Overview</h2>
                 <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
                 <ul class="clean-list">
-                    <li>Modern, standalone UI (No installation required)</li>
-                    <li>Supports conversion of <code>.SM</code> and <code>.SSC</code> files to <code>.SLK</code></li>
-                    <li>Full logic support for Beat Up and One-Two Party modes</li>
+                    <li data-i18n="san.overview.li1">Modern, standalone UI (No installation required)</li>
+                    <li data-i18n="san.overview.li2">Supports conversion of <code>.SM</code> and <code>.SSC</code> files to <code>.SLK</code></li>
+                    <li data-i18n="san.overview.li3">Full logic support for Beat Up and One-Two Party modes</li>
                 </ul>
             </div>
 
             <div class="panel">
-                <h2 style="border-bottom: none; padding-bottom: 0;">✨ Charting Logic</h2>
+                <h2 style="border-bottom: none; padding-bottom: 0;" data-i18n="san.charting.title">✨ Charting Logic</h2>
                 
                 <div class="tab-controls">
-                    <button class="tab-btn active" data-target="tab-bu8">Beat Up 8</button>
-                    <button class="tab-btn" data-target="tab-bu4">Beat Up 4</button>
-                    <button class="tab-btn" data-target="tab-otp4">OTP 4</button>
-                    <button class="tab-btn" data-target="tab-otp8">OTP 8</button>
-                    <button class="tab-btn" data-target="tab-revert">Revert Logic</button>
+                    <button class="tab-btn active" data-target="tab-bu8" data-i18n="tab.bu8">Beat Up 8</button>
+                    <button class="tab-btn" data-target="tab-bu4" data-i18n="tab.bu4">Beat Up 4</button>
+                    <button class="tab-btn" data-target="tab-otp4" data-i18n="tab.otp4">OTP 4</button>
+                    <button class="tab-btn" data-target="tab-otp8" data-i18n="tab.otp8">OTP 8</button>
+                    <button class="tab-btn" data-target="tab-revert" data-i18n="tab.revert">Revert Logic</button>
                 </div>
 
                 <div class="tab-content active" id="tab-bu8">
-                    <h3>Beat Up 8 Structure</h3>
+                    <h3 data-i18n="san.bu8.title">Beat Up 8 Structure</h3>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Arrow Vortex Key</th>
-                                    <th>Beat Up .SLK Key</th>
-                                    <th>Comment</th>
+                                    <th data-i18n="col.av">Arrow Vortex Key</th>
+                                    <th data-i18n="col.slk">Beat Up .SLK Key</th>
+                                    <th data-i18n="col.comment">Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>1, 2, 3</td><td>7, 4, 1</td><td>Specific Note assignment</td></tr>
-                                <tr><td>4, 5, 6</td><td>9, 6, 3</td><td>Specific Note assignment</td></tr>
-                                <tr><td>7</td><td>Random Key </td><td>removed in v1.0.2</td></tr>
-                                <tr><td>1 + 7</td><td>Random Key</td><td>Key Array {1,4,7}* (Left)</td></tr>
-                                <tr><td>2 + 7</td><td>Random Key</td><td>Key Array {3,6,9}* (Right)</td></tr>
-                                <tr><td>8</td><td>s</td><td>Space</td></tr>
-                                <tr><td>M*</td><td>Finish Move</td><td>Shift + 8 (Mine on 8th Lane)</td></tr>
-                                <tr><td>7 + 8</td><td>f</td><td>Finish Move without Space</td></tr>
-                                <tr><td>n* + 7 + 8</td><td>Note + Finish</td><td>Note Array {1,3,4,6,7,9}</td></tr>
-                                <tr><td>n + M</td><td>Double Note (hidden)</td><td>M on lane 7</td></tr>
-                                <tr><td>n + M + M</td><td>Triple Note (hidden)</td><td>M on lane 7 & 8</td></tr>
+                                <tr><td>1, 2, 3</td><td>7, 4, 1</td><td data-i18n="bu8.spec_note">Specific Note assignment</td></tr>
+                                <tr><td>4, 5, 6</td><td>9, 6, 3</td><td data-i18n="bu8.spec_note">Specific Note assignment</td></tr>
+                                <tr><td>7</td><td data-i18n="bu4.rand_note">Random Key</td><td data-i18n="bu8.rem_v1">removed in v1.0.2</td></tr>
+                                <tr><td>1 + 7</td><td data-i18n="bu4.rand_note">Random Key</td><td data-i18n="bu8.key_arr_l">Key Array {1,4,7}* (Left)</td></tr>
+                                <tr><td>2 + 7</td><td data-i18n="bu4.rand_note">Random Key</td><td data-i18n="bu8.key_arr_r">Key Array {3,6,9}* (Right)</td></tr>
+                                <tr><td>8</td><td>s</td><td data-i18n="bu8.space">Space</td></tr>
+                                <tr><td>M*</td><td data-i18n="bu8.fm">Finish Move</td><td data-i18n="bu8.shift8">Shift + 8 (Mine on 8th Lane)</td></tr>
+                                <tr><td>7 + 8</td><td>f</td><td data-i18n="bu8.fm_no_space">Finish Move without Space</td></tr>
+                                <tr><td>n* + 7 + 8</td><td data-i18n="bu8.note_fm">Note + Finish</td><td data-i18n="bu8.note_arr">Note Array {1,3,4,6,7,9}</td></tr>
+                                <tr><td>n + M</td><td data-i18n="bu8.double_h">Double Note (hidden)</td><td data-i18n="bu8.m_lane7">M on lane 7</td></tr>
+                                <tr><td>n + M + M</td><td data-i18n="bu8.triple_h">Triple Note (hidden)</td><td data-i18n="bu8.m_lane78">M on lane 7 & 8</td></tr>
                             </tbody>
                         </table>
                     </div>
                     <ul class="clean-list">
-                        <li>* <b>Random Key:</b> A note stated as <code>n</code> in the .slk which Audition can read, randomly generated using a no Jack-Logic.</li>
-                        <li>* <b>M:</b> Mine.</li>
+                        <li data-i18n="san.bu8.n_rand">* <b>Random Key:</b> A note stated as <code>n</code> in the .slk which Audition can read, randomly generated using a no Jack-Logic.</li>
+                        <li data-i18n="san.bu8.n_m">* <b>M:</b> Mine.</li>
                     </ul>
 
-                    <h3 style="margin-top: 40px;">Hold & Roll Logic (Lane 7)</h3>
-                    <p>Lane 7 (index 6) acts as a state marker. If a hold/roll is active here, standard key assignments are overridden.</p>
+                    <h3 style="margin-top: 40px;" data-i18n="san.hold.title">Hold & Roll Logic (Lane 7)</h3>
+                    <p data-i18n="san.bu8.note1">Lane 7 (index 6) acts as a state marker. If a hold/roll is active here, standard key assignments are overridden.</p>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>State</th>
-                                    <th>Active Lane</th>
-                                    <th>Key Pool</th>
-                                    <th>Constraint</th>
+                                    <th data-i18n="col.state">State</th>
+                                    <th data-i18n="col.active_lane">Active Lane</th>
+                                    <th data-i18n="col.key_pool">Key Pool</th>
+                                    <th data-i18n="col.constraint">Constraint</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>2</code> (Hold)</td><td>Lane 1 (Left)</td><td><code>{7, 4, 1}</code></td><td>Max 2 jacks in a row</td></tr>
-                                <tr><td><code>2</code> (Hold)</td><td>Lane 2 (Right)</td><td><code>{9, 6, 3}</code></td><td>Max 2 jacks in a row</td></tr>
-                                <tr><td><code>2</code> (Hold)</td><td>Lane 1 + 2</td><td><code>{7,4,1,9,6,3}</code></td><td>Max 2 jacks in a row</td></tr>
-                                <tr><td><code>4</code> (Roll)</td><td>Lane 1 (Left)</td><td><code>{7, 4, 1}</code></td><td>No direct repeat (no Jacks)</td></tr>
-                                <tr><td><code>4</code> (Roll)</td><td>Lane 2 (Right)</td><td><code>{9, 6, 3}</code></td><td>No direct repeat (no Jacks)</td></tr>
-                                <tr><td><code>3</code> (End)</td><td>—</td><td>Resets to BU8</td><td>—</td></tr>
+                                <tr><td data-i18n="bu4.hold"><code>2</code> (Hold)</td><td data-i18n="bu8.lane1_l">Lane 1 (Left)</td><td><code>{7, 4, 1}</code></td><td data-i18n="bu8.max2_jacks">Max 2 jacks in a row</td></tr>
+                                <tr><td data-i18n="bu4.hold"><code>2</code> (Hold)</td><td data-i18n="bu8.lane2_r">Lane 2 (Right)</td><td><code>{9, 6, 3}</code></td><td data-i18n="bu8.max2_jacks">Max 2 jacks in a row</td></tr>
+                                <tr><td data-i18n="bu4.hold"><code>2</code> (Hold)</td><td data-i18n="bu8.lane1_2">Lane 1 + 2</td><td><code>{7,4,1,9,6,3}</code></td><td data-i18n="bu8.max2_jacks">Max 2 jacks in a row</td></tr>
+                                <tr><td data-i18n="bu4.roll"><code>4</code> (Roll)</td><td data-i18n="bu8.lane1_l">Lane 1 (Left)</td><td><code>{7, 4, 1}</code></td><td data-i18n="bu8.no_repeat">No direct repeat (no Jacks)</td></tr>
+                                <tr><td data-i18n="bu4.roll"><code>4</code> (Roll)</td><td data-i18n="bu8.lane2_r">Lane 2 (Right)</td><td><code>{9, 6, 3}</code></td><td data-i18n="bu8.no_repeat">No direct repeat (no Jacks)</td></tr>
+                                <tr><td><code>3</code> (End)</td><td>—</td><td data-i18n="bu8.reset_bu8">Resets to BU8</td><td>—</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div class="tab-content" id="tab-bu4">
-                    <h3>Beat Up 4 Structure</h3>
+                    <h3 data-i18n="san.bu4.title">Beat Up 4 Structure</h3>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Arrow Vortex Key</th>
-                                    <th>Beat Up .SLK Key</th>
-                                    <th>Comment</th>
+                                    <th data-i18n="col.av">Arrow Vortex Key</th>
+                                    <th data-i18n="col.slk">Beat Up .SLK Key</th>
+                                    <th data-i18n="col.comment">Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>1</td><td>n</td><td>Random Generated Note</td></tr>
-                                <tr><td>2</td><td>s</td><td>Space</td></tr>
-                                <tr><td>3</td><td>Random Left</td><td>Hold*</td></tr>
-                                <tr><td>3</td><td>Random Left no Jacks</td><td>Roll*</td></tr>
-                                <tr><td>4</td><td>Random Right</td><td>Hold</td></tr>
-                                <tr><td>4</td><td>Random Right no Jacks</td><td>Roll</td></tr>
-                                <tr><td>3 + 4</td><td>Random Left-Right</td><td>Hold 3+4 (Random Left-Right Pattern)</td></tr>
-                                <tr><td>3 + 4</td><td>Random No Repeat</td><td>Roll 3+4 (Random no repeat Pattern)</td></tr>
+                                <tr><td>1</td><td>n</td><td data-i18n="bu4.rand_note">Random Generated Note</td></tr>
+                                <tr><td>2</td><td>s</td><td data-i18n="bu8.space">Space</td></tr>
+                                <tr><td>3</td><td data-i18n="bu4.rand_l">Random Left</td><td data-i18n="bu4.hold_star">Hold*</td></tr>
+                                <tr><td>3</td><td data-i18n="bu4.rand_l_noj">Random Left no Jacks</td><td data-i18n="bu4.roll_star">Roll*</td></tr>
+                                <tr><td>4</td><td data-i18n="bu4.rand_r">Random Right</td><td data-i18n="bu4.hold">Hold</td></tr>
+                                <tr><td>4</td><td data-i18n="bu4.rand_r_noj">Random Right no Jacks</td><td data-i18n="bu4.roll">Roll</td></tr>
+                                <tr><td>3 + 4</td><td data-i18n="bu4.rand_lr">Random Left-Right</td><td data-i18n="bu4.hold_34">Hold 3+4 (Random Left-Right Pattern)</td></tr>
+                                <tr><td>3 + 4</td><td data-i18n="bu4.rand_nr">Random No Repeat</td><td data-i18n="bu4.roll_34">Roll 3+4 (Random no repeat Pattern)</td></tr>
                             </tbody>
                         </table>
                     </div>
                     <ul class="clean-list">
-                        <li>* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.</li>
-                        <li>* <b>Roll:</b> A rolled Hold.</li>
+                        <li data-i18n="san.bu4.n_hold">* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.</li>
+                        <li data-i18n="san.bu4.n_roll">* <b>Roll:</b> A rolled Hold.</li>
                     </ul>
                 </div>
 
                 <div class="tab-content" id="tab-otp4">
-                    <h3>One Two Party 4 Logic</h3>
-                    <p>One-Two Party is a very sensitive gamemode, this converter supports all rules from charting lvl 1 to lvl 9.</p>
+                    <h3 data-i18n="san.otp4.title">One Two Party 4 Logic</h3>
+                    <p data-i18n="san.otp4.desc">One-Two Party is a very sensitive gamemode, this converter supports all rules from charting lvl 1 to lvl 9.</p>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Arrow Vortex Key</th>
-                                    <th>OTP .SLK Key</th>
-                                    <th>Comment</th>
+                                    <th data-i18n="col.av">Arrow Vortex Key</th>
+                                    <th data-i18n="col.otp">OTP .SLK Key</th>
+                                    <th data-i18n="col.comment">Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>1</td><td>n</td><td>Note</td></tr>
-                                <tr><td>2</td><td>c</td><td>Change</td></tr>
-                                <tr><td>3</td><td>d</td><td>Dance</td></tr>
-                                <tr><td>4</td><td>s</td><td>Space</td></tr>
-                                <tr><td>1 + 2 + 3 + 4</td><td>r</td><td>Rotation</td></tr>
+                                <tr><td>1</td><td>n</td><td data-i18n="otp.note">Note</td></tr>
+                                <tr><td>2</td><td>c</td><td data-i18n="otp.change">Change</td></tr>
+                                <tr><td>3</td><td>d</td><td data-i18n="otp.dance">Dance</td></tr>
+                                <tr><td>4</td><td>s</td><td data-i18n="otp.space">Space</td></tr>
+                                <tr><td>1 + 2 + 3 + 4</td><td>r</td><td data-i18n="otp.rotation">Rotation</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div class="tab-content" id="tab-otp8">
-                    <h3>One Two Party 8 Logic</h3>
-                    <p>Fully supports all rules from charting lvl 1 to lvl 9.</p>
+                    <h3 data-i18n="san.otp8.title">One Two Party 8 Logic</h3>
+                    <p data-i18n="san.otp8.desc">Fully supports all rules from charting lvl 1 to lvl 9.</p>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Arrow Vortex Key</th>
-                                    <th>OTP .SLK Key</th>
-                                    <th>Comment</th>
+                                    <th data-i18n="col.av">Arrow Vortex Key</th>
+                                    <th data-i18n="col.otp">OTP .SLK Key</th>
+                                    <th data-i18n="col.comment">Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>1</td><td>n</td><td>Note</td></tr>
-                                <tr><td>2</td><td>c</td><td>Change</td></tr>
-                                <tr><td>3</td><td>s</td><td>Space</td></tr>
-                                <tr><td>4</td><td>n</td><td>Note</td></tr>
-                                <tr><td>5</td><td>c</td><td>Change</td></tr>
-                                <tr><td>6</td><td>s</td><td>Space</td></tr>
-                                <tr><td>7</td><td>d</td><td>Dance</td></tr>
-                                <tr><td>8</td><td>r</td><td>Rotate</td></tr>
+                                <tr><td>1</td><td>n</td><td data-i18n="otp.note">Note</td></tr>
+                                <tr><td>2</td><td>c</td><td data-i18n="otp.change">Change</td></tr>
+                                <tr><td>3</td><td>s</td><td data-i18n="otp.space">Space</td></tr>
+                                <tr><td>4</td><td>n</td><td data-i18n="otp.note">Note</td></tr>
+                                <tr><td>5</td><td>c</td><td data-i18n="otp.change">Change</td></tr>
+                                <tr><td>6</td><td>s</td><td data-i18n="otp.space">Space</td></tr>
+                                <tr><td>7</td><td>d</td><td data-i18n="otp.dance">Dance</td></tr>
+                                <tr><td>8</td><td>r</td><td data-i18n="otp.rotate">Rotate</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div class="tab-content" id="tab-revert">
-                    <h3>Revert Logic</h3>
-                    <p style="color: var(--ef-subtext); margin-top: 15px;">
+                    <h3 data-i18n="san.revert.title">Revert Logic</h3>
+                    <p style="color: var(--ef-subtext); margin-top: 15px;" data-i18n="san.revert.desc">
                         The Converter features a powerful revert function. It accurately reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> files back into a clean Stepmania <code>.SSC</code> file, preserving patterns and BPM data.
                     </p>
                 </div>
@@ -222,19 +238,20 @@
             </div>
 
             <div class="panel" style="border-left: 3px solid var(--ef-red);">
-                <h2 style="border-bottom: none; color: var(--ef-red); margin-bottom: 10px;">Disclaimer</h2>
-                <p style="margin: 0;">This tool is free to download and use. Reverse engineering, decompiling, or redistributing modified versions of the executable is strictly prohibited.</p>
+                <h2 style="border-bottom: none; color: var(--ef-red); margin-bottom: 10px;" data-i18n="san.disclaimer.title">Disclaimer</h2>
+                <p style="margin: 0;" data-i18n="san.disclaimer.text">This tool is free to download and use. Reverse engineering, decompiling, or redistributing modified versions of the executable is strictly prohibited.</p>
             </div>
 
         </div>
     </div>
 
     <footer>
-        <div class="container">
+        <div class="container" data-i18n="tools.footer">
             &copy; 2026 Sanya. All rights reserved.
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabBtns = document.querySelectorAll('.tab-btn');
