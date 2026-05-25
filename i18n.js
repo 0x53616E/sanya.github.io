@@ -30,7 +30,7 @@ const translations = {
         "tools.av.btn": "Read Documentation",
         "tools.section.legacy": "Completed & Legacy Projects",
         "tools.analyzer.desc": "Utility to check the original .SLK Header to verify if the file is valid or corrupted. Project completed and archived.",
-        "tools.silencer.desc": "Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG. Final stable build.",
+        "tools.silencer.desc": "Open Source Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG. Final stable build. <br>Download latest release here.",
         "tools.btn.download": "Download .exe",
         "tools.footer": "&copy; 2026 Sanya. All rights reserved.",
 
@@ -193,7 +193,7 @@ const translations = {
         "tools.av.btn": "阅读文档",
         "tools.section.legacy": "已完成与旧项目",
         "tools.analyzer.desc": "检查原始 .SLK 头部以验证文件是否有效或损坏的实用工具。项目已完成并归档。",
-        "tools.silencer.desc": "用于将 .ogg 文件静音的音频处理工具。最佳工作流程：FLAC → WAV → OGG。最终稳定版本。",
+        "tools.silencer.desc": "用于将 .ogg 文件静音的开源音频处理工具。最佳工作流程：FLAC → WAV → OGG。<br>最终稳定版本。在此下载最新版本。",
         "tools.btn.download": "下载 .exe",
         "tools.footer": "&copy; 2026 Sanya. 保留所有权利。",
 
@@ -355,6 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const langBtns = document.querySelectorAll('.lang-btn');
 
     function setLanguage(lang) {
+        // NEU: Setzt das Sprach-Attribut im <html> Tag (Aktiviert den neuen CSS Block!)
+        document.documentElement.lang = lang;
+        
         // Text austauschen
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
