@@ -33,6 +33,8 @@ const translations = {
         "tools.silencer.desc": "Open Source Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG. Final stable build. <br>Download latest release here.",
         "tools.btn.download": "Download .exe",
         "tools.footer": "&copy; 2026 Sanya. All rights reserved.",
+        "tools.batch.desc": "A high-performance WPF desktop application designed to automate image conversion (PNG ↔ DDS), extract GIF frames, and batch rename files with live animated previews.",
+        "tools.batch.btn": "View Project Details",
 
         // SanConverter
         "san.subtitle": "Official documentation and logic structure for the BeatUp Converter.",
@@ -196,6 +198,8 @@ const translations = {
         "tools.silencer.desc": "用于将 .ogg 文件静音的开源音频处理工具。最佳工作流程：FLAC → WAV → OGG。<br>最终稳定版本。在此下载最新版本。",
         "tools.btn.download": "下载 .exe",
         "tools.footer": "&copy; 2026 Sanya. 保留所有权利。",
+        "tools.batch.desc": "一款高性能的 WPF 桌面应用程序，专为自动转换图像 (PNG ↔ DDS)、提取 GIF 帧以及批量重命名文件而设计，并支持实时动画预览。",
+        "tools.batch.btn": "查看项目详情",
 
         // SanConverter
         "san.subtitle": "BeatUp 转换器的官方文档和逻辑结构。",

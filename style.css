@@ -532,3 +532,36 @@ footer { text-align: center; padding: 40px 0; color: var(--ef-subtext); font-siz
 }
 .fade-in { animation: simpleFade 0.6s ease forwards; opacity: 0; }
 @keyframes simpleFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- LIGHTBOX / IMAGE MODAL --- */
+.lightbox-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(10, 5, 22, 0.85);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    z-index: 1000; display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+
+/* Light Mode Anpassung */
+[data-theme="light"] .lightbox-overlay {
+    background: rgba(240, 241, 247, 0.85);
+}
+
+.lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+
+.lightbox-img {
+    max-width: 90%; max-height: 90vh; border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);
+    transform: scale(0.95); transition: transform 0.3s ease;
+}
+.lightbox-overlay.active .lightbox-img { transform: scale(1); }
+
+.lightbox-close {
+    position: absolute; top: 30px; right: 40px; color: var(--ef-text);
+    font-size: 3rem; cursor: pointer; transition: color 0.2s ease, transform 0.2s ease;
+    line-height: 1; user-select: none;
+}
+.lightbox-close:hover { color: var(--ef-accent); transform: scale(1.1); }
+
+/* Hover-Effekt für die anklickbaren Galerie-Bilder */
+.gallery-preview-img { cursor: zoom-in; transition: transform 0.2s ease, opacity 0.2s ease; }
+.gallery-preview-img:hover { opacity: 0.85; transform: scale(1.02); border-color: var(--ef-accent); }
