@@ -42,7 +42,6 @@
     <div class="page-wrapper fade-in">
         <div class="container-narrow">
             
-            <!-- HEADER -->
             <div class="doc-header">
                 <h1 style="text-align: center;">SanConverter</h1>
                 <p style="text-align: center;" data-i18n="san.subtitle">Official documentation and logic structure for the BeatUp Converter.</p>
@@ -75,25 +74,22 @@
                 </div>
             </div>
 
-            <!-- OVERVIEW -->
             <div class="panel">
                 <h2 data-i18n="san.overview.title">Overview</h2>
                 <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
                 <ul class="clean-list">
-                    <li data-i18n="san.overview.li1">Modern, standalone UI (No installation required)</li>
+                    <li data-i18n="san.overview.li1">Modern, standalone UI (No installation required but recommended)</li>
                     <li data-i18n="san.overview.li2">Supports conversion of <code>.SM</code> and <code>.SSC</code> files to <code>.SLK</code></li>
                     <li data-i18n="san.overview.li3">Full logic support for Beat Up and One-Two Party modes</li>
                 </ul>
             </div>
 
-            <!-- LATEST UPDATE GRID -->
             <div class="panel">
-                <h2>🚀 Latest Update: v2.6.0</h2>
+                <h2>🚀 Latest Update: v1.4.4</h2>
                 <p style="color: var(--ef-subtext); margin-top: -10px; margin-bottom: 25px;">The biggest update yet, featuring an overhauled level calculator, new eye-care themes, and powerful SLK utilities.</p>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
                     
-                    <!-- Feature 1 -->
                     <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
                         <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">🧮 Level Calculation Overhaul</h3>
                         <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
@@ -103,7 +99,6 @@
                         </ul>
                     </div>
 
-                    <!-- Feature 2 -->
                     <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
                         <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">🎨 10+ New Designs</h3>
                         <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
@@ -113,7 +108,6 @@
                         </ul>
                     </div>
 
-                    <!-- Feature 3 -->
                     <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
                         <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">✨ SLK Duplicate Remover</h3>
                         <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
@@ -123,7 +117,6 @@
                         </ul>
                     </div>
 
-                    <!-- Feature 4 -->
                     <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
                         <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">📊 Analyzer & Bug Fixes</h3>
                         <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
@@ -136,7 +129,6 @@
                 </div>
             </div>
 
-            <!-- CHARTING LOGIC -->
             <div class="panel">
                 <h2 style="border-bottom: none; padding-bottom: 0;" data-i18n="san.charting.title">✨ Charting Logic</h2>
                 
@@ -162,9 +154,6 @@
                             <tbody>
                                 <tr><td>1, 2, 3</td><td>7, 4, 1</td><td data-i18n="bu8.spec_note">Specific Note assignment</td></tr>
                                 <tr><td>4, 5, 6</td><td>9, 6, 3</td><td data-i18n="bu8.spec_note">Specific Note assignment</td></tr>
-                                <tr><td>7</td><td data-i18n="bu4.rand_note">Random Key</td><td data-i18n="bu8.rem_v1">removed in v1.0.2</td></tr>
-                                <tr><td>1 + 7</td><td data-i18n="bu4.rand_note">Random Key</td><td data-i18n="bu8.key_arr_l">Key Array {1,4,7}* (Left)</td></tr>
-                                <tr><td>2 + 7</td><td data-i18n="bu4.rand_note">Random Key</td><td data-i18n="bu8.key_arr_r">Key Array {3,6,9}* (Right)</td></tr>
                                 <tr><td>8</td><td>s</td><td data-i18n="bu8.space">Space</td></tr>
                                 <tr><td>M*</td><td data-i18n="bu8.fm">Finish Move</td><td data-i18n="bu8.shift8">Shift + 8 (Mine on 8th Lane)</td></tr>
                                 <tr><td>7 + 8</td><td>f</td><td data-i18n="bu8.fm_no_space">Finish Move without Space</td></tr>
@@ -290,7 +279,34 @@
 
             </div>
 
-            <!-- DISCLAIMER -->
+            <div class="panel">
+                <h2>🕰️ Legacy Conversion</h2>
+                <p style="color: var(--ef-subtext); margin-top: -10px; margin-bottom: 20px;">
+                    This optional mode detects specific Arrow Vortex combinations to generate highly controlled random patterns.
+                </p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Arrow Vortex Key</th>
+                                <th>Beat Up .SLK Key</th>
+                                <th>Pattern Logic (Muster)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>7</code></td><td>n</td><td>Random key — max. 2 Jacks</td></tr>
+                            <tr><td><code>7 + 1</code></td><td>n</td><td>Random LEFT (7,4,1) — max. 3 Jacks</td></tr>
+                            <tr><td><code>7 + 2</code></td><td>n</td><td>Random RIGHT (9,6,3) — max. 3 Jacks</td></tr>
+                            <tr><td><code>7 + 3</code></td><td>n</td><td>Random — keine Wiederholungen (No Jacks)</td></tr>
+                            <tr><td><code>7 + 4</code></td><td>n</td><td>Nur Jacks — immer gleicher Key</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--ef-subtext); font-size: 0.9rem; font-style: italic; margin-top: 15px;">
+                    Alle anderen Muster werden normal verarbeitet.
+                </p>
+            </div>
+
             <div class="panel" style="border-left: 3px solid var(--ef-red);">
                 <h2 style="border-bottom: none; color: var(--ef-red); margin-bottom: 10px;" data-i18n="san.disclaimer.title">Disclaimer</h2>
                 <p style="margin: 0;" data-i18n="san.disclaimer.text">This tool is free to download and use. Reverse engineering, decompiling, or redistributing modified versions of the executable is strictly prohibited.</p>
