@@ -42,12 +42,13 @@
     <div class="page-wrapper fade-in">
         <div class="container-narrow">
             
+            <!-- HEADER -->
             <div class="doc-header">
                 <h1 style="text-align: center;">SanConverter</h1>
                 <p style="text-align: center;" data-i18n="san.subtitle">Official documentation and logic structure for the BeatUp Converter.</p>
                 
                 <div class="doc-meta">
-                    <span class="badge active">v1.2</span>
+                    <span class="badge active">v2.6.0</span>
                     <span class="badge version" style="border-color: var(--glass-border); color: var(--ef-text); background: transparent;">Windows</span>
                     <span class="badge version" style="border-color: var(--glass-border); color: var(--ef-text); background: transparent;">.NET 4.8</span>
                     <a href="https://drive.google.com/file/d/1WPG8JNApXb5hm2z1aH_Or6Bbe0liBLtV/view" target="_blank" style="margin-left: auto;" data-i18n="san.pdf">📄 PDF Guide</a>
@@ -74,6 +75,7 @@
                 </div>
             </div>
 
+            <!-- OVERVIEW -->
             <div class="panel">
                 <h2 data-i18n="san.overview.title">Overview</h2>
                 <img src="./assets/sanconverter.png" alt="SanConverter Interface" class="preview-img" onerror="this.style.display='none'">
@@ -84,6 +86,57 @@
                 </ul>
             </div>
 
+            <!-- LATEST UPDATE GRID -->
+            <div class="panel">
+                <h2>🚀 Latest Update: v2.6.0</h2>
+                <p style="color: var(--ef-subtext); margin-top: -10px; margin-bottom: 25px;">The biggest update yet, featuring an overhauled level calculator, new eye-care themes, and powerful SLK utilities.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+                    
+                    <!-- Feature 1 -->
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">🧮 Level Calculation Overhaul</h3>
+                        <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
+                            <li>Fair scaling with <b>Math.Min</b> caps for extreme charts</li>
+                            <li><b>TotalMadi</b> integration for structural speed logic</li>
+                            <li>Incremental <b>+0.4 bonus</b> for every 10% of Stair patterns</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">🎨 10+ New Designs</h3>
+                        <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
+                            <li><b>Exclusive:</b> Cherry Blossom, Cobalt Sky, Cool Revival</li>
+                            <li><b>Eye-Care:</b> Nord, Gruvbox, Solarized Dark & Zen Matcha</li>
+                            <li>Reorganized UI menu with dynamic hover borders</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">✨ SLK Duplicate Remover</h3>
+                        <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
+                            <li>One-click cleanup for overlapping <code>n</code> notes</li>
+                            <li>Automatically shifts notes up to prevent empty SLK rows</li>
+                            <li>Safely outputs to a new <code>_fixed.slk</code> file</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: var(--ef-text);">📊 Analyzer & Bug Fixes</h3>
+                        <ul class="clean-list" style="margin-bottom: 0; font-size: 0.9rem;">
+                            <li>Added accurate <b>Total Keys</b> metric (n + s + s,f + n,f)</li>
+                            <li>Fixed sidebar layout overlap with <b>UniformGrid</b></li>
+                            <li>Pattern ratios correctly balance long vs short songs</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHARTING LOGIC -->
             <div class="panel">
                 <h2 style="border-bottom: none; padding-bottom: 0;" data-i18n="san.charting.title">✨ Charting Logic</h2>
                 
@@ -237,6 +290,7 @@
 
             </div>
 
+            <!-- DISCLAIMER -->
             <div class="panel" style="border-left: 3px solid var(--ef-red);">
                 <h2 style="border-bottom: none; color: var(--ef-red); margin-bottom: 10px;" data-i18n="san.disclaimer.title">Disclaimer</h2>
                 <p style="margin: 0;" data-i18n="san.disclaimer.text">This tool is free to download and use. Reverse engineering, decompiling, or redistributing modified versions of the executable is strictly prohibited.</p>
