@@ -161,9 +161,10 @@ a:hover { color: var(--ef-accent-light); }
 .card-desc { font-size: 0.95rem; color: var(--ef-subtext); margin-bottom: 25px; flex-grow: 1; }
 
 /* Badges */
-.badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+.badge { font-size: 0.65rem; padding: 4px 10px; border-radius: 6px; font-weight: 600; }
 .badge.active { background: rgba(50, 168, 82, 0.1); color: var(--ef-green); border: 1px solid rgba(50, 168, 82, 0.2); }
 .badge.version { background: rgba(224, 175, 104, 0.1); color: var(--ef-accent); border: 1px solid rgba(224, 175, 104, 0.2); }
+.badge.status { background: rgba(197, 82, 93, 0.1); color: var(--ef-accent-light); border: 1px solid rgba(197, 82, 93, 0.2); }
 
 /* --- DOCS/TABLES (sanconverter.html) --- */
 .doc-header { margin-bottom: 50px; }
