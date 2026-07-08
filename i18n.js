@@ -24,8 +24,14 @@ const translations = {
         "tools.title": "Projects",
         "tools.subtitle": "A collection of software, scripts, and utilities.",
         "tools.section.active": "Active Main Projects",
+        
+        // Tools - Cards
+        "tools.sbp.desc": "A feature-rich rhythm game player and chart editor in C# (WPF). Includes live split-view charting and authentic BeatUp mechanics.",
+        "tools.sbp.btn": "View Player Details",
         "tools.sanconverter.desc": "The ultimate tool to convert .SM and .SSC files to .SLK format. Built with .NET 4.8. This platform is actively maintained, stable, and continuously updated with new charting logic.",
         "tools.sanconverter.btn": "Read Documentation & Download",
+        "tools.batch.desc": "A high-performance WPF desktop application designed to automate image conversion (PNG ↔ DDS), extract GIF frames, and batch rename files with live animated previews.",
+        "tools.batch.btn": "View Project Details",
         "tools.av.desc": "Native C++ workflow extensions integrated directly into Arrow Vortex. Features on-the-fly WAV to OGG silencing with LUFS normalization and direct SLK measure exporting.",
         "tools.av.btn": "Read Documentation",
         "tools.section.legacy": "Completed & Legacy Projects",
@@ -33,8 +39,39 @@ const translations = {
         "tools.silencer.desc": "Open Source Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG. Final stable build. <br>Download latest release here.",
         "tools.btn.download": "Download .exe",
         "tools.footer": "&copy; 2026 Sanya. All rights reserved.",
-        "tools.batch.desc": "A high-performance WPF desktop application designed to automate image conversion (PNG ↔ DDS), extract GIF frames, and batch rename files with live animated previews.",
-        "tools.batch.btn": "View Project Details",
+        
+        // SBP Editor (New Page)
+        "sbp.title": "SanPlayer (SBP Editor)",
+        "sbp.subtitle": "Advanced BeatUp Chart Editor & Player",
+        "sbp.download": "Download Pre-Release",
+        "sbp.windows64": "Windows 64-bit Standalone",
+        "sbp.install.desc": "Download the portable .zip file. Extract it and run the executable. Ensure the assets folder remains in the same directory for the engine to load correctly.",
+        "sbp.video.title": "Video Showcase",
+        "sbp.features.title": "Overview & Features",
+        "sbp.features.desc": "SanPlayer is a custom, feature-rich rhythm game player and chart editor. It is specifically designed to replicate and map BeatUp style charts (similar to Audition / CDIU) with absolute sub-pixel precision.",
+        "sbp.features.split": "<strong style='color: var(--ef-text);'>Live Split-View Charting:</strong> Edit your charts in real-time on the timeline while watching the Autoplay render your gameplay and hit-bursts instantly in the split-screen game view.",
+        "sbp.features.snap": "<strong style='color: var(--ef-text);'>Editor Snapping:</strong> The timeline canvas supports precise note placement with dynamic snapping at 1/4 (Red), 1/8 (Blue), and 1/16 (Yellow) intervals.",
+        "sbp.features.modes": "<strong style='color: var(--ef-text);'>3 Display Modes:</strong> Game Mode (Pure gameplay experience), Editor Mode (Powerful timeline canvas), and Split View.",
+        "sbp.features.auth": "<strong style='color: var(--ef-text);'>Authentic Mechanics:</strong> Fully replicates 6-Key + Spacebar gameplay, including the iconic \"Finish Move\" (Lane 7) ease-out animations and combo gauge systems.",
+        "sbp.features.files": "<strong style='color: var(--ef-text);'>Chart Conversion & Formats:</strong> Directly import, edit, and convert between <code>.slk</code> (SYLK) and <code>.ssc</code> (StepMania) files. Save your full workspace logic instantly using native <code>.san</code> project files.",
+        "sbp.gallery.title": "Interface Showcase",
+        "sbp.controls.title": "Controls & Keybinds",
+        "sbp.controls.transport": "Global Transport (Audio)",
+        "sbp.controls.key": "Key",
+        "sbp.controls.action": "Action",
+        "sbp.controls.action_lane": "Action (Lane)",
+        "sbp.controls.play": "Play / Pause (Toggle)",
+        "sbp.controls.stop": "Stop & Rewind to Editor Position",
+        "sbp.controls.seek": "Seek forward / backward in timeline",
+        "sbp.controls.numpad": "Gameplay & Charting (Numpad Mode 74196305)",
+        "sbp.controls.left": "Left Arrows (Top, Mid, Bottom)",
+        "sbp.controls.right": "Right Arrows (Top, Mid, Bottom)",
+        "sbp.controls.space": "Spacebar (Normal)",
+        "sbp.controls.finish": "Spacebar (Finish Move)",
+        "sbp.controls.std": "Gameplay & Charting (Standard Mode)",
+        "sbp.controls.std_desc": "Use the number row <code>1, 2, 3</code> for Left and <code>4, 5, 6</code> for Right. Press <code>S</code> for Space and <code>F</code> for Finish Move.",
+        "sbp.structure.title": "Project Structure & Assets",
+        "sbp.structure.desc": "To run SanPlayer correctly, ensure the <code>assets</code> folder is placed in the output directory. You can swap backgrounds by simply dropping your images into the background folder.",
 
         // SanConverter
         "san.subtitle": "Official documentation and logic structure for the BeatUp Converter.",
@@ -133,31 +170,6 @@ const translations = {
         "san.bu4.n_hold": "* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.",
         "san.bu4.n_roll": "* <b>Roll:</b> A rolled Hold.",
 
-        // Table Content: AV Specific
-        "av.std_l": "Standard Left Notes",
-        "av.std_r": "Standard Right Notes",
-        "av.state_marker": "State Marker",
-        "av.state_res": "2 = Hold, 4 = Roll, 3 = End",
-        "av.smart_rand": "Smart Random Key",
-        "av.smart_res": "Generates Random Key based on pressed lanes*",
-        "av.space_mod": "Space Modifier",
-        "av.space_res": "If 1 = Space (s)",
-        "av.hidden_note": "Hidden Note",
-        "av.hidden_res": "Mine on 7 = Double, Mine on 7+8 = Triple",
-        "av.s_f": "s,f",
-        "av.note_fin": "Note finish",
-        "av.n_f": "n,f",
-        "av.fin": "Finish",
-        "av.f": "f",
-        "av.note_gen": "Note Generator",
-        "av.note_gen_res": "Random Generated Note (n)",
-        "av.space_mod2": "Space Modifier",
-        "av.space_mod2_res": "1 = Space (s) | M = Space+Finish (s,f)",
-        "av.left_mod": "Left Modifier",
-        "av.left_mod_res": "2 = Hold Left | 4 = Roll Left | 3 = End",
-        "av.right_mod": "Right Modifier",
-        "av.right_mod_res": "2 = Hold Right | 4 = Roll Right | 3 = End",
-
         // Table Content: OTP
         "otp.note": "Note",
         "otp.change": "Change",
@@ -189,8 +201,14 @@ const translations = {
         "tools.title": "项目",
         "tools.subtitle": "软件、脚本和实用工具的集合。",
         "tools.section.active": "活跃的主项目",
+        
+        // Tools - Cards
+        "tools.sbp.desc": "一个功能丰富的 C# (WPF) 音乐游戏播放器和制谱编辑器。包含实时分屏制谱和真实的 BeatUp 机制。",
+        "tools.sbp.btn": "查看播放器详情",
         "tools.sanconverter.desc": "将 .SM 和 .SSC 文件转换为 .SLK 格式的终极工具。基于 .NET 4.8 构建。该平台受到积极维护，稳定并不断更新新的制谱逻辑。",
         "tools.sanconverter.btn": "阅读文档与下载",
+        "tools.batch.desc": "一款高性能的 WPF 桌面应用程序，专为自动转换图像 (PNG ↔ DDS)、提取 GIF 帧以及批量重命名文件而设计，并支持实时动画预览。",
+        "tools.batch.btn": "查看项目详情",
         "tools.av.desc": "直接集成到 Arrow Vortex 中的原生 C++ 工作流扩展。具有实时 WAV 到 OGG 的静音功能（带 LUFS 标准化）和直接导出 SLK 小节数据的功能。",
         "tools.av.btn": "阅读文档",
         "tools.section.legacy": "已完成与旧项目",
@@ -198,8 +216,39 @@ const translations = {
         "tools.silencer.desc": "用于将 .ogg 文件静音的开源音频处理工具。最佳工作流程：FLAC → WAV → OGG。<br>最终稳定版本。在此下载最新版本。",
         "tools.btn.download": "下载 .exe",
         "tools.footer": "&copy; 2026 Sanya. 保留所有权利。",
-        "tools.batch.desc": "一款高性能的 WPF 桌面应用程序，专为自动转换图像 (PNG ↔ DDS)、提取 GIF 帧以及批量重命名文件而设计，并支持实时动画预览。",
-        "tools.batch.btn": "查看项目详情",
+
+        // SBP Editor (New Page)
+        "sbp.title": "SanPlayer (SBP Editor)",
+        "sbp.subtitle": "高级 BeatUp 制谱编辑器和播放器",
+        "sbp.download": "下载预览版",
+        "sbp.windows64": "Windows 64位 独立版",
+        "sbp.install.desc": "下载便携的 .zip 文件。解压并运行可执行文件。确保 assets 文件夹与引擎保留在同一目录中，以便正确加载。",
+        "sbp.video.title": "视频演示",
+        "sbp.features.title": "功能概览",
+        "sbp.features.desc": "SanPlayer 是一个自定义的、功能丰富的节奏游戏播放器和制谱编辑器。专为以绝对亚像素精度复制和映射 BeatUp 风格图表（类似于 Audition / CDIU）而设计。",
+        "sbp.features.split": "<strong style='color: var(--ef-text);'>实时分屏制谱:</strong> 在时间轴上实时编辑图表，同时在分屏游戏视图中观看自动播放渲染的游戏玩法和击打特效。",
+        "sbp.features.snap": "<strong style='color: var(--ef-text);'>编辑器吸附:</strong> 时间轴画布支持以 1/4（红色）、1/8（蓝色）和 1/16（黄色）间隔进行动态吸附，实现精确的音符放置。",
+        "sbp.features.modes": "<strong style='color: var(--ef-text);'>3 种显示模式:</strong> 游戏模式（纯粹的游戏体验）、编辑器模式（强大的时间轴画布）和分屏视图。",
+        "sbp.features.auth": "<strong style='color: var(--ef-text);'>真实的机制:</strong> 完全复制 6 键 + 空格键的游戏玩法，包括标志性的“终结技”(第 7 轨) 缓出动画和连击槽系统。",
+        "sbp.features.files": "<strong style='color: var(--ef-text);'>图表转换与格式:</strong> 直接导入、编辑并在 <code>.slk</code> (SYLK) 和 <code>.ssc</code> (StepMania) 文件之间转换。使用原生的 <code>.san</code> 项目文件保存您的完整工作区逻辑。",
+        "sbp.gallery.title": "界面展示",
+        "sbp.controls.title": "控制与快捷键",
+        "sbp.controls.transport": "全局控制 (音频)",
+        "sbp.controls.key": "按键",
+        "sbp.controls.action": "操作",
+        "sbp.controls.action_lane": "操作 (轨道)",
+        "sbp.controls.play": "播放 / 暂停 (切换)",
+        "sbp.controls.stop": "停止 (倒回到起点/编辑器位置)",
+        "sbp.controls.seek": "在时间轴中向前 / 向后移动",
+        "sbp.controls.numpad": "游戏与制谱 (小键盘模式 74196305)",
+        "sbp.controls.left": "左箭头 (上, 中, 下)",
+        "sbp.controls.right": "右箭头 (上, 中, 下)",
+        "sbp.controls.space": "空格键 (普通)",
+        "sbp.controls.finish": "空格键 (终结技)",
+        "sbp.controls.std": "游戏与制谱 (标准模式)",
+        "sbp.controls.std_desc": "使用数字键 <code>1, 2, 3</code> 控制左侧，<code>4, 5, 6</code> 控制右侧。按 <code>S</code> 触发空格，按 <code>F</code> 触发终结技。",
+        "sbp.structure.title": "项目结构与资源",
+        "sbp.structure.desc": "要正确运行 SanPlayer，请确保 <code>assets</code> 文件夹放置在输出目录中。您可以通过将图像直接拖放到 background 文件夹中来轻松更换背景。",
 
         // SanConverter
         "san.subtitle": "BeatUp 转换器的官方文档和逻辑结构。",
@@ -298,31 +347,6 @@ const translations = {
         "san.bu4.n_hold": "* <b>长按 (Hold):</b> 按住所需单侧箭头数量对应的按键。",
         "san.bu4.n_roll": "* <b>连打 (Roll):</b> 连打型长按。",
 
-        // Table Content: AV Specific
-        "av.std_l": "标准左侧音符",
-        "av.std_r": "标准右侧音符",
-        "av.state_marker": "状态标记",
-        "av.state_res": "2 = 长按, 4 = 连打, 3 = 结束",
-        "av.smart_rand": "智能随机按键",
-        "av.smart_res": "基于按下的轨道生成随机按键*",
-        "av.space_mod": "空格修饰符",
-        "av.space_res": "如果 1 = 空格 (s)",
-        "av.hidden_note": "隐藏音符",
-        "av.hidden_res": "第 7 轨地雷 = 双重, 7+8 = 三重",
-        "av.s_f": "s,f",
-        "av.note_fin": "音符终结技",
-        "av.n_f": "n,f",
-        "av.fin": "终结技",
-        "av.f": "f",
-        "av.note_gen": "音符生成器",
-        "av.note_gen_res": "随机生成音符 (n)",
-        "av.space_mod2": "空格修饰符",
-        "av.space_mod2_res": "1 = 空格 (s) | M = 空格+终结技 (s,f)",
-        "av.left_mod": "左侧修饰符",
-        "av.left_mod_res": "2 = 左长按 | 4 = 左连打 | 3 = 结束",
-        "av.right_mod": "右侧修饰符",
-        "av.right_mod_res": "2 = 右长按 | 4 = 右连打 | 3 = 结束",
-
         // Table Content: OTP
         "otp.note": "音符",
         "otp.change": "方向",
@@ -351,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lade gespeichertes Theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 
@@ -359,10 +382,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const langBtns = document.querySelectorAll('.lang-btn');
 
     function setLanguage(lang) {
-        // NEU: Setzt das Sprach-Attribut im <html> Tag (Aktiviert den neuen CSS Block!)
         document.documentElement.lang = lang;
         
-        // Text austauschen
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
@@ -370,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Button Styling updaten
         langBtns.forEach(btn => {
             if(btn.getAttribute('data-lang') === lang) btn.classList.add('active');
             else btn.classList.remove('active');
@@ -385,7 +405,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lade gespeicherte Sprache
     const savedLang = localStorage.getItem('lang') || 'en';
     setLanguage(savedLang);
 });
