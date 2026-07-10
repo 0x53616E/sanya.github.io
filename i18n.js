@@ -43,7 +43,7 @@ const translations = {
         // SBP Editor (New Page)
         "sbp.title": "SanPlayer (SBP Editor)",
         "sbp.subtitle": "Advanced BeatUp Chart Editor & Player",
-        "sbp.download": "Download Pre-Release",
+        "sbp.download": "Download Release",
         "sbp.windows64": "Windows 32-bit Standalone + assets",
         "sbp.install.desc": "Download the portable .zip file. Extract it and run the executable. Ensure the assets folder remains in the same directory for the engine to load correctly.",
         "sbp.video.title": "Video Showcase",
