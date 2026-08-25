@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatUp Engine — Sanya</title>
+    <link rel="icon" type="image/png" href="./assets/bears_hand.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="modern-launcher">
+
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="index.html" class="nav-brand">
+            <img src="./assets/logo.png" alt="Sanya" onerror="this.style.display='none'">
+            <span>Sanya</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="tools.html" class="active" data-i18n="nav.projects">Projects</a>
+        </div>
+    </div>
+    
+    <div class="nav-right">
+        <a href="https://github.com/bishpop" target="_blank" class="nav-social">GitHub ↗</a>
+        <div class="divider"></div>
+        <button id="themeToggle" class="theme-toggle" title="Toggle Theme">☀️</button>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh">简</button>
+        </div>
+    </div>
+</nav>
+
+<main class="page-content">
+    
+    <!-- HERO SECTION (STEAM/HOYOVERSE STYLE) -->
+    <section class="store-hero fade-in">
+        <div class="hero-backdrop"></div>
+        
+        <!-- NEU: Hier ist dein Cover-Bild -->
+        <div class="hero-cover"></div> 
+
+        <div class="hero-content container">
+            <div class="hero-meta">
+                <span class="tag" data-i18n="patcher.badge.status">Early Access</span>
+                <span class="tag outline">v0.1</span>
+                <span class="tag outline">Windows x64</span>
+            </div>
+            
+            <h1 class="hero-title" data-i18n="patcher.title">BeatUp Engine</h1>
+            <p class="hero-desc" data-i18n="patcher.subtitle">A high-fidelity, open-source BeatUp rhythm game engine built from scratch in C++ with SDL2. Designed to replicate authentic Audition Online / CDIU gameplay mechanics with sub-millisecond timing precision.</p>
+            
+            <div class="hero-actions">
+                <a href="#download" class="btn-primary-large" data-i18n="patcher.btn.download">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Release
+                </a>
+                <a href="https://github.com/bishpop" target="_blank" class="btn-secondary-large">Github</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container layout-grid fade-in" style="animation-delay: 0.1s;">
+        
+        <!-- MAIN CONTENT COLUMN -->
+        <div class="main-column">
+            
+            <!-- MEDIA SHOWCASE -->
+            <section class="content-section">
+                <h2 class="section-title">Media</h2>
+                <div class="media-scroller">
+                    <div class="media-item">
+                        <img src="./assets/MainMenu.png" alt="Editor Mode (With Split View)" class="gallery-preview-img" onerror="this.src='https://via.placeholder.com/600x338/171d24/21dfa6?text=Split+View'">
+                        <div class="media-caption">Main Menu</div>
+                    </div>
+                    <div class="media-item">
+                        <img src="./assets/BuEditor.png" alt="Chart Editor" class="gallery-preview-img" onerror="this.src='https://via.placeholder.com/600x338/171d24/21dfa6?text=Chart+Editor'">
+                        <div class="media-caption">Chart Editor</div>
+                    </div>
+                    <div class="media-item">
+                        <img src="./assets/BuPatcher.png" alt="Gameplay" class="gallery-preview-img" onerror="this.src='https://via.placeholder.com/600x338/171d24/21dfa6?text=Gameplay'">
+                        <div class="media-caption">Offline Patcher</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT / FEATURES -->
+            <section class="content-section">
+                <h2 class="section-title" data-i18n="patcher.features.title">About This Engine</h2>
+                <div class="about-text">
+                    <p>The BeatUp Engine is engineered for absolute precision, delivering an authentic rhythm game experience natively on modern Windows systems without the overhead of heavy commercial game engines.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🎯</div>
+                        <h4>1:1 Timing Engine</h4>
+                        <p>Beat detection ported directly from the original VB6 codebase. Perfect ±0.3, Great ±0.4, Cool ±0.5 windows.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🎹</div>
+                        <h4>Authentic Layout</h4>
+                        <p>Numpad 9/6/3 (Right), 7/4/1 (Left), Space, and Numpad 5 for Finish Moves. Includes Mirror & AutoPlay.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🎼</div>
+                        <h4>Chart Editor</h4>
+                        <p>Built-in timeline canvas with 1/4, 1/8, 1/16 snapping, and live split-view for real-time AutoPlay review.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🔊</div>
+                        <h4>miniaudio Engine</h4>
+                        <p>.ogg and .wav support with precise seekMs, adjustable playback speeds, and per-SFX volume control.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KEYBINDS (ACCORDION/TABS STYLE CONTENT) -->
+            <section class="content-section">
+                <h2 class="section-title" data-i18n="patcher.keys.title">Controls & Keybinds</h2>
+                
+                <div class="data-group">
+                    <h3 class="data-group-title">Global Hotkeys</h3>
+                    <div class="data-table">
+                        <div class="data-row"><div class="data-key"><kbd>Esc</kbd></div><div class="data-val">Back / Menu / Exit (Hold 3s in-game)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + S</kbd></div><div class="data-val">Open Sound Settings</div></div>
+                    </div>
+                </div>
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Menu & Patcher</h3>
+                    <div class="data-table">
+                        <div class="data-row"><div class="data-key"><kbd>Up</kbd> / <kbd>Down</kbd></div><div class="data-val">Navigate song list</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Enter</kbd></div><div class="data-val">Start selected song</div></div>
+                    </div>
+                </div>
+                
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Gameplay (Numpad)</h3>
+                    <div class="data-table">
+                        <div class="data-row"><div class="data-key"><kbd>Num 9 / 6 / 3</kbd></div><div class="data-val">Right Lane (Top / Mid / Bottom)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Num 7 / 4 / 1</kbd></div><div class="data-val">Left Lane (Top / Mid / Bottom)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Space</kbd> / <kbd>Num 0</kbd> / <kbd>Ins</kbd></div><div class="data-val">Space Note</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Num 5</kbd></div><div class="data-val">Finish Move</div></div>
+                    </div>
+                </div>
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Gameplay (Standard)</h3>
+                    <div class="data-table">
+                        <div class="data-row"><div class="data-key"><kbd>4 / 5 / 6</kbd></div><div class="data-val">Right Lane (Top / Mid / Bottom)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>1 / 2 / 3</kbd></div><div class="data-val">Left Lane (Top / Mid / Bottom)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>S</kbd></div><div class="data-val">Space Note</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>F</kbd></div><div class="data-val">Finish Move</div></div>
+                    </div>
+                </div>
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Editor & Playback</h3>
+                    <div class="data-table">
+                        <div class="data-row"><div class="data-key"><kbd>F1</kbd> / <kbd>F2</kbd> / <kbd>F3</kbd></div><div class="data-val">Game Mode / Editor / Split View</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>F4</kbd></div><div class="data-val">Toggle Metronome</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>F5</kbd> / <kbd>Space</kbd></div><div class="data-val">Audio Play / Pause (Toggle)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>F6</kbd></div><div class="data-val">Toggle AutoPlay</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>F7</kbd></div><div class="data-val">Stop playback & reset completely</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>K</kbd></div><div class="data-val">Stop & Rewind to Editor position</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + ⬅ / ➡</kbd></div><div class="data-val">Adjust Playback Speed (±5%)</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + 0</kbd></div><div class="data-val">Reset Speed to 100%</div></div>
+                    </div>
+                </div>
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Chart Editing</h3>
+                    <div class="data-table">
+                        <div class="data-row"><div class="data-key"><kbd>Up</kbd> / <kbd>Down</kbd></div><div class="data-val">Seek timeline</div></div>
+                        <div class="data-row"><div class="data-key">Left Click</div><div class="data-val">Place / Remove note</div></div>
+                        <div class="data-row"><div class="data-key">Right Click</div><div class="data-val">Context Menu (Snap settings etc.)</div></div>
+                        <div class="data-row"><div class="data-key">Ctrl + Drag</div><div class="data-val">Select multiple notes</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + A</kbd></div><div class="data-val">Select all notes</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + C</kbd> / <kbd>V</kbd></div><div class="data-val">Copy / Paste selection</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + Z</kbd> / <kbd>Y</kbd></div><div class="data-val">Undo / Redo</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Ctrl + W</kbd> / <kbd>E</kbd></div><div class="data-val">Mirror Horizontally / Vertically</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Del</kbd></div><div class="data-val">Delete selection</div></div>
+                        <div class="data-row"><div class="data-key"><kbd>Tab</kbd></div><div class="data-val">Toggle tab selection</div></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            
+            <!-- DOWNLOAD WIDGET -->
+            <div id="download" class="widget download-widget">
+    <img src="./assets/logo.png" alt="Icon" class="widget-icon" onerror="this.style.display='none'">
+    <h3>Play BeatUp Engine</h3>
+    <p class="widget-sub">Free to play • Portable Build</p>
+    <div class="widget-actions">
+        <!-- target="_blank" öffnet den Link im neuen Tab -->
+        <a href="https://drive.proton.me/urls/ZF8J585X20#Lm9cxXR3p3D6" class="btn-install" target="_blank" rel="noopener noreferrer">
+            <span>Download .zip</span>
+            <span class="size">~12 MB Editor + 100 MB Patcher</span>
+        </a>
+    </div>
+    <div class="widget-meta">
+        <div><span>OS</span> Windows 10/11 x64</div>
+        <div><span>Version</span> v0.1 Stable</div>
+    </div>
+</div>
+
+            <!-- INSTALLATION WIDGET -->
+            <div class="widget info-widget">
+                <h3 class="widget-title">Installation Guide</h3>
+                <ol class="clean-steps">
+                    <li>Extract the downloaded <code>.zip</code> file.</li>
+                    <li>Keep <code>assets/</code> in the same folder as the <code>.exe</code>.</li>
+                    <li>Launch <code>BeatUpEngine.exe</code>.</li>
+                    <li><strong>File → Import .ogg</strong> to load music.</li>
+                    <li><strong>File → Import .slk</strong> to load the chart.</li>
+                </ol>
+            </div>
+
+            <!-- ASSETS WIDGET -->
+            <div class="widget info-widget">
+                <h3 class="widget-title">Asset Structure</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: -5px; margin-bottom: 12px; line-height: 1.5;">Drop files into these folders to replace textures/sounds.</p>
+                <ul class="asset-list">
+                    <li><strong>/arrows/</strong> Sprites, lasers</li>
+                    <li><strong>/bars/</strong> Lane backgrounds</li>
+                    <li><strong>/space/</strong> Spacebar UI elements</li>
+                    <li><strong>/combo/</strong> Combo & Score digits</li>
+                    <li><strong>/sounds/</strong> beat.wav, miss.ogg, etc.</li>
+                </ul>
+            </div>
+            
+        </aside>
+
+    </div>
+</main>
+
+<footer class="app-footer">
+    <div class="container">
+        <p>&copy; 2026 Sanya. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">×</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
+<script src="i18n.js"></script>
+<script>
+// Lightbox Logic
+document.querySelectorAll('.gallery-preview-img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+document.getElementById('lightboxClose').addEventListener('click', () =>
+    document.getElementById('lightbox').classList.remove('active'));
+document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+});
+</script>
+<script>
+// Smooth Scroll & Highlight Download Widget
+document.querySelector('a[href="#download"]').addEventListener('click', function(e) {
+    e.preventDefault(); // Verhindert das harte Springen
+    
+    const downloadWidget = document.getElementById('download');
+    
+    // Sanft zum Widget scrollen
+    downloadWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    // Animationsklasse entfernen (falls sie schon da ist) und neu hinzufügen
+    downloadWidget.classList.remove('highlight-pulse');
+    
+    // Kurzer Timeout stellt sicher, dass der Browser die Klasse neu registriert
+    setTimeout(() => {
+        downloadWidget.classList.add('highlight-pulse');
+    }, 10);
+});
+</script>
+</body>
+</html>

@@ -1,410 +1,251 @@
-// i18n.js - Globale Übersetzungs- und Theme-Logik
+// ============================================================
+//  i18n.js  —  BeatUp Engine Portfolio
+//  Languages: EN · 简体中文 (ZH)
+//  Also handles: Theme Toggle (dark/light)
+// ============================================================
 
 const translations = {
-    en: {
-        // Navbar
-        "nav.home": "Home",
-        "nav.projects": "Projects",
-        
-        // Tabs
-        "tab.bu8": "Beat Up 8",
-        "tab.bu4": "Beat Up 4",
-        "tab.otp4": "OTP 4",
-        "tab.otp8": "OTP 8",
-        "tab.revert": "Revert Logic",
+  en: {
+    // Nav
+    "nav.home":      "Home",
+    "nav.projects":  "Projects",
 
-        // Index
-        "index.accent": "Software & Tools",
-        "index.h1": "Building custom solutions & logic converters.",
-        "index.desc": "Welcome to my portfolio. I specialize in C#, UI/UX customization, and developing specialized tools like the SanConverter for rhythm game charting logic.",
-        "index.btn.sanconverter": "SanConverter",
-        "index.btn.projects": "Explore Projects",
+    // Index
+    "index.accent":       "Software & Tools",
+    "index.h1":           "Building custom solutions & rhythm game tools.",
+    "index.desc":         "Welcome to my portfolio. I specialize in C++ and C#, UI/UX customization, and developing specialized tools for rhythm game charting — including the BeatUp Engine and SanConverter.",
+    "index.btn.patcher":  "BeatUp Engine",
+    "index.btn.projects": "Explore Projects",
 
-        // Tools
-        "tools.title": "Projects",
-        "tools.subtitle": "A collection of software, scripts, and utilities.",
-        "tools.section.active": "Active Main Projects",
-        
-        // Tools - Cards
-        "tools.sbp.desc": "A feature-rich rhythm game player and chart editor in C# (WPF). Includes live split-view charting and authentic BeatUp mechanics.",
-        "tools.sbp.btn": "View Player Details",
-        "tools.sanconverter.desc": "The ultimate tool to convert .SM and .SSC files to .SLK format. Built with .NET 4.8. This platform is actively maintained, stable, and continuously updated with new charting logic.",
-        "tools.sanconverter.btn": "Read Documentation & Download",
-        "tools.batch.desc": "A high-performance WPF desktop application designed to automate image conversion (PNG ↔ DDS), extract GIF frames, and batch rename files with live animated previews.",
-        "tools.batch.btn": "View Project Details",
-        "tools.av.desc": "Native C++ workflow extensions integrated directly into Arrow Vortex. Features on-the-fly WAV to OGG silencing with LUFS normalization and direct SLK measure exporting.",
-        "tools.av.btn": "Read Documentation",
-        "tools.section.legacy": "Completed & Legacy Projects",
-        "tools.analyzer.desc": "Utility to check the original .SLK Header to verify if the file is valid or corrupted. Project completed and archived.",
-        "tools.silencer.desc": "Open Source Audio processing tool to silence .ogg files. Optimal workflow: FLAC → WAV → OGG. Final stable build. <br>Download latest release here.",
-        "tools.btn.download": "Download .exe",
-        "tools.footer": "&copy; 2026 Sanya. All rights reserved.",
-        
-        // SBP Editor (New Page)
-        "sbp.title": "SanPlayer (SBP Editor)",
-        "sbp.subtitle": "Advanced BeatUp Chart Editor & Player",
-        "sbp.download": "Download Release",
-        "sbp.windows64": "Windows 32-bit Standalone + assets",
-        "sbp.install.desc": "Download the portable .zip file. Extract it and run the executable. Ensure the assets folder remains in the same directory for the engine to load correctly.",
-        "sbp.video.title": "Video Showcase",
-        "sbp.features.title": "Overview & Features",
-        "sbp.features.desc": "SanPlayer is a custom, feature-rich rhythm game player and chart editor. It is specifically designed to replicate and map BeatUp style charts (similar to Audition / CDIU) with absolute sub-pixel precision.",
-        "sbp.features.split": "<strong style='color: var(--ef-text);'>Live Split-View Charting:</strong> Edit your charts in real-time on the timeline while watching the Autoplay render your gameplay and hit-bursts instantly in the split-screen game view.",
-        "sbp.features.snap": "<strong style='color: var(--ef-text);'>Editor Snapping:</strong> The timeline canvas supports precise note placement with dynamic snapping at 1/4 (Red), 1/8 (Blue), and 1/16 (Yellow) intervals.",
-        "sbp.features.modes": "<strong style='color: var(--ef-text);'>3 Display Modes:</strong> Game Mode (Pure gameplay experience), Editor Mode (Powerful timeline canvas), and Split View.",
-        "sbp.features.auth": "<strong style='color: var(--ef-text);'>Authentic Mechanics:</strong> Fully replicates 6-Key + Spacebar gameplay, including the iconic \"Finish Move\" (Lane 7) ease-out animations and combo gauge systems.",
-        "sbp.features.files": "<strong style='color: var(--ef-text);'>Chart Conversion & Formats:</strong> Directly import, edit, and convert between <code>.slk</code> (SYLK) and <code>.ssc</code> (StepMania) files. Save your full workspace logic instantly using native <code>.san</code> project files.",
-        "sbp.gallery.title": "Interface Showcase",
-        "sbp.controls.title": "Controls & Keybinds",
-        "sbp.controls.transport": "Global Transport (Audio)",
-        "sbp.controls.key": "Key",
-        "sbp.controls.action": "Action",
-        "sbp.controls.action_lane": "Action (Lane)",
-        "sbp.controls.play": "Play / Pause (Toggle)",
-        "sbp.controls.stop": "Stop & Rewind to Editor Position",
-        "sbp.controls.seek": "Seek forward / backward in timeline",
-        "sbp.controls.numpad": "Gameplay & Charting (Numpad Mode 74196305)",
-        "sbp.controls.left": "Left Arrows (Top, Mid, Bottom)",
-        "sbp.controls.right": "Right Arrows (Top, Mid, Bottom)",
-        "sbp.controls.space": "Spacebar (Normal)",
-        "sbp.controls.finish": "Spacebar (Finish Move)",
-        "sbp.controls.std": "Gameplay & Charting (Standard Mode)",
-        "sbp.controls.std_desc": "Use the number row <code>1, 2, 3</code> for Left and <code>4, 5, 6</code> for Right. Press <code>S</code> for Space and <code>F</code> for Finish Move.",
-        "sbp.structure.title": "Project Structure & Assets",
-        "sbp.structure.desc": "To run SanPlayer correctly, ensure the <code>assets</code> folder is placed in the output directory. You can swap backgrounds by simply dropping your images into the background folder.",
+    // Patcher Page
+    "patcher.badge.status": "Active Development",
+    "patcher.title":        "BeatUp Engine",
+    "patcher.subtitle":     "A high-fidelity, open-source BeatUp rhythm game engine built from scratch in C++ with SDL2. Designed to replicate authentic Audition Online / CDIU gameplay mechanics with sub-millisecond timing precision.",
+    "patcher.btn.download": "Download Release",
 
-        // SanConverter
-        "san.subtitle": "Official documentation and logic structure for the BeatUp Converter.",
-        "san.pdf": "📄 PDF Guide",
-        "san.tutorial": "🎥 Tutorial",
-        "san.download": "Download SanInstaller",
-        "san.windows64": "Windows 32-bit Setup",
-        "san.install.desc": "To get started, download the SanInstaller to your preferred directory and execute it. The installer will automatically retrieve and safely unpack the latest SanConverter deployment directly from GitHub.",
-        "san.overview.title": "Overview",
-        "san.overview.li1": "Modern, standalone UI (No installation required)",
-        "san.overview.li2": "Supports conversion of <code>.SM</code> and <code>.SSC</code> files to <code>.SLK</code>",
-        "san.overview.li3": "Full logic support for Beat Up and One-Two Party modes",
-        "san.charting.title": "✨ Charting Logic",
-        "san.bu8.title": "Beat Up 8 Structure",
-        "san.hold.title": "Hold & Roll Logic (Lane 7)",
-        "san.bu8.note1": "Lane 7 (index 6) acts as a state marker. If a hold/roll is active here, standard key assignments are overridden.",
-        "san.bu4.title": "Beat Up 4 Structure",
-        "san.otp4.title": "One Two Party 4 Logic",
-        "san.otp4.desc": "One-Two Party is a very sensitive gamemode, this converter supports all rules from charting lvl 1 to lvl 9.",
-        "san.otp8.title": "One Two Party 8 Logic",
-        "san.otp8.desc": "Fully supports all rules from charting lvl 1 to lvl 9.",
-        "san.revert.title": "Revert Logic",
-        "san.revert.desc": "The Converter features a powerful revert function. It accurately reverts all Audition BeatUp <code>.slk</code> and all Audition One-Two Party <code>.slk</code> files back into a clean Stepmania <code>.SSC</code> file, preserving patterns and BPM data.",
-        "san.disclaimer.title": "Disclaimer",
-        "san.disclaimer.text": "This tool is free to download and use. Reverse engineering, decompiling, or redistributing modified versions of the executable is strictly prohibited.",
+    "patcher.features.title": "Features",
+    "patcher.feat.timing.title": "1:1 Timing Engine",
+    "patcher.feat.timing.desc":  "Beat detection ported from VB6 cma6.bas. Judgment windows (Perfect ±0.3, Great ±0.4, Cool ±0.5) match Audition Online at offset 0.700.",
+    "patcher.feat.input.title":  "6-Key + Space Layout",
+    "patcher.feat.input.desc":   "Authentic numpad input: Numpad 9/6/3 (right) · 7/4/1 (left) · Space / 0 / Insert · Numpad 5 (Finish). Mirror mode & AutoPlay.",
+    "patcher.feat.editor.title": "Chart Editor",
+    "patcher.feat.editor.desc":  "Built-in top-down timeline canvas with 1/4, 1/8, 1/16 snapping, minimap, and live split-view for real-time AutoPlay review.",
+    "patcher.feat.audio.title":  "miniaudio Engine",
+    "patcher.feat.audio.desc":   "Powered by miniaudio for .ogg and .wav. Precise seekMs, adjustable playback speed (Ctrl+Left/Right), per-SFX volume control.",
+    "patcher.feat.formats.title":"SLK Format Support",
+    "patcher.feat.formats.desc": "Import and export .slk (SYLK) chart files. Full 16th-note resolution with per-note speed data (SData).",
+    "patcher.feat.render.title": "SDL2 Rendering",
+    "patcher.feat.render.desc":  "Hardware-accelerated SDL2 at 1024×768. Inter Italic score, animated combo sprites (Tier 0–3), hot-swap asset folders.",
 
-        // Arrow Vortex Plugins
-        "av.subtitle": "Official documentation for native C++ workflow plugins.",
-        "av.silencer.title": "🔇 AV Silencer Plugin",
-        "av.silencer.desc": "A native audio processing extension for Arrow Vortex. It allows you to silence <code>.wav</code> files directly within the editor environment and exports them smoothly into <code>.ogg</code> format while automatically applying precise LUFS adjustments.",
-        "av.silencer.li1": "Direct Arrow Vortex Integration",
-        "av.silencer.li2": "On-the-fly WAV to OGG conversion",
-        "av.silencer.li3": "Automated LUFS normalization for perfect audio levels",
-        "av.converter.title": "⚙️ AV Converter Plugin (SLK Export)",
-        "av.converter.desc": "A fully ported C++ version of the SanConverter logic, built directly into Arrow Vortex. It reads measure data on-the-fly and exports ready-to-use <code>.slk</code> files without needing an external executable.",
-        "av.cpp.title": "C++ Charting Logic (AV Native)",
-        "av.bu8.note1": "* <b>Smart Random Key (Lane 7 = '1'):</b> If Lane 1 is also pressed, it picks a random Left key. If Lane 2 is pressed, a Right key. If none, it picks from all keys.",
-        "av.bu8.note2": "<b>Hold (2):</b> Restricts notes inside the hold to max 2 jacks in a row.",
-        "av.bu8.note3": "<b>Roll (4):</b> Restricts notes inside the roll to NO consecutive jacks.",
-        "av.bu4.note1": "If both Left and Right modifiers are active simultaneously, the plugin generates alternating patterns or global no-repeat keys based on the hold/roll state.",
+    "patcher.dl.title":  "Download",
+    "patcher.dl.desc":   "Portable ZIP. Extract and run BeatUpEngine.exe. Keep the assets/ folder in the same directory.",
+    "patcher.dl.stable": "Stable",
+    "patcher.dl.btn":    "⬇ Download .zip",
 
-        // Tables General
-        "col.av": "Arrow Vortex Key",
-        "col.av_col": "AV Column",
-        "col.function": "Function",
-        "col.result": "Result",
-        "col.slk_res": "SLK Key / Result",
-        "col.slk": "Beat Up .SLK Key",
-        "col.otp": "OTP .SLK Key",
-        "col.comment": "Comment",
-        "col.state": "State",
-        "col.active_lane": "Active Lane",
-        "col.key_pool": "Key Pool",
-        "col.constraint": "Constraint",
+    "patcher.install.title": "Installation",
+    "patcher.install.1": "Download the ZIP archive and extract it to a folder of your choice.",
+    "patcher.install.2": "Ensure the <code>assets/</code> folder is in the same directory as <code>BeatUpEngine.exe</code>.",
+    "patcher.install.3": "Place your <code>.ogg</code> or <code>.wav</code> music file and <code>.slk</code> chart anywhere accessible.",
+    "patcher.install.4": "Launch <code>BeatUpEngine.exe</code>. Use <strong>File → Import .ogg</strong> to load music, then <strong>File → Import .slk</strong> for the chart.",
+    "patcher.install.5": "Press <kbd>F5</kbd> to play. Press <kbd>F6</kbd> to toggle AutoPlay. Adjust offset with the <code>[ − ]</code> <code>[ + ]</code> toolbar buttons.",
 
-        // Table Content: SanConverter / BU8
-        "bu8.spec_note": "Specific Note assignment",
-        "bu8.rem_v1": "removed in v1.0.2",
-        "bu8.key_arr_l": "Key Array {1,4,7}* (Left)",
-        "bu8.key_arr_r": "Key Array {3,6,9}* (Right)",
-        "bu8.space": "Space",
-        "bu8.fm": "Finish Move",
-        "bu8.shift8": "Shift + 8 (Mine on 8th Lane)",
-        "bu8.fm_no_space": "Finish Move without Space",
-        "bu8.note_fm": "Note + Finish",
-        "bu8.note_arr": "Note Array {1,3,4,6,7,9}",
-        "bu8.double_h": "Double Note (hidden)",
-        "bu8.m_lane7": "M on lane 7",
-        "bu8.triple_h": "Triple Note (hidden)",
-        "bu8.m_lane78": "M on lane 7 & 8",
-        
-        "bu8.lane1_l": "Lane 1 (Left)",
-        "bu8.lane2_r": "Lane 2 (Right)",
-        "bu8.lane1_2": "Lane 1 + 2",
-        "bu8.max2_jacks": "Max 2 jacks in a row",
-        "bu8.no_repeat": "No direct repeat (no Jacks)",
-        "bu8.reset_bu8": "Resets to BU8",
-        
-        "san.bu8.n_rand": "* <b>Random Key:</b> A note stated as <code>n</code> in the .slk which Audition can read, randomly generated using a no Jack-Logic.",
-        "san.bu8.n_m": "* <b>M:</b> Mine.",
+    "patcher.keys.title":    "Controls & Keybinds",
+    "patcher.keys.global":   "Global Transport",
+    "patcher.keys.gameplay": "Gameplay (Numpad)",
+    "patcher.keys.key":      "Key",
+    "patcher.keys.action":   "Action",
+    "patcher.keys.lane":     "Lane",
 
-        // Table Content: BU4
-        "bu4.rand_note": "Random Generated Note",
-        "bu4.rand_l": "Random Left",
-        "bu4.hold_star": "Hold*",
-        "bu4.rand_l_noj": "Random Left no Jacks",
-        "bu4.roll_star": "Roll*",
-        "bu4.rand_r": "Random Right",
-        "bu4.hold": "Hold",
-        "bu4.rand_r_noj": "Random Right no Jacks",
-        "bu4.roll": "Roll",
-        "bu4.rand_lr": "Random Left-Right",
-        "bu4.hold_34": "Hold 3+4 (Random Left-Right Pattern)",
-        "bu4.rand_nr": "Random No Repeat",
-        "bu4.roll_34": "Roll 3+4 (Random no repeat Pattern)",
-        "san.bu4.n_hold": "* <b>Hold:</b> Holding the key for the amount of arrows you want on a specific side.",
-        "san.bu4.n_roll": "* <b>Roll:</b> A rolled Hold.",
+    "patcher.key.f5":     "Play / Pause",
+    "patcher.key.f6":     "Toggle AutoPlay",
+    "patcher.key.f7":     "Stop & Rewind",
+    "patcher.key.f1":     "Game Mode",
+    "patcher.key.f2":     "Chart Editor Mode",
+    "patcher.key.f3":     "Split View",
+    "patcher.key.f4":     "Metronome Toggle",
+    "patcher.key.slower": "Speed −5%",
+    "patcher.key.faster": "Speed +5%",
+    "patcher.key.reset":  "Reset Speed to 100%",
 
-        // Table Content: OTP
-        "otp.note": "Note",
-        "otp.change": "Change",
-        "otp.dance": "Dance",
-        "otp.space": "Space",
-        "otp.rotation": "Rotation",
-        "otp.rotate": "Rotate"
-    },
-    zh: {
-        // Navbar
-        "nav.home": "主页",
-        "nav.projects": "项目",
-        
-        // Tabs
-        "tab.bu8": "Beat Up 8",
-        "tab.bu4": "Beat Up 4",
-        "tab.otp4": "OTP 4",
-        "tab.otp8": "OTP 8",
-        "tab.revert": "还原逻辑",
+    "patcher.lane.r1":     "Right — Top",
+    "patcher.lane.r2":     "Right — Middle",
+    "patcher.lane.r3":     "Right — Bottom",
+    "patcher.lane.l1":     "Left — Top",
+    "patcher.lane.l2":     "Left — Middle",
+    "patcher.lane.l3":     "Left — Bottom",
+    "patcher.lane.space":  "Space Note",
+    "patcher.lane.finish": "Finish Move",
 
-        // Index
-        "index.accent": "软件与工具",
-        "index.h1": "构建定制解决方案与逻辑转换器。",
-        "index.desc": "欢迎来到我的作品集。我专注于 C# 开发、UI/UX 定制，以及开发像 SanConverter 这样用于音乐游戏制谱逻辑的专业工具。",
-        "index.btn.sanconverter": "SanConverter",
-        "index.btn.projects": "探索项目",
+    "patcher.struct.title":    "Asset Structure",
+    "patcher.struct.desc":     "The engine loads all textures from the assets/ folder at startup. Replace any asset by dropping a new file with the same name into the corresponding subfolder.",
+    "patcher.struct.folder":   "Folder",
+    "patcher.struct.contents": "Contents",
+    "patcher.struct.arrows":   "Arrow sprites, receptor flashes, laser textures",
+    "patcher.struct.bars":     "Left/right bar backgrounds",
+    "patcher.struct.space":    "spacebar.png, SPACE.png, SLINE.png, spacepress.png, fn.png",
+    "patcher.struct.score":    "score_0.png … score_9.png, comma.png",
+    "patcher.struct.combo":    "combo_0_0.png … combo_3_9.png (Tier × Digit)",
+    "patcher.struct.game":     "Judgment sprites (perfect, great, miss…), READY, combo gauge",
+    "patcher.struct.sounds":   "beat.wav, miss.ogg, ready.ogg, start.ogg, space_bar.wav, tick.wav",
+    "patcher.struct.font":     "Inter_18pt-Italic.ttf (score & combo display)",
+    "patcher.struct.bg":       "Custom background images (any name)",
 
-        // Tools
-        "tools.title": "项目",
-        "tools.subtitle": "软件、脚本和实用工具的集合。",
-        "tools.section.active": "活跃的主项目",
-        
-        // Tools - Cards
-        "tools.sbp.desc": "一个功能丰富的 C# (WPF) 音乐游戏播放器和制谱编辑器。包含实时分屏制谱和真实的 BeatUp 机制。",
-        "tools.sbp.btn": "查看播放器详情",
-        "tools.sanconverter.desc": "将 .SM 和 .SSC 文件转换为 .SLK 格式的终极工具。基于 .NET 4.8 构建。该平台受到积极维护，稳定并不断更新新的制谱逻辑。",
-        "tools.sanconverter.btn": "阅读文档与下载",
-        "tools.batch.desc": "一款高性能的 WPF 桌面应用程序，专为自动转换图像 (PNG ↔ DDS)、提取 GIF 帧以及批量重命名文件而设计，并支持实时动画预览。",
-        "tools.batch.btn": "查看项目详情",
-        "tools.av.desc": "直接集成到 Arrow Vortex 中的原生 C++ 工作流扩展。具有实时 WAV 到 OGG 的静音功能（带 LUFS 标准化）和直接导出 SLK 小节数据的功能。",
-        "tools.av.btn": "阅读文档",
-        "tools.section.legacy": "已完成与旧项目",
-        "tools.analyzer.desc": "检查原始 .SLK 头部以验证文件是否有效或损坏的实用工具。项目已完成并归档。",
-        "tools.silencer.desc": "用于将 .ogg 文件静音的开源音频处理工具。最佳工作流程：FLAC → WAV → OGG。<br>最终稳定版本。在此下载最新版本。",
-        "tools.btn.download": "下载 .exe",
-        "tools.footer": "&copy; 2026 Sanya. 保留所有权利。",
+    "tools.beatup.desc": "A high-fidelity C++ / SDL2 BeatUp engine with 1:1 VB6 timing, chart editor, and authentic numpad input.",
+    "tools.beatup.btn":  "View Project →",
+    "tools.footer": "© 2026 Sanya. All rights reserved.",
+  },
 
-        // SBP Editor (New Page)
-        "sbp.title": "SanPlayer (SBP Editor)",
-        "sbp.subtitle": "高级 BeatUp 制谱编辑器和播放器",
-        "sbp.download": "下载预览版",
-        "sbp.windows64": "Windows 32位 独立版",
-        "sbp.install.desc": "下载便携的 .zip 文件。解压并运行可执行文件。确保 assets 文件夹与引擎保留在同一目录中，以便正确加载。",
-        "sbp.video.title": "视频演示",
-        "sbp.features.title": "功能概览",
-        "sbp.features.desc": "SanPlayer 是一个自定义的、功能丰富的节奏游戏播放器和制谱编辑器。专为以绝对亚像素精度复制和映射 BeatUp 风格图表（类似于 Audition / CDIU）而设计。",
-        "sbp.features.split": "<strong style='color: var(--ef-text);'>实时分屏制谱:</strong> 在时间轴上实时编辑图表，同时在分屏游戏视图中观看自动播放渲染的游戏玩法和击打特效。",
-        "sbp.features.snap": "<strong style='color: var(--ef-text);'>编辑器吸附:</strong> 时间轴画布支持以 1/4（红色）、1/8（蓝色）和 1/16（黄色）间隔进行动态吸附，实现精确的音符放置。",
-        "sbp.features.modes": "<strong style='color: var(--ef-text);'>3 种显示模式:</strong> 游戏模式（纯粹的游戏体验）、编辑器模式（强大的时间轴画布）和分屏视图。",
-        "sbp.features.auth": "<strong style='color: var(--ef-text);'>真实的机制:</strong> 完全复制 6 键 + 空格键的游戏玩法，包括标志性的“终结技”(第 7 轨) 缓出动画和连击槽系统。",
-        "sbp.features.files": "<strong style='color: var(--ef-text);'>图表转换与格式:</strong> 直接导入、编辑并在 <code>.slk</code> (SYLK) 和 <code>.ssc</code> (StepMania) 文件之间转换。使用原生的 <code>.san</code> 项目文件保存您的完整工作区逻辑。",
-        "sbp.gallery.title": "界面展示",
-        "sbp.controls.title": "控制与快捷键",
-        "sbp.controls.transport": "全局控制 (音频)",
-        "sbp.controls.key": "按键",
-        "sbp.controls.action": "操作",
-        "sbp.controls.action_lane": "操作 (轨道)",
-        "sbp.controls.play": "播放 / 暂停 (切换)",
-        "sbp.controls.stop": "停止 (倒回到起点/编辑器位置)",
-        "sbp.controls.seek": "在时间轴中向前 / 向后移动",
-        "sbp.controls.numpad": "游戏与制谱 (小键盘模式 74196305)",
-        "sbp.controls.left": "左箭头 (上, 中, 下)",
-        "sbp.controls.right": "右箭头 (上, 中, 下)",
-        "sbp.controls.space": "空格键 (普通)",
-        "sbp.controls.finish": "空格键 (终结技)",
-        "sbp.controls.std": "游戏与制谱 (标准模式)",
-        "sbp.controls.std_desc": "使用数字键 <code>1, 2, 3</code> 控制左侧，<code>4, 5, 6</code> 控制右侧。按 <code>S</code> 触发空格，按 <code>F</code> 触发终结技。",
-        "sbp.structure.title": "项目结构与资源",
-        "sbp.structure.desc": "要正确运行 SanPlayer，请确保 <code>assets</code> 文件夹放置在输出目录中。您可以通过将图像直接拖放到 background 文件夹中来轻松更换背景。",
+  zh: {
+    // Nav
+    "nav.home":      "主页",
+    "nav.projects":  "项目",
 
-        // SanConverter
-        "san.subtitle": "BeatUp 转换器的官方文档和逻辑结构。",
-        "san.pdf": "📄 PDF 指南",
-        "san.tutorial": "🎥 视频教程",
-        "san.download": "下载 SanInstaller",
-        "san.windows64": "Windows 64位 安装程序",
-        "san.install.desc": "首先，将 SanInstaller 下载到您首选的目录并运行它。安装程序将自动从 GitHub 获取并安全解压最新的 SanConverter 部署文件。",
-        "san.overview.title": "概览",
-        "san.overview.li1": "现代且独立的 UI（无需安装）",
-        "san.overview.li2": "支持将 <code>.SM</code> 和 <code>.SSC</code> 文件转换为 <code>.SLK</code>",
-        "san.overview.li3": "全面支持 Beat Up 和 One-Two Party 模式逻辑",
-        "san.charting.title": "✨ 制谱逻辑",
-        "san.bu8.title": "Beat Up 8 结构",
-        "san.hold.title": "长按与连打逻辑 (第 7 轨)",
-        "san.bu8.note1": "第 7 轨（索引 6）作为状态标记。如果在此处激活长按/连打，将覆盖标准按键分配。",
-        "san.bu4.title": "Beat Up 4 结构",
-        "san.otp4.title": "One Two Party 4 逻辑",
-        "san.otp4.desc": "One-Two Party 是一个非常敏感的游戏模式，本转换器支持 1 到 9 级制谱的所有规则。",
-        "san.otp8.title": "One Two Party 8 逻辑",
-        "san.otp8.desc": "全面支持 1 到 9 级制谱的所有规则。",
-        "san.revert.title": "还原逻辑",
-        "san.revert.desc": "转换器具有强大的还原功能。它能准确地将所有 Audition BeatUp <code>.slk</code> 和 One-Two Party <code>.slk</code> 文件还原为干净的 Stepmania <code>.SSC</code> 文件，同时保留图案和 BPM 数据。",
-        "san.disclaimer.title": "免责声明",
-        "san.disclaimer.text": "此工具免费下载和使用。严禁逆向工程、反编译或重新分发修改后的可执行文件版本。",
+    // Index
+    "index.accent":       "软件与工具",
+    "index.h1":           "构建自定义解决方案与节奏游戏工具。",
+    "index.desc":         "欢迎来到我的作品集。我专注于 C++ 和 C#、UI/UX 定制，以及为节奏游戏图表制作开发专业工具——包括 BeatUp Engine 和 SanConverter。",
+    "index.btn.patcher":  "BeatUp Engine",
+    "index.btn.projects": "浏览项目",
 
-        // Arrow Vortex Plugins
-        "av.subtitle": "原生 C++ 工作流插件的官方文档。",
-        "av.silencer.title": "🔇 AV 静音插件",
-        "av.silencer.desc": "Arrow Vortex 的原生音频处理扩展。它允许您直接在编辑器环境中将 <code>.wav</code> 文件静音，并平滑导出为 <code>.ogg</code> 格式，同时自动应用精确的 LUFS 调整。",
-        "av.silencer.li1": "直接集成 Arrow Vortex",
-        "av.silencer.li2": "实时 WAV 到 OGG 转换",
-        "av.silencer.li3": "自动 LUFS 标准化以获得完美的音频电平",
-        "av.converter.title": "⚙️ AV 转换器插件 (SLK 导出)",
-        "av.converter.desc": "SanConverter 逻辑的完整 C++ 移植版本，直接内置于 Arrow Vortex 中。它实时读取小节数据并导出可直接使用的 <code>.slk</code> 文件，无需外部可执行文件。",
-        "av.cpp.title": "C++ 制谱逻辑 (AV 原生)",
-        "av.bu8.note1": "* <b>智能随机按键 (第 7 轨 = '1'):</b> 如果同时按下第 1 轨，则选择左侧随机按键。如果按下第 2 轨，则选择右侧。如果没有，则从所有按键中选择。",
-        "av.bu8.note2": "<b>长按 (2):</b> 限制长按内的音符最多连续 2 次同键。",
-        "av.bu8.note3": "<b>连打 (4):</b> 限制连打内的音符禁止连续同键。",
-        "av.bu4.note1": "如果同时激活左右修饰符，插件会根据长按/连打状态生成交替图案或全局无重复按键。",
+    // Patcher Page
+    "patcher.badge.status": "积极开发中",
+    "patcher.title":        "BeatUp Engine",
+    "patcher.subtitle":     "一款基于 C++ 与 SDL2 从零构建的高保真开源 BeatUp 节奏游戏引擎，旨在以亚毫秒级时序精度复现 Audition Online / CDIU 的真实游戏机制。",
+    "patcher.btn.download": "下载发行版",
 
-        // Tables General
-        "col.av": "Arrow Vortex 按键",
-        "col.av_col": "AV 列",
-        "col.function": "功能",
-        "col.result": "结果",
-        "col.slk_res": "SLK 按键 / 结果",
-        "col.slk": "Beat Up .SLK 按键",
-        "col.otp": "OTP .SLK 按键",
-        "col.comment": "备注",
-        "col.state": "状态",
-        "col.active_lane": "激活轨道",
-        "col.key_pool": "按键池",
-        "col.constraint": "约束条件",
+    "patcher.features.title": "功能特性",
+    "patcher.feat.timing.title": "1:1 时序引擎",
+    "patcher.feat.timing.desc":  "Beat 检测直接移植自 VB6 原版 cma6.bas。判定窗口（Perfect ±0.3、Great ±0.4、Cool ±0.5）在 offset 0.700 下与 Audition Online 完全一致。",
+    "patcher.feat.input.title":  "六键 + 空格布局",
+    "patcher.feat.input.desc":   "原版小键盘输入：9/6/3（右）· 7/4/1（左）· Space / 0 / Insert · 5（Finish）。支持镜像模式与自动游玩。",
+    "patcher.feat.editor.title": "谱面编辑器",
+    "patcher.feat.editor.desc":  "内置从上至下的时间轴画布，支持 1/4、1/8、1/16 吸附、小地图导航，以及实时分屏自动游玩预览。",
+    "patcher.feat.audio.title":  "miniaudio 音频引擎",
+    "patcher.feat.audio.desc":   "由 miniaudio 驱动，支持 .ogg 与 .wav 格式。精确 seekMs、可调播放速度（Ctrl+左/右），以及每个音效独立音量控制。",
+    "patcher.feat.formats.title":"SLK 格式支持",
+    "patcher.feat.formats.desc": "导入与导出 .slk（SYLK）谱面文件，完整支持 16 分音符精度与每音符速度数据（SData）。",
+    "patcher.feat.render.title": "SDL2 渲染",
+    "patcher.feat.render.desc":  "硬件加速 SDL2 渲染，分辨率 1024×768。Inter 斜体分数显示、连击动画精灵（第 0–3 级），支持资源文件夹热替换。",
 
-        // Table Content: SanConverter / BU8
-        "bu8.spec_note": "特定音符分配",
-        "bu8.rem_v1": "在 v1.0.2 中移除",
-        "bu8.key_arr_l": "按键数组 {1,4,7}* (左)",
-        "bu8.key_arr_r": "按键数组 {3,6,9}* (右)",
-        "bu8.space": "空格",
-        "bu8.fm": "终结技",
-        "bu8.shift8": "Shift + 8 (第8轨地雷)",
-        "bu8.fm_no_space": "无空格终结技",
-        "bu8.note_fm": "音符 + 终结技",
-        "bu8.note_arr": "音符数组 {1,3,4,6,7,9}",
-        "bu8.double_h": "双重音符 (隐藏)",
-        "bu8.m_lane7": "第 7 轨地雷 (M)",
-        "bu8.triple_h": "三重音符 (隐藏)",
-        "bu8.m_lane78": "第 7 和 8 轨地雷 (M)",
-        
-        "bu8.lane1_l": "第 1 轨 (左)",
-        "bu8.lane2_r": "第 2 轨 (右)",
-        "bu8.lane1_2": "第 1 + 2 轨",
-        "bu8.max2_jacks": "最多连续 2 次同键",
-        "bu8.no_repeat": "无直接重复 (禁止同键)",
-        "bu8.reset_bu8": "重置为 BU8 默认",
-        
-        "san.bu8.n_rand": "* <b>随机按键:</b> .slk 中 Audition 可读的音符 <code>n</code>，使用无连击逻辑随机生成。",
-        "san.bu8.n_m": "* <b>M:</b> 地雷 (Mine)。",
+    "patcher.dl.title":  "下载",
+    "patcher.dl.desc":   "便携 ZIP 包。解压后运行 BeatUpEngine.exe，请将 assets/ 文件夹置于同一目录。",
+    "patcher.dl.stable": "稳定版",
+    "patcher.dl.btn":    "⬇ 下载 .zip",
 
-        // Table Content: BU4
-        "bu4.rand_note": "随机生成音符",
-        "bu4.rand_l": "随机(左)",
-        "bu4.hold_star": "长按 (Hold)*",
-        "bu4.rand_l_noj": "随机(左)无连击",
-        "bu4.roll_star": "连打 (Roll)*",
-        "bu4.rand_r": "随机(右)",
-        "bu4.hold": "长按 (Hold)",
-        "bu4.rand_r_noj": "随机(右)无连击",
-        "bu4.roll": "连打 (Roll)",
-        "bu4.rand_lr": "随机左右交替",
-        "bu4.hold_34": "长按 3+4 (随机左右交替图案)",
-        "bu4.rand_nr": "随机无重复",
-        "bu4.roll_34": "连打 3+4 (随机无重复图案)",
-        "san.bu4.n_hold": "* <b>长按 (Hold):</b> 按住所需单侧箭头数量对应的按键。",
-        "san.bu4.n_roll": "* <b>连打 (Roll):</b> 连打型长按。",
+    "patcher.install.title": "安装说明",
+    "patcher.install.1": "下载 ZIP 压缩包并解压至您选择的文件夹。",
+    "patcher.install.2": "确保 <code>assets/</code> 文件夹与 <code>BeatUpEngine.exe</code> 位于同一目录。",
+    "patcher.install.3": "将您的 <code>.ogg</code> 或 <code>.wav</code> 音乐文件及 <code>.slk</code> 谱面文件放置于任意可访问位置。",
+    "patcher.install.4": "启动 <code>BeatUpEngine.exe</code>，通过 <strong>文件 → 导入 .ogg</strong> 加载音乐，再通过 <strong>文件 → 导入 .slk</strong> 加载谱面。",
+    "patcher.install.5": "按 <kbd>F5</kbd> 开始游玩，按 <kbd>F6</kbd> 切换自动游玩，使用工具栏 <code>[ − ]</code> <code>[ + ]</code> 按钮调整 Offset。",
 
-        // Table Content: OTP
-        "otp.note": "音符",
-        "otp.change": "方向",
-        "otp.dance": "舞蹈",
-        "otp.space": "空格",
-        "otp.rotation": "旋转",
-        "otp.rotate": "旋转"
-    }
+    "patcher.keys.title":    "操作与快捷键",
+    "patcher.keys.global":   "全局传输控制",
+    "patcher.keys.gameplay": "游戏操作（小键盘）",
+    "patcher.keys.key":      "按键",
+    "patcher.keys.action":   "操作",
+    "patcher.keys.lane":     "轨道",
+
+    "patcher.key.f5":     "播放 / 暂停",
+    "patcher.key.f6":     "切换自动游玩",
+    "patcher.key.f7":     "停止并倒回",
+    "patcher.key.f1":     "游戏模式",
+    "patcher.key.f2":     "谱面编辑器模式",
+    "patcher.key.f3":     "分屏视图",
+    "patcher.key.f4":     "节拍器开关",
+    "patcher.key.slower": "速度 −5%",
+    "patcher.key.faster": "速度 +5%",
+    "patcher.key.reset":  "重置速度至 100%",
+
+    "patcher.lane.r1":     "右侧 — 上",
+    "patcher.lane.r2":     "右侧 — 中",
+    "patcher.lane.r3":     "右侧 — 下",
+    "patcher.lane.l1":     "左侧 — 上",
+    "patcher.lane.l2":     "左侧 — 中",
+    "patcher.lane.l3":     "左侧 — 下",
+    "patcher.lane.space":  "空格音符",
+    "patcher.lane.finish": "Finish 动作",
+
+    "patcher.struct.title":    "资源目录结构",
+    "patcher.struct.desc":     "引擎在启动时从 assets/ 文件夹加载所有纹理。将同名文件放入对应子文件夹即可替换任意资源。",
+    "patcher.struct.folder":   "文件夹",
+    "patcher.struct.contents": "内容",
+    "patcher.struct.arrows":   "箭头精灵、感应闪光、激光纹理",
+    "patcher.struct.bars":     "左右轨道背景",
+    "patcher.struct.space":    "spacebar.png、SPACE.png、SLINE.png、spacepress.png、fn.png",
+    "patcher.struct.score":    "score_0.png … score_9.png、comma.png",
+    "patcher.struct.combo":    "combo_0_0.png … combo_3_9.png（级别 × 数字）",
+    "patcher.struct.game":     "判定精灵（perfect、great、miss…）、READY、连击仪表",
+    "patcher.struct.sounds":   "beat.wav、miss.ogg、ready.ogg、start.ogg、space_bar.wav、tick.wav",
+    "patcher.struct.font":     "Inter_18pt-Italic.ttf（分数与连击显示）",
+    "patcher.struct.bg":       "自定义背景图片（任意文件名）",
+
+    "tools.beatup.desc": "基于 C++ / SDL2 的高保真 BeatUp 引擎，搭载 VB6 1:1 时序、谱面编辑器与原版小键盘输入。",
+    "tools.beatup.btn":  "查看项目 →",
+    "tools.footer": "© 2026 Sanya。保留所有权利。",
+  }
 };
 
+// ── Apply translations ─────────────────────────────────────────────────────
+function applyLang(lang) {
+    const t = translations[lang] || translations['en'];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+
+// ── Apply theme ────────────────────────────────────────────────────────────
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const btn = document.getElementById('themeToggle');
+    if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    localStorage.setItem('theme', theme);
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-    // --- THEME TOGGLE LOGIC ---
-    const themeBtn = document.getElementById('themeToggle');
-    const root = document.documentElement;
-
-    function setTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        if(themeBtn) themeBtn.innerHTML = theme === 'light' ? '🌙' : '☀️';
-    }
-
-    if(themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            const currentTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            setTheme(currentTheme);
-        });
-    }
-
+    // Theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
+    applyTheme(savedTheme);
 
-    // --- LANGUAGE SWITCHER LOGIC ---
-    const langBtns = document.querySelectorAll('.lang-btn');
-
-    function setLanguage(lang) {
-        document.documentElement.lang = lang;
-        
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang] && translations[lang][key]) {
-                el.innerHTML = translations[lang][key];
-            }
-        });
-        
-        langBtns.forEach(btn => {
-            if(btn.getAttribute('data-lang') === lang) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
-        
-        localStorage.setItem('lang', lang);
-    }
-
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            setLanguage(btn.getAttribute('data-lang'));
-        });
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'light' ? 'dark' : 'light');
     });
 
+    // Language
     const savedLang = localStorage.getItem('lang') || 'en';
-    setLanguage(savedLang);
+    applyLang(savedLang);
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+
+    // Nav active state
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-center a').forEach(a => {
+        const href = a.getAttribute('href');
+        a.classList.toggle('active', href === page || (page === '' && href === 'index.html'));
+    });
+
+    // Fade-in on scroll
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.animationDelay = '0.05s';
+                e.target.classList.add('fade-in');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.card, .feature-card, .download-card, .panel, .step-list li').forEach(el => {
+        if (!el.classList.contains('fade-in')) obs.observe(el);
+    });
 });
