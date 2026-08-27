@@ -59,6 +59,7 @@
                     Download Release
                 </a>
                 <a href="https://github.com/bishpop" target="_blank" class="btn-secondary-large">Github</a>
+                <a href="#patch-notes" class="btn-secondary-large">Patch Notes</a>
             </div>
         </div>
     </section>
@@ -189,7 +190,7 @@
                 </div>
             </section>
             <!-- PATCH NOTES v0.1.1 -->
-            <section class="content-section">
+            <section id="patch-notes" class="content-section">
                 <h2 class="section-title">Patch Notes (v0.1.1 Stable)</h2>
                 
                 <div class="data-group">
@@ -353,22 +354,29 @@ document.addEventListener('keydown', e => {
 });
 </script>
 <script>
-// Smooth Scroll & Highlight Download Widget
-document.querySelector('a[href="#download"]').addEventListener('click', function(e) {
-    e.preventDefault(); // Verhindert das harte Springen
-    
-    const downloadWidget = document.getElementById('download');
-    
-    // Sanft zum Widget scrollen
-    downloadWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
-    // Animationsklasse entfernen (falls sie schon da ist) und neu hinzufügen
-    downloadWidget.classList.remove('highlight-pulse');
-    
-    // Kurzer Timeout stellt sicher, dass der Browser die Klasse neu registriert
-    setTimeout(() => {
-        downloadWidget.classList.add('highlight-pulse');
-    }, 10);
+// Smooth Scroll & Highlight für ALLE internen Links (z.B. #download, #patch-notes)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        
+        // Ignoriere leere Links
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            e.preventDefault(); // Verhindert das harte Springen
+            
+            // Sanft zur Sektion scrollen
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Animationsklasse entfernen und neu hinzufügen
+            targetElement.classList.remove('highlight-pulse');
+            setTimeout(() => {
+                targetElement.classList.add('highlight-pulse');
+            }, 10);
+        }
+    });
 });
 </script>
 </body>
