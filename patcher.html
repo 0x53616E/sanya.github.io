@@ -188,6 +188,87 @@
                     </div>
                 </div>
             </section>
+            <!-- PATCH NOTES v0.1.1 -->
+            <section class="content-section">
+                <h2 class="section-title">Patch Notes (v0.1.1 Stable)</h2>
+                
+                <div class="data-group">
+                    <h3 class="data-group-title">Bug Fixes & Adjustments</h3>
+                    <ul class="asset-list" style="margin-top: 10px;">
+                        <li><strong>Chart Editor:</strong> <code>ESC</code> now deselects the current selection (previously it closed the editor completely).</li>
+                        <li><strong>Visuals:</strong> <code>Tab</code> alignment is visually fixed now (previously off by a few beats).</li>
+                        <li><strong>Playback:</strong> Score bug on seeking got fixed. Score resets to 0 on seek (previously added up incorrectly).</li>
+                    </ul>
+                </div>
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">New Features</h3>
+                    <ul class="asset-list" style="margin-top: 10px;">
+                        <li><strong>SLK Export Watermark:</strong> After clicking on SLK export, a new window pops up to enter your credit to watermark your <code>.slk</code> file. <em>Note: This will not affect the chart in-game.</em></li>
+                    </ul>
+                </div>
+                
+                <a href="https://github.com/bishpop/beatupengine/releases/tag/v0.1.1" target="_blank" class="btn-secondary-large" style="margin-top: 24px; display: inline-flex;">
+                    View Release on GitHub ↗
+                </a>
+            </section>
+
+            <!-- ROADMAP v0.2 -->
+            <section class="content-section">
+                <h2 class="section-title">Roadmap (Upcoming v0.2)</h2>
+                <div class="about-text">
+                    <p>A quick look into the future of the BeatUp Engine and the integrated Offline Patcher.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">⚙️</div>
+                        <h4>Options Menu</h4>
+                        <p>Dedicated settings window for adjusting FPS, Window Size, and Display Mode (Fullscreen / Borderless).</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🔄</div>
+                        <h4>Auto Update</h4>
+                        <p>Automatic background checks during the loading screen to keep your engine up to date.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">💾</div>
+                        <h4>Smart Export</h4>
+                        <p>Converting a <code>.slk</code> or <code>.ssc</code> will automatically include the proper audio file name.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🎮</div>
+                        <h4>Patcher Game Modes</h4>
+                        <p>Adding iconic modes like Wave Arrows, Hidden Arrows, and Pumping Arrows (referencing BUPN/BUM).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SYSTEM & DEVELOPER -->
+            <section class="content-section">
+                <h2 class="section-title">System & Development</h2>
+                
+                <div class="data-group">
+                    <h3 class="data-group-title">System Requirements</h3>
+                    <div class="data-table">
+                        <div class="data-row">
+                            <div class="data-key">Operating System</div>
+                            <div class="data-val"><strong>Windows 10 / 11</strong> (64-bit recommended)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Build Dependencies (For Developers)</h3>
+                    <ul class="asset-list" style="margin-top: 10px;">
+                        <li><strong>CMake</strong> (Version 3.15 or higher)</li>
+                        <li><strong>Visual Studio</strong> with C++ desktop development workload (MSVC)</li>
+                        <li><strong>SDL2</strong> and <strong>SDL2_image</strong> development libraries</li>
+                        <li><strong>miniaudio</strong> (integrated for audio playback)</li>
+                        <li><strong>Dear ImGui</strong> (integrated for graphical user interface rendering)</li>
+                    </ul>
+                </div>
+            </section>
         </div>
 
         <!-- SIDEBAR -->
