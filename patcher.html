@@ -36,17 +36,15 @@
 
 <main class="page-content">
     
-    <!-- HERO SECTION (STEAM/HOYOVERSE STYLE) -->
     <section class="store-hero fade-in">
         <div class="hero-backdrop"></div>
         
-        <!-- NEU: Hier ist dein Cover-Bild -->
         <div class="hero-cover"></div> 
 
         <div class="hero-content container">
             <div class="hero-meta">
                 <span class="tag" data-i18n="patcher.badge.status">Early Access</span>
-                <span class="tag outline">v0.1.1</span>
+                <span class="tag outline">v0.1.2</span>
                 <span class="tag outline">Windows x64</span>
             </div>
             
@@ -66,10 +64,8 @@
 
     <div class="container layout-grid fade-in" style="animation-delay: 0.1s;">
         
-        <!-- MAIN CONTENT COLUMN -->
         <div class="main-column">
             
-            <!-- MEDIA SHOWCASE -->
             <section class="content-section">
                 <h2 class="section-title">Media</h2>
                 <div class="media-scroller">
@@ -88,7 +84,6 @@
                 </div>
             </section>
 
-            <!-- ABOUT / FEATURES -->
             <section class="content-section">
                 <h2 class="section-title" data-i18n="patcher.features.title">About This Engine</h2>
                 <div class="about-text">
@@ -119,7 +114,6 @@
                 </div>
             </section>
 
-            <!-- KEYBINDS (ACCORDION/TABS STYLE CONTENT) -->
             <section class="content-section">
                 <h2 class="section-title" data-i18n="patcher.keys.title">Controls & Keybinds</h2>
                 
@@ -189,7 +183,6 @@
                     </div>
                 </div>
             </section>
-            <!-- PATCH NOTES v0.1.1 -->
             <section id="patch-notes" class="content-section">
                 <h2 class="section-title">Patch Notes (v0.1.1 Stable)</h2>
                 
@@ -214,7 +207,6 @@
                 </a>
             </section>
 
-            <!-- ROADMAP v0.2 -->
             <section class="content-section">
                 <h2 class="section-title">Roadmap (Upcoming v0.2)</h2>
                 <div class="about-text">
@@ -245,7 +237,6 @@
                 </div>
             </section>
 
-            <!-- SYSTEM & DEVELOPER -->
             <section class="content-section">
                 <h2 class="section-title">System & Development</h2>
                 
@@ -272,28 +263,31 @@
             </section>
         </div>
 
-        <!-- SIDEBAR -->
         <aside class="sidebar">
             
-            <!-- DOWNLOAD WIDGET -->
-<div id="download" class="widget download-widget">
-    <img src="./assets/bear.png" alt="Icon" class="widget-icon" onerror="this.style.display='none'">
-    <h3>Play BeatUp Engine</h3>
-    <p class="widget-sub">Free to play • Portable Build</p>
-    
-    <div class="widget-actions">
-        <!-- Existierender ZIP Download -->
-        <a href="https://github.com/bishpop/beatupengine/releases/download/v0.1.1/BeatUp.Engine.zip" class="btn-install" target="_blank" rel="noopener noreferrer">
-            <span>Download .zip</span>
-            <span class="size">~12 MB Editor + 100 MB Patcher</span>
-        </a>
-    </div>
-    <div class="widget-meta">
-        <div><span>OS</span> Windows 10/11 x64</div>
-        <div><span>Version</span> v0.1.1 Stable</div>
-    </div>
-</div>
-            <!-- INSTALLATION WIDGET -->
+            <div id="download" class="widget download-widget">
+                <img src="./assets/bear.png" alt="Icon" class="widget-icon" onerror="this.style.display='none'">
+                <h3>Play BeatUp Engine</h3>
+                <p class="widget-sub">Free to play • Portable Build</p>
+                
+                <div class="widget-actions" style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="https://github.com/bishpop/beatupengine/releases/download/v0.1.2/BeatUp.Engine.Patcher.zip" class="btn-install" target="_blank" rel="noopener noreferrer">
+                        <span>Download Editor + Patcher</span>
+                        <span class="size">~120 MB</span>
+                    </a>
+                    
+                    <a href="https://github.com/bishpop/beatupengine/releases/download/v0.1.2/BeatUp.Engine.Editor.zip" class="btn-install" target="_blank" rel="noopener noreferrer" style="background-color: rgba(255, 255, 255, 0.08);">
+                        <span>Download Editor Only</span>
+                        <span class="size">~13 MB</span>
+                    </a>
+                </div>
+                
+                <div class="widget-meta">
+                    <div><span>OS</span> Windows 10/11 x64</div>
+                    <div><span>Version</span> v0.1.2 Stable</div>
+                </div>
+            </div>
+            
             <div class="widget info-widget">
                 <h3 class="widget-title">Installation Guide</h3>
                 <ol class="clean-steps">
@@ -305,7 +299,6 @@
                 </ol>
             </div>
 
-            <!-- ASSETS WIDGET -->
             <div class="widget info-widget">
                 <h3 class="widget-title">Asset Structure</h3>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: -5px; margin-bottom: 12px; line-height: 1.5;">Drop files into these folders to replace textures/sounds.</p>
@@ -329,7 +322,6 @@
     </div>
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox-overlay" id="lightbox">
     <span class="lightbox-close" id="lightboxClose">×</span>
     <img class="lightbox-img" id="lightboxImg" src="" alt="">
