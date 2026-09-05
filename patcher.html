@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeatUp Engine — Sanya</title>
+    <title>BeatUp Engine v0.2 — Sanya</title>
     <link rel="icon" type="image/png" href="./assets/bears_hand.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,8 +44,9 @@
         <div class="hero-content container">
             <div class="hero-meta">
                 <span class="tag" data-i18n="patcher.badge.status">Early Access</span>
-                <span class="tag outline">v0.1.2</span>
+                <span class="tag outline">v0.2</span>
                 <span class="tag outline">Windows x64</span>
+                <span class="version-pill">v0.2</span>
             </div>
             
             <h1 class="hero-title" data-i18n="patcher.title">BeatUp Engine</h1>
@@ -105,6 +106,21 @@
                         <div class="feature-icon-wrapper">🎼</div>
                         <h4>Chart Editor</h4>
                         <p>Built-in timeline canvas with 1/4, 1/8, 1/16 snapping, and live split-view for real-time AutoPlay review.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🎲</div>
+                        <h4>Patcher Chances</h4>
+                        <p>Six optional Patcher-only gameplay modifiers: Rapid, Vanishing, Wave, Inverted, Speed Up, and Halfway, with Default remaining unchanged.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🔍</div>
+                        <h4>Live Duplicate Detection</h4>
+                        <p>Same-beat note conflicts are highlighted immediately while editing, with valid finish-note exceptions preserved.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🧰</div>
+                        <h4>Integrated Tools</h4>
+                        <p>Direct Silencer launching and a loading-time GitHub release check improve the overall workflow.</p>
                     </div>
                     <div class="feature-box">
                         <div class="feature-icon-wrapper">🔊</div>
@@ -184,55 +200,71 @@
                 </div>
             </section>
             <section id="patch-notes" class="content-section">
-                <h2 class="section-title">Patch Notes (v0.1.1 Stable)</h2>
-                
+                <h2 class="section-title">Patch Notes (v0.2 Stable)</h2>
+
                 <div class="data-group">
-                    <h3 class="data-group-title">Bug Fixes & Adjustments</h3>
+                    <h3 class="data-group-title">Patcher Game Modes</h3>
                     <ul class="asset-list" style="margin-top: 10px;">
-                        <li><strong>Chart Editor:</strong> <code>ESC</code> now deselects the current selection (previously it closed the editor completely).</li>
-                        <li><strong>Visuals:</strong> <code>Tab</code> alignment is visually fixed now (previously off by a few beats).</li>
-                        <li><strong>Playback:</strong> Score bug on seeking got fixed. Score resets to 0 on seek (previously added up incorrectly).</li>
+                        <li><strong>Rapid Chance:</strong> Arrows approach at 2× speed and return to normal speed during the final quarter beat.</li>
+                        <li><strong>Vanishing Chance:</strong> Arrows smoothly fade out and fade back in with a heartbeat-like pulse.</li>
+                        <li><strong>Wave Chance:</strong> Arrows enter with a subtle wave motion.</li>
+                        <li><strong>Inverted Chance:</strong> Lanes are inverted (1↔9, 2↔8, 3↔7), including matching inverted input.</li>
+                        <li><strong>Speed Up Chance:</strong> Arrows start at normal speed and continuously accelerate during their approach.</li>
+                        <li><strong>Halfway Chance:</strong> Arrows only become visible halfway through their normal approach.</li>
+                        <li><strong>Default Chance:</strong> Preserves the original gameplay behaviour.</li>
                     </ul>
                 </div>
 
                 <div class="data-group" style="margin-top: 24px;">
-                    <h3 class="data-group-title">New Features</h3>
+                    <h3 class="data-group-title">Editor Improvements</h3>
                     <ul class="asset-list" style="margin-top: 10px;">
-                        <li><strong>SLK Export Watermark:</strong> After clicking on SLK export, a new window pops up to enter your credit to watermark your <code>.slk</code> file. <em>Note: This will not affect the chart in-game.</em></li>
+                        <li><strong>Live Duplicate Detection:</strong> Same-beat notes are highlighted in red, including <code>N + S</code>. <code>S + F</code> and <code>N + F</code> remain valid exceptions.</li>
+                        <li><strong>About Window:</strong> Added program information and a complete English hotkey reference.</li>
+                        <li><strong>Silencer Integration:</strong> The Editor can launch the external Silencer tool directly.</li>
+                        <li><strong>Update Check:</strong> Loading now checks GitHub releases and can direct users to the official download page when a newer version is available.</li>
                     </ul>
                 </div>
-                
-                <a href="https://github.com/bishpop/beatupengine/releases/tag/v0.1.1" target="_blank" class="btn-secondary-large" style="margin-top: 24px; display: inline-flex;">
+
+                <div class="data-group" style="margin-top: 24px;">
+                    <h3 class="data-group-title">Patcher UI & Assets</h3>
+                    <ul class="asset-list" style="margin-top: 10px;">
+                        <li><strong>Chance Selector:</strong> Added a gear menu in the Patcher for selecting the active chance.</li>
+                        <li><strong>Session-only Settings:</strong> Chance selection lasts for the current session and resets to Default when the program restarts.</li>
+                        <li><strong>Chance Assets:</strong> Added dedicated visual assets for all Patcher chance modes.</li>
+                    </ul>
+                </div>
+
+                <a href="https://github.com/bishpop/beatupengine/releases/tag/v0.2" target="_blank" class="btn-secondary-large" style="margin-top: 24px; display: inline-flex;">
                     View Release on GitHub ↗
                 </a>
             </section>
 
             <section class="content-section">
-                <h2 class="section-title">Roadmap (Upcoming v0.2)</h2>
+                <h2 class="section-title">Roadmap</h2>
                 <div class="about-text">
-                    <p>A quick look into the future of the BeatUp Engine and the integrated Offline Patcher.</p>
+                    <p>Future development for the BeatUp Engine and its supporting tools.</p>
                 </div>
-                
+
                 <div class="features-grid">
                     <div class="feature-box">
-                        <div class="feature-icon-wrapper">⚙️</div>
-                        <h4>Options Menu</h4>
-                        <p>Dedicated settings window for adjusting FPS, Window Size, and Display Mode (Fullscreen / Borderless).</p>
+                        <div class="feature-icon-wrapper">🎵</div>
+                        <h4>Timing & Audio Tools</h4>
+                        <p>Further improvements to timing analysis, audio handling, BPM detection, and precise offset workflows.</p>
                     </div>
                     <div class="feature-box">
-                        <div class="feature-icon-wrapper">🔄</div>
-                        <h4>Auto Update</h4>
-                        <p>Automatic background checks during the loading screen to keep your engine up to date.</p>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-icon-wrapper">💾</div>
-                        <h4>Smart Export</h4>
-                        <p>Converting a <code>.slk</code> or <code>.ssc</code> will automatically include the proper audio file name.</p>
+                        <div class="feature-icon-wrapper">🛠️</div>
+                        <h4>Editor Quality of Life</h4>
+                        <p>More diagnostics, visual helpers, and workflow improvements for chart creation and review.</p>
                     </div>
                     <div class="feature-box">
                         <div class="feature-icon-wrapper">🎮</div>
-                        <h4>Patcher Game Modes</h4>
-                        <p>Adding iconic modes like Wave Arrows, Hidden Arrows, and Pumping Arrows (referencing BUPN/BUM).</p>
+                        <h4>Patcher Expansion</h4>
+                        <p>More optional gameplay modifiers while keeping Default behaviour unchanged.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon-wrapper">🔄</div>
+                        <h4>Distribution & Updates</h4>
+                        <p>Further improvements to release packaging, version checks, and update workflows.</p>
                     </div>
                 </div>
             </section>
@@ -271,20 +303,20 @@
                 <p class="widget-sub">Free to play • Portable Build</p>
                 
                 <div class="widget-actions" style="display: flex; flex-direction: column; gap: 10px;">
-                    <a href="https://github.com/bishpop/beatupengine/releases/download/v0.1.2/BeatUp.Engine.Patcher.zip" class="btn-install" target="_blank" rel="noopener noreferrer">
-                        <span>Download Editor + Patcher</span>
+                    <a href="https://github.com/bishpop/beatupengine/releases/download/v0.2/BeatUpEngine.zip" class="btn-install" target="_blank" rel="noopener noreferrer">
+                        <span>Download Editor + Silencer + Patcher</span>
                         <span class="size">~120 MB</span>
                     </a>
                     
-                    <a href="https://github.com/bishpop/beatupengine/releases/download/v0.1.2/BeatUp.Engine.Editor.zip" class="btn-install" target="_blank" rel="noopener noreferrer" style="background-color: rgba(255, 255, 255, 0.08);">
-                        <span>Download Editor Only</span>
-                        <span class="size">~13 MB</span>
+                    <a href="https://github.com/bishpop/beatupengine/releases/download/v0.2/BeatUpEngine.EditorOnly.zip" class="btn-install" target="_blank" rel="noopener noreferrer" style="background-color: rgba(255, 255, 255, 0.08);">
+                        <span>Download Editor + Silencer</span>
+                        <span class="size">~20 MB</span>
                     </a>
                 </div>
                 
                 <div class="widget-meta">
                     <div><span>OS</span> Windows 10/11 x64</div>
-                    <div><span>Version</span> v0.1.2 Stable</div>
+                    <div><span>Version</span> v0.2 Stable</div>
                 </div>
             </div>
             
@@ -294,6 +326,7 @@
                     <li>Extract the downloaded <code>.zip</code> file.</li>
                     <li>Keep <code>assets/</code> in the same folder as the <code>.exe</code>.</li>
                     <li>Launch <code>BeatUpEngine.exe</code>.</li>
+                    <li>Use the Patcher gear menu to select an optional gameplay chance.</li>
                     <li><strong>File → Import .ogg</strong> to load music.</li>
                     <li><strong>File → Import .slk</strong> to load the chart.</li>
                 </ol>
@@ -304,7 +337,7 @@
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: -5px; margin-bottom: 12px; line-height: 1.5;">Drop files into these folders to replace textures/sounds.</p>
                 <ul class="asset-list">
                     <li><strong>/arrows/</strong> Sprites, lasers</li>
-                    <li><strong>/bars/</strong> Lane backgrounds</li>
+                    <li><strong>/bars/</strong> Lane backgrounds & chance indicators</li>
                     <li><strong>/space/</strong> Spacebar UI elements</li>
                     <li><strong>/combo/</strong> Combo & Score digits</li>
                     <li><strong>/sounds/</strong> beat.wav, miss.ogg, etc.</li>
