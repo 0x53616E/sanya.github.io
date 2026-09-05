@@ -359,3 +359,24 @@ footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border
     font-weight: 700;
     letter-spacing: 0.4px;
 }
+/* Spezifische Farben für das Download-Widget */
+
+/* Haupt-Button: Originales Grün */
+.btn-install.btn-green {
+    background: #21dfa6;
+    color: #000;
+}
+.btn-install.btn-green:hover {
+    background: #32f2b9;
+    box-shadow: 0 4px 15px rgba(33, 223, 166, 0.25);
+}
+
+/* Neben-Buttons: Mauve */
+.btn-install.btn-mauve {
+    background: #cba6f7;
+    color: #000;
+}
+.btn-install.btn-mauve:hover {
+    background: #d9b8ff;
+    box-shadow: 0 4px 15px rgba(203, 166, 247, 0.25);
+}
